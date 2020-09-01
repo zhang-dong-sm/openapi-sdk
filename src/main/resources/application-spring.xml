@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="baseConfig" class="com.shinemo.baas.openapi.client.common.BaseConfig">
+        <property name="domain" value="${domain}"/>
+        <property name="id" value="${appId}"/>
+        <property name="secret" value="${appSecret}"/>
+    </bean>
+
+    <bean id="contactClient" class="com.shinemo.baas.openapi.client.client.ContactClient">
+        <constructor-arg ref="baseConfig"/>
+    </bean>
+</beans>
