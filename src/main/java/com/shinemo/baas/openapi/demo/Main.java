@@ -3,6 +3,7 @@ package com.shinemo.baas.openapi.demo;
 import com.shinemo.baas.openapi.client.client.ContactClient;
 import com.shinemo.baas.openapi.client.common.ApiResult;
 import com.shinemo.baas.openapi.client.common.BaseConfig;
+import com.shinemo.baas.openapi.demo.test.ContactClientTest;
 
 /**
  * Create Time:2020/9/1
@@ -18,8 +19,7 @@ public class Main {
         final String appSecret = "Bpf7pQmuuVpxqiO5";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
-        ContactClient contactClient = new ContactClient(baseConfig);
-        ApiResult apiResult = contactClient.pullOfSync(null);
-        System.out.println(apiResult.getCode());
+        ContactClientTest test = new ContactClientTest(baseConfig);
+        test.pullOfSync(null);
     }
 }
