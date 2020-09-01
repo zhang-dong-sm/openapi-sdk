@@ -41,6 +41,8 @@
             <groupId>com.shinemo.baas</groupId>
             <artifactId>openapi-client</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/openapi-client-1.0.0-SNAPSHOT.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -59,6 +61,17 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
