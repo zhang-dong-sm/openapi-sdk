@@ -20,6 +20,10 @@ public class DemoController {
 
     @GetMapping("/test")
     public ApiResult test() {
-        return contactClient.pullOfSync(null);
+        ApiResult apiResult = contactClient.pullOfSync(null);
+        if (apiResult == null) {
+            return ApiResult.fail("fail");
+        }
+        return apiResult;
     }
 }
