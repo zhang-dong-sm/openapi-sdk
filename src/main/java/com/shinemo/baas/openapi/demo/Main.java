@@ -1,7 +1,5 @@
 package com.shinemo.baas.openapi.demo;
 
-import com.shinemo.baas.openapi.client.client.ContactClient;
-import com.shinemo.baas.openapi.client.common.ApiResult;
 import com.shinemo.baas.openapi.client.common.BaseConfig;
 import com.shinemo.baas.openapi.demo.test.ContactClientTest;
 
@@ -14,9 +12,9 @@ public class Main {
 
     public static void main(String[] args) {
         // 以下配置需要对接相关开发提供
-        final String openApiUri = "http://baas.uban360.net:21006/";
-        final String appId = "1PsfUjyl";
-        final String appSecret = "Bpf7pQmuuVpxqiO5";
+        final String openApiUri = "http://139.210.243.228:41006/";
+        final String appId = "LadymL6A";
+        final String appSecret = "Z8VqFV7r2RmH4klI";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
