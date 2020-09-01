@@ -10,7 +10,7 @@ logging:
     path: /data/logs/${spring.application.name}
 
 # 以下配置需要对接相关开发提供
-domain: 'http://baas.uban360.net:21006/'
+openApiUri: 'http://baas.uban360.net:21006/'
 appId: 1PsfUjyl
 appSecret: Bpf7pQmuuVpxqiO5
 

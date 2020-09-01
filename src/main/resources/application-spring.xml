@@ -5,11 +5,10 @@
 
     <!-- 配置 -->
     <bean id="baseConfig" class="com.shinemo.baas.openapi.client.common.BaseConfig">
-        <property name="domain" value="${domain}"/>
-        <property name="id" value="${appId}"/>
-        <property name="secret" value="${appSecret}"/>
+        <property name="openApiUri" value="${openApiUri}"/>
+        <property name="appId" value="${appId}"/>
+        <property name="appSecret" value="${appSecret}"/>
     </bean>
-
 
     <bean id="contactClient" class="com.shinemo.baas.openapi.client.client.ContactClient">
         <constructor-arg ref="baseConfig"/>
