@@ -13,4 +13,8 @@
     <bean id="contactClient" class="com.shinemo.baas.openapi.client.client.ContactClient">
         <constructor-arg ref="baseConfig"/>
     </bean>
+
+    <bean id="todoCenterClient" class="com.shinemo.baas.openapi.client.client.TodoCenterClient">
+        <constructor-arg ref="baseConfig"/>
+    </bean>
 </beans>

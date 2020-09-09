@@ -7,6 +7,8 @@ import com.shinemo.baas.openapi.client.common.BaseConfig;
 import com.shinemo.baas.openapi.client.util.JsonUtils;
 import com.shinemo.baas.todocenter.openapi.TodoTaskDto;
 
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -22,57 +24,40 @@ public class TodoCenterClientTest {
     }
 
     public static void main(String[] args) {
-        String jsonStr = "[\n" +
-                "    {\n" +
-                "        \"title\":\"title11\",\n" +
-                "        \"detailUrl\":\"detailUrl11\",\n" +
-                "        \"coverUrl\":\"coverUrl11\",\n" +
-                "        \"iconUrl\":\"iconUrl11\",\n" +
-                "        \"summary\":\"summary11\",\n" +
-                "        \"customField\":[\n" +
-                "            {\n" +
-                "                \"key\":\"key11\",\n" +
-                "                \"val\":\"val11\"\n" +
-                "            }\n" +
-                "        ],\n" +
-                "        \"sponsorId\":11,\n" +
-                "        \"sponsorUnitId\":11,\n" +
-                "        \"sponsorDepId\":11,\n" +
-                "        \"sponsorTime\":\"\",\n" +
-                "        \"businessType\":0,\n" +
-                "        \"businessStatus\":\"businessStatus11\",\n" +
-                "        \"appTaskId\":\"app_task_id_11\",\n" +
-                "        \"handleEntry\":[\n" +
-                "            {\n" +
-                "                \"handlerId\":123,\n" +
-                "                \"handleType\":1\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"handlerId\":456,\n" +
-                "                \"handleType\":2\n" +
-                "            },\n" +
-                "            {\n" +
-                "                \"handlerId\":789,\n" +
-                "                \"handleType\":1\n" +
-                "            }\n" +
-                "        ],\n" +
-                "        \"handlerIds\":null\n" +
-                "    }\n" +
-                "]";
+        TodoTaskDto todoTaskDto = new TodoTaskDto();
+        todoTaskDto.setAppTaskId("app_task_id_changchun2");
+        todoTaskDto.setTitle("title");
+        todoTaskDto.setHandleEntry(Arrays.asList(
+                new TodoTaskDto.HandleEntry(123L, 1),
+                new TodoTaskDto.HandleEntry(456L, 1),
+                new TodoTaskDto.HandleEntry(789L, 1)));
 
-        List<TodoTaskDto> appTasks = JsonUtils.fromJsonArray(jsonStr, TodoTaskDto.class);
-        System.out.println(appTasks);
+        todoTaskDto.setDetailUrl("detailUrl");
+        todoTaskDto.setCoverUrl("coverUrl");
+        todoTaskDto.setIconUrl("iconUrl");
+        todoTaskDto.setSummary("summary");
+        todoTaskDto.setSponsorId(111L);
+        todoTaskDto.setSponsorUnitId(222L);
+        todoTaskDto.setSponsorDepId(333L);
+        todoTaskDto.setSponsorTime("2020-09-08 21:00:00");
+        todoTaskDto.setBusinessType(1);
 
-        final String openApiUri = "http://baas.uban360.net:21006/";
-        final String appId = "myhwGpFR";
-        final String appSecret = "xC8wwuTxiz8V1YI3";
+        todoTaskDto.setCustomField(Arrays.asList(
+                new TodoTaskDto.KeyValEntry("key1", "val1"),
+                new TodoTaskDto.KeyValEntry("key2", "val2"),
+                new TodoTaskDto.KeyValEntry("key3", "val3")));
+
+        final String openApiUri = "http://139.210.243.228:41006/";
+        final String appId = "LadymL6A";
+        final String appSecret = "Z8VqFV7r2RmH4klI";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         TodoCenterClientTest test = new TodoCenterClientTest(baseConfig);
-        System.out.println(test.insertBatch(appTasks));
+        System.out.println(test.insertBatch(Collections.singletonList(todoTaskDto)));
     }
 
     public ApiResult insertBatch(List<TodoTaskDto> appTasks) {
+        System.out.println(JsonUtils.toJson(appTasks));
         return todoCenterClient.insertBatch(appTasks);
     }
 }
