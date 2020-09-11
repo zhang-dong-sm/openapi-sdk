@@ -24,13 +24,28 @@ public class TodoCenterClientTest {
     }
 
     public static void main(String[] args) {
+        List<String> appTaskIds = Arrays.asList("1", "2");
+
+        final String openApiUri = "http://139.210.243.228:41006/";
+        final String appId = "bE7z18RX";
+        final String appSecret = "4Y2EyZLipfmsSaFR";
+
+        BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
+        TodoCenterClientTest test = new TodoCenterClientTest(baseConfig);
+        System.out.println(test.findByAppTaskId(appTaskIds));
+    }
+
+    public ApiResult findByAppTaskId(List<String> appTaskIds) {
+        System.out.println(JsonUtils.toJson(appTaskIds));
+        return todoCenterClient.findByAppTaskId(appTaskIds);
+    }
+
+    public static void main1(String[] args) {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
-        todoTaskDto.setAppTaskId("app_task_id_changchun2");
+        todoTaskDto.setAppTaskId("app_task_id_changchun7");
         todoTaskDto.setTitle("title");
-        todoTaskDto.setHandleEntry(Arrays.asList(
-                new TodoTaskDto.HandleEntry(123L, 1),
-                new TodoTaskDto.HandleEntry(456L, 1),
-                new TodoTaskDto.HandleEntry(789L, 1)));
+        todoTaskDto.setHandleEntry(Collections.singletonList(
+                new TodoTaskDto.HandleEntry(8888890571L, 1)));
 
         todoTaskDto.setDetailUrl("detailUrl");
         todoTaskDto.setCoverUrl("coverUrl");
