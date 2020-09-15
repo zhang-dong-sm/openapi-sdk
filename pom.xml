@@ -48,10 +48,18 @@
 
         <dependency>
             <groupId>com.shinemo.baas</groupId>
-            <artifactId>openapi-client</artifactId>
-            <version>1.0.2</version>
+            <artifactId>openapi-contact-client</artifactId>
+            <version>1.1.2</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/openapi-client-1.0.2-jar-with-dependencies.jar</systemPath>
+            <systemPath>${project.basedir}/lib/openapi-contact-client-1.1.2-jar-with-dependencies.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>com.shinemo.baas</groupId>
+            <artifactId>openapi-todocenter-client</artifactId>
+            <version>1.1.2</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/openapi-todocenter-client-1.1.2-jar-with-dependencies.jar</systemPath>
         </dependency>
     </dependencies>
 

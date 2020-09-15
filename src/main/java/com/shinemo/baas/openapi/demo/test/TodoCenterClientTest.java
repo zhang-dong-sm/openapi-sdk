@@ -1,15 +1,16 @@
 package com.shinemo.baas.openapi.demo.test;
 
-
-import com.shinemo.baas.openapi.client.client.TodoCenterClient;
-import com.shinemo.baas.openapi.client.common.ApiResult;
-import com.shinemo.baas.openapi.client.common.BaseConfig;
-import com.shinemo.baas.openapi.client.util.JsonUtils;
-import com.shinemo.baas.todocenter.openapi.TodoTaskDto;
+import com.shinemo.baas.openapi.client.common.config.ApiResult;
+import com.shinemo.baas.openapi.client.common.config.BaseConfig;
+import com.shinemo.baas.openapi.client.common.util.JsonUtils;
+import com.shinemo.baas.openapi.todocenter.client.TodoCenterClient;
+import com.shinemo.baas.openapi.todocenter.client.dto.TodoTaskDto;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+
 
 /**
  * Create Time:2020/9/1
@@ -24,15 +25,25 @@ public class TodoCenterClientTest {
     }
 
     public static void main(String[] args) {
-        List<String> appTaskIds = Arrays.asList("1", "2");
+        findByAppTaskId();
+//        insertBatchTest();
+    }
+
+    public static void findByAppTaskId() {
+        List<String> appTaskIds = Arrays.asList("app_task_id_changchun_ioc1", "app_task_id_changchun422", "3");
 
         final String openApiUri = "http://139.210.243.228:41006/";
-        final String appId = "bE7z18RX";
-        final String appSecret = "4Y2EyZLipfmsSaFR";
+        final String appId = "LadymL6A";
+        final String appSecret = "Z8VqFV7r2RmH4klI";
+
+//        http://baas.uban360.net:21006/openapi-cgw/baas-todocenter/web/todo-task/findByAppTaskId
+//        final String openApiUri = "http://baas.uban360.net:21006/";
+//        final String appId = "bE7z18RX";
+//        final String appSecret = "4Y2EyZLipfmsSaFR";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         TodoCenterClientTest test = new TodoCenterClientTest(baseConfig);
-        System.out.println(test.findByAppTaskId(appTaskIds));
+        System.out.println(JsonUtils.toJson(test.findByAppTaskId(appTaskIds)));
     }
 
     public ApiResult findByAppTaskId(List<String> appTaskIds) {
@@ -40,7 +51,7 @@ public class TodoCenterClientTest {
         return todoCenterClient.findByAppTaskId(appTaskIds);
     }
 
-    public static void main1(String[] args) {
+    public static void insertBatchTest() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_changchun7");
         todoTaskDto.setTitle("title");

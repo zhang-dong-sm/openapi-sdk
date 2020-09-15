@@ -1,8 +1,9 @@
 package com.shinemo.baas.openapi.demo.test;
 
-import com.shinemo.baas.openapi.client.client.ContactClient;
-import com.shinemo.baas.openapi.client.common.ApiResult;
-import com.shinemo.baas.openapi.client.common.BaseConfig;
+
+import com.shinemo.baas.openapi.client.common.config.ApiResult;
+import com.shinemo.baas.openapi.client.common.config.BaseConfig;
+import com.shinemo.baas.openapi.contact.client.ContactClient;
 import com.shinemo.baas.openapi.contact.client.dto.DeptDto;
 import com.shinemo.baas.openapi.contact.client.dto.OrgDto;
 import com.shinemo.baas.openapi.contact.client.dto.UserDto;

@@ -1,7 +1,7 @@
 package com.shinemo.baas.openapi.demo.controller;
 
-import com.shinemo.baas.openapi.client.client.ContactClient;
-import com.shinemo.baas.openapi.client.common.ApiResult;
+import com.shinemo.baas.openapi.client.common.config.ApiResult;
+import com.shinemo.baas.openapi.contact.client.ContactClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
