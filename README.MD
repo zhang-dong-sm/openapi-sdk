@@ -1,4 +1,12 @@
-#### Demo 介绍
-    此工程里面有提供了两种调用方式：
-    1.结合 Spring boot，配置 application.yml application-spring.xml 即可使用
-    2.Main 方法直接调用
+# openapi-sdk简介
+    该项目用于对接开放平台，包含openapi-client和openapi-demo工程
+    
+## openapi-client
+    1、在工程目录下，按功能创建模块
+    2、编写对应的Client代码
+    3、编辑结束后，执行mvn clean package，会自动将openapi-client.jar文件copy到openapi-demo工程的lib目录下
+
+## openapi-demo
+    1、该工程用于对外提供demo
+    2、工程包含lib目录下的jar文件以及src下的demo类
+    3、编写结束后，执行package.sh脚本，该脚本会在target目录下生成openapi-demo.zip文件，直接将zip文件提供给第三方
