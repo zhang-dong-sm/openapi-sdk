@@ -49,7 +49,7 @@ public class ContactClient extends ApiClient {
      * @param orgId
      * @return json
      */
-    private String pullOfSyncByJson(Long orgId) {
+    public String pullOfSyncByJson(Long orgId) {
         String pullUri = URI + "/sync/pull";
         String url = baseInfo.getUrl(pullUri);
         if (orgId != null) {
