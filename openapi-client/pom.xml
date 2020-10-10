@@ -89,6 +89,15 @@
                 <configuration>
                     <descriptorRefs>jar-with-dependencies</descriptorRefs>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <!--打包源码-->
             <plugin>
@@ -123,7 +132,7 @@
                             <tasks>
                                 <copy todir="../openapi-demo/lib" overwrite="true">
                                     <fileset dir="${project.build.directory}">
-                                        <include name="${project.artifactId}-${project.version}.jar"/>
+                                        <include name="${project.artifactId}-${project.version}-jar-with-dependencies.jar"/>
                                     </fileset>
                                 </copy>
                             </tasks>
