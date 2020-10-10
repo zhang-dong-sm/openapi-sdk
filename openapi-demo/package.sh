@@ -18,7 +18,7 @@ cp ../lib/*.jar $APP/lib
 
 # 拷贝文档
 mkdir -p $APP/doc
-cp ../doc/* $APP/doc
+cp ../doc/index.html $APP/doc
 
 # 打zip包
 zip -r $APP.zip $APP/*
