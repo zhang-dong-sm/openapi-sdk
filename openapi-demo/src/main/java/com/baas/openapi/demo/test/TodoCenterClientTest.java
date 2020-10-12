@@ -1,61 +1,37 @@
 package com.baas.openapi.demo.test;
 
-import com.baas.openapi.client.common.config.ApiResult;
-import com.baas.openapi.client.common.util.JsonUtils;
-import com.baas.openapi.client.todocenter.dto.TodoTaskDto;
+
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.todocenter.TodoCenterClient;
+import com.baas.openapi.client.todocenter.dto.TodoTaskDto;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
-/**
- * Create Time:2020/9/1
- * User: luchao
- * Email: luc@shinemo.com
- */
 public class TodoCenterClientTest {
-
-    private TodoCenterClient todoCenterClient;
-
-    public TodoCenterClientTest(BaseConfig baseConfig) {
-        this.todoCenterClient = new TodoCenterClient(baseConfig);
-    }
+    private final static String openApiUri = "";
+    private final static String appId = "";
+    private final static String appSecret = "";
+    private final static BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
+    private final static TodoCenterClient todoCenterClient = new TodoCenterClient(baseConfig);
 
     public static void main(String[] args) {
-        findByAppTaskId();
-//        insertBatchTest();
+//        pushBatch();
+//        finishBatch();
+//        revokeBatch();
+        sendTaskToHandler();
     }
 
-    public static void findByAppTaskId() {
-        List<String> appTaskIds = Arrays.asList("app_task_id_changchun_ioc1", "app_task_id_changchun422", "3");
-
-        final String openApiUri = "http://139.210.243.228:41006/";
-        final String appId = "LadymL6A";
-        final String appSecret = "Z8VqFV7r2RmH4klI";
-
-//        http://baas.uban360.net:21006/openapi-cgw/baas-todocenter/web/todo-task/findByAppTaskId
-//        final String openApiUri = "http://baas.uban360.net:21006/";
-//        final String appId = "bE7z18RX";
-//        final String appSecret = "4Y2EyZLipfmsSaFR";
-
-        BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
-        TodoCenterClientTest test = new TodoCenterClientTest(baseConfig);
-        System.out.println(JsonUtils.toJson(test.findByAppTaskId(appTaskIds)));
+    private static void sendTaskToHandler() {
+        System.out.println(todoCenterClient.sendTaskToHandler("app_task_id_1", Collections.singletonList("admin")));
     }
 
-    public ApiResult findByAppTaskId(List<String> appTaskIds) {
-        System.out.println(JsonUtils.toJson(appTaskIds));
-        return todoCenterClient.findByAppTaskId(appTaskIds);
-    }
-
-    public static void insertBatchTest() {
+    public static void pushBatch() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
-        todoTaskDto.setAppTaskId("app_task_id_changchun7");
+        todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setTitle("title");
         todoTaskDto.setHandleEntry(Collections.singletonList(
-                new TodoTaskDto.HandleEntry(8888890571L, 1)));
+                new TodoTaskDto.HandleEntry("admin", 1)));
 
         todoTaskDto.setDetailUrl("detailUrl");
         todoTaskDto.setCoverUrl("coverUrl");
@@ -72,17 +48,20 @@ public class TodoCenterClientTest {
                 new TodoTaskDto.KeyValEntry("key2", "val2"),
                 new TodoTaskDto.KeyValEntry("key3", "val3")));
 
-        final String openApiUri = "http://139.210.243.228:41006/";
-        final String appId = "LadymL6A";
-        final String appSecret = "Z8VqFV7r2RmH4klI";
-
-        BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
-        TodoCenterClientTest test = new TodoCenterClientTest(baseConfig);
-        System.out.println(test.insertBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.pushBatch(Collections.singletonList(todoTaskDto)));
     }
 
-    public ApiResult insertBatch(List<TodoTaskDto> appTasks) {
-        System.out.println(JsonUtils.toJson(appTasks));
-        return todoCenterClient.pushBatch(appTasks);
+    public static void finishBatch() {
+        TodoTaskDto todoTaskDto = new TodoTaskDto();
+        todoTaskDto.setAppTaskId("app_task_id_1");
+        todoTaskDto.setHandlerAccounts(Collections.singletonList("admin"));
+        System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto)));
+    }
+
+    public static void revokeBatch() {
+        TodoTaskDto todoTaskDto = new TodoTaskDto();
+        todoTaskDto.setAppTaskId("app_task_id_1");
+        todoTaskDto.setHandlerAccounts(Collections.singletonList("admin"));
+        System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto)));
     }
 }

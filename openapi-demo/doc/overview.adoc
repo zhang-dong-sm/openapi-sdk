@@ -77,3 +77,104 @@ image::image/开发文档.png[]
 
 === 接口权限
   不同系统间的接口调用统一通过开放平台网关服务进行鉴权、转发。
+
+=== 接口签名
+
+调用开放平台开放的接口，header要带上三个字段：
+
+[width="100%",cols="18%,82%",options="header",]
+|===
+|字段名 |字段值
+|openTimestamp |timestamp
+
+|openAppId |appkey
+
+|openSign |先将appkey、timestamp、bodyLength按序拼接成字符串content;
+再对content进行sha256加密，并将加密结果转为十六进制字符串sign;
+最后将sign和appsecret拼接为字符串，进行md5加密，将加密结果转为十六进制字符串
+|===
+
+关键信息说明：
+
+* timestamp：系统时间戳
+* appkey、appsecret：开放平台上注册服务时生成
+* bodyLength: 请求体转成json串后的字节数组长度
+（获取字节数组时，请使用"utf-8"编码）
+
+接口签名 - java示例
+
+[source,java]
+----
+public class BaseConfig {
+    // int bodyLength = JsonUtils.toJson(param).getBytes("utf-8").length;
+    public Map<String, Object> getHeaders(int bodyLength) {
+        Map<String, Object> headers = new HashMap();
+        long timestamp = System.currentTimeMillis();
+        headers.put("openTimestamp", String.valueOf(timestamp));
+        headers.put("openAppId", this.appId);
+        String content = this.appId + timestamp + bodyLength;
+        headers.put("openSign", SignUtils.generate(content, this.appSecret));
+        return headers;
+    }
+}
+----
+
+[source,java]
+----
+public class SignUtils {
+    public static String generate(String content, String secret) {
+        String sign = EncryptUtils.sha256(content);
+        sign = EncryptUtils.md5Hex(sign + secret);
+        return sign;
+    }
+}
+----
+
+[source,java]
+----
+public class EncryptUtils {
+    private final static char[] HEX_DIGITS = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+
+    /**
+     * 32位 MD5加密
+     *
+     * @param s
+     * @return
+     */
+    public static String md5Hex(String s) {
+        byte[] result = digest("MD5", s.getBytes(UTF_8));
+        return hex(result);
+    }
+
+    /**
+     * 32 位 sha256加密
+     *
+     * @param s
+     * @return
+     */
+    public static String sha256(String s) {
+        byte[] result = digest("SHA-256", s.getBytes(UTF_8));
+        return hex(result);
+    }
+
+    private static byte[] digest(String algorithm, byte[] data) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance(algorithm);
+            digest.update(data, 0, data.length);
+            return digest.digest();
+        } catch (NoSuchAlgorithmException e) {
+            throw new ApiException(algorithm + " error", e);
+        }
+    }
+
+    private static String hex(byte[] data) {
+        char[] result = new char[data.length * 2];
+        int c = 0;
+        for (byte b : data) {
+            result[c++] = HEX_DIGITS[(b >> 4) & 0xf];
+            result[c++] = HEX_DIGITS[b & 0xf];
+        }
+        return new String(result);
+    }
+}
+----

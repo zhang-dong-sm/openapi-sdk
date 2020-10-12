@@ -7,7 +7,6 @@ import java.util.List;
  * @date 2020/10/9 11:41
  */
 public class TodoTaskDto {
-
     /**
      * 标题
      */
@@ -84,9 +83,14 @@ public class TodoTaskDto {
     private List<HandleEntry> handleEntry;
 
     /**
-     * 待办事项关联的处理人id列表(留空：全部处理人)
+     * 待办事项关联的处理人id列表
      */
     private List<String> handlerIds;
+
+    /**
+     *  待办事项关联的处理人的account(IAM)
+     */
+    private List<String> handlerAccounts;
 
     public static class KeyValEntry {
         public KeyValEntry() {
@@ -295,5 +299,13 @@ public class TodoTaskDto {
 
     public void setHandlerIds(List<String> handlerIds) {
         this.handlerIds = handlerIds;
+    }
+
+    public List<String> getHandlerAccounts() {
+        return handlerAccounts;
+    }
+
+    public void setHandlerAccounts(List<String> handlerAccounts) {
+        this.handlerAccounts = handlerAccounts;
     }
 }
