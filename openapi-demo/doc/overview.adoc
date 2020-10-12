@@ -89,9 +89,9 @@ image::image/开发文档.png[]
 
 |openAppId |appkey
 
-|openSign |先将appkey、timestamp、bodyLength按序拼接成字符串content;
-再对content进行sha256加密，并将加密结果转为十六进制字符串sign;
-最后将sign和appsecret拼接为字符串，进行md5加密，将加密结果转为十六进制字符串
+|openSign |1、先对appKey + timestamp + bodyLength的内容sha256加密，得到一个十六进制字符串sign; +
+           2、再对上一步的sign+appSecret做md5加密，将加密结果转为十六进制字符串openSign +
+
 |===
 
 关键信息说明：
