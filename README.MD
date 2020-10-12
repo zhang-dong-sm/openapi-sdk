@@ -9,5 +9,5 @@
 ## openapi-demo
     1、该工程用于对外提供demo
     2、lib目录包含对外提供的jar包
-    3、doc目录包含对外提供的文档，文档编写结束后，重新生成index.html
+    3、doc目录包含对外提供的文档，文档编写结束后，重新生成index.html。文档语法查询：https://asciidoctor.cn/docs/asciidoc-syntax-quick-reference/
     3、编写结束后，执行package.sh脚本，该脚本会在target目录下生成openapi-demo.zip文件，直接将zip文件提供给第三方
