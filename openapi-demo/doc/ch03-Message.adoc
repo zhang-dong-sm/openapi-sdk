@@ -71,12 +71,6 @@ Request请求说明： +
 |
 | 发送方Name, 默认是AppName
 
-| fromName
-| string
-| 是
-|
-| 发送方Name, 默认是AppName
-
 | unreadCount
 | number
 | 否
