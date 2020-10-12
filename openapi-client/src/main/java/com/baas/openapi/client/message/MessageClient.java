@@ -7,6 +7,7 @@ import com.baas.openapi.client.common.util.OkHttpUtils;
 import com.baas.openapi.client.common.client.ApiClient;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.message.dto.AppMessageDto;
+import com.baas.openapi.client.message.dto.SmsMessageDto;
 
 import java.util.Map;
 
@@ -42,6 +43,27 @@ public class MessageClient extends ApiClient {
      */
     public String pushAppBase(AppMessageDto msg) {
         String url = baseInfo.getUrl("message/push/app");
+        String paramJson = JsonUtils.toJson(msg);
+        Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
+        return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
+    }
+
+    /**
+     * 发送短信消息
+     * @param msg
+     * @return
+     */
+    public ApiResult pushSms(SmsMessageDto msg) {
+        try {
+            return JsonUtils.fromJson(pushSmsBase(msg), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("pushApp fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    private String pushSmsBase(SmsMessageDto msg){
+        String url = baseInfo.getUrl("message/push/sms");
         String paramJson = JsonUtils.toJson(msg);
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
         return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");

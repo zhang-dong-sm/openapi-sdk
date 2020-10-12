@@ -1,7 +1,5 @@
 package com.baas.openapi.demo.test;
 
-
-
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.message.MessageClient;
 import com.baas.openapi.client.message.dto.AppMessageDto;
