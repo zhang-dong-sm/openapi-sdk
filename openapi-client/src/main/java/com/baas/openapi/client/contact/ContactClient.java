@@ -68,7 +68,7 @@ public class ContactClient extends ApiClient {
      * @param flag  1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
      * @return
      */
-    public ApiResult getOrgInfoList(Long orgId, int flag) {
+    public ApiResult<List<OrgInfoDTO>> getOrgInfoList(Long orgId, int flag) {
         try {
             String result = getOrgInfoListByJson(orgId, flag);
             return ApiResultUtils.convertWithArray(result, OrgInfoDTO.class);
@@ -86,7 +86,7 @@ public class ContactClient extends ApiClient {
      * @param flag   1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
      * @return
      */
-    public ApiResult getDeptInfoList(Long orgId, Long deptId, int flag) {
+    public ApiResult<List<DeptInfoDTO>>  getDeptInfoList(Long orgId, Long deptId, int flag) {
         try {
             String result = getDeptInfoListByJson(orgId, deptId, flag);
             return ApiResultUtils.convertWithArray(result, DeptInfoDTO.class);
@@ -97,7 +97,7 @@ public class ContactClient extends ApiClient {
     }
 
     public String getOrgInfoListByJson(Long orgId, int flag) {
-        String url = baseInfo.getUrl(URI + "/sync/getOrgInfoList");
+        String url = baseInfo.getUrl(URI + "/info/getOrgInfoList");
         if (orgId != null) {
             url = url + "?orgId=" + orgId + "&" + "flag=" + flag;
         }
@@ -106,7 +106,7 @@ public class ContactClient extends ApiClient {
     }
 
     public String getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-        String url = baseInfo.getUrl(URI + "/sync/getDeptInfoList");
+        String url = baseInfo.getUrl(URI + "/info/getDeptInfoList");
         if (orgId != null && deptId != null) {
             url = url + "?orgId=" + orgId + "&" + "?deptId=" + deptId + "&" + "flag=" + flag;
         }

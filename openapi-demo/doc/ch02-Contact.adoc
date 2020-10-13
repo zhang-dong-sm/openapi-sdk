@@ -1,5 +1,17 @@
 == 通讯录
 
+=== 单位详情接口
+
+接口地址：/info/getOrgInfo +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|===
+
 *返回参数：*
 [cols="<,<,<",options="header",]
 |===
@@ -12,7 +24,7 @@
 
 === 部门详情接口
 
-接口地址：/sync/getDeptInfo +
+接口地址：/info/getDeptInfo +
 请求方式：GET +
 *请求参数：*
 
@@ -38,7 +50,7 @@
 
 === 用户详情接口
 
-接口地址：/sync/getUserInfo +
+接口地址：/info/getUserInfo +
 请求方式：GET +
 *请求参数：*
 
@@ -67,12 +79,9 @@
 |account |String |账号
 |===
 
-
-
-
 === 各级单位详情接口
 
-接口地址：/sync/getOrgInfoList +
+接口地址：/info/getOrgInfoList +
 请求方式：GET +
 *请求参数：*
 
@@ -100,7 +109,7 @@ Response响应说明： +
 
 === 各级部门详情接口
 
-接口地址：/sync/getDeptInfoList +
+接口地址：/info/getDeptInfoList +
 请求方式：GET +
 *请求参数：*
 

@@ -57,4 +57,14 @@ public class ContactClientTest {
         String json = contactClient.pullOfSyncByJson(orgId);
         System.out.println(json);
     }
+
+    public void getOrgInfoListByJson(Long orgId, int flag) {
+        String json = contactClient.getOrgInfoListByJson(orgId, flag);
+        System.out.println(json);
+    }
+
+    public void getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
+        String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
+        System.out.println(json);
+    }
 }
