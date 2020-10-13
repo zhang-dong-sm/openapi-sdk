@@ -7,6 +7,8 @@ import com.baas.openapi.client.common.factory.LogFactory;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
 import com.baas.openapi.client.contact.dto.OrgDto;
+import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
+import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -59,5 +61,56 @@ public class ContactClient extends ApiClient {
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }
 
+    /**
+     * 获取各级单位详情
+     *
+     * @param orgId
+     * @param flag  1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
+     * @return
+     */
+    public ApiResult getOrgInfoList(Long orgId, int flag) {
+        try {
+            String result = getOrgInfoListByJson(orgId, flag);
+            return ApiResultUtils.convertWithArray(result, OrgInfoDTO.class);
+        } catch (Exception e) {
+            LogFactory.error("getOrgInfoList fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
 
+    /**
+     * 获取各级部门详情
+     *
+     * @param orgId
+     * @param deptId
+     * @param flag   1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
+     * @return
+     */
+    public ApiResult getDeptInfoList(Long orgId, Long deptId, int flag) {
+        try {
+            String result = getDeptInfoListByJson(orgId, deptId, flag);
+            return ApiResultUtils.convertWithArray(result, DeptInfoDTO.class);
+        } catch (Exception e) {
+            LogFactory.error("getDeptInfoList fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    public String getOrgInfoListByJson(Long orgId, int flag) {
+        String url = baseInfo.getUrl(URI + "/sync/getOrgInfoList");
+        if (orgId != null) {
+            url = url + "?orgId=" + orgId + "&" + "flag=" + flag;
+        }
+        Map<String, Object> headers = baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+    public String getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
+        String url = baseInfo.getUrl(URI + "/sync/getDeptInfoList");
+        if (orgId != null && deptId != null) {
+            url = url + "?orgId=" + orgId + "&" + "?deptId=" + deptId + "&" + "flag=" + flag;
+        }
+        Map<String, Object> headers = baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
 }
