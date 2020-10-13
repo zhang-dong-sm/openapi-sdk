@@ -62,6 +62,57 @@ public class ContactClient extends ApiClient {
     }
 
     /**
+     * 获取单位详情
+     *
+     * @param orgId
+     * @return
+     */
+    public String getOrgInfo(Long orgId) {
+        String pullUri = URI + "/info/getOrgInfo";
+        String url = baseInfo.getUrl(pullUri);
+        if (orgId != null) {
+            url = url + "?orgId=" + orgId;
+        }
+        Map<String, Object> headers = baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+    /**
+     * 获取单位详情
+     *
+     * @param orgId
+     * @param deptId
+     * @return
+     */
+    public String getDeptInfo(Long orgId, Long deptId) {
+        String pullUri = URI + "/info/getDeptInfo";
+        String url = baseInfo.getUrl(pullUri);
+        if (orgId != null && deptId != null) {
+            url = url + "?orgId=" + orgId + "&deptId=" + deptId;
+        }
+        Map<String, Object> headers = baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+    /**
+     * 获取用户详情
+     * @param orgId
+     * @param deptId
+     * @param uid
+     * @return
+     */
+    public String getUserInfo(Long orgId, Long deptId, Long uid) {
+        String pullUri = URI + "/info/getUserInfo";
+        String url = baseInfo.getUrl(pullUri);
+        if (orgId != null && deptId != null && uid != null) {
+            url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&uid=" + uid;
+        }
+        Map<String, Object> headers = baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+
+    /**
      * 获取各级单位详情
      *
      * @param orgId
