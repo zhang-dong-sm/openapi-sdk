@@ -196,11 +196,11 @@ public class TodoCenterClient extends ApiClient {
      * @param handlerAccounts 处理人列表
      * @return com.shinemo.baas.openapi.client.common.config.ApiResult
      */
-    public ApiResult sendTaskToHandler(String appTaskId, List<String> handlerAccounts) {
+    public ApiResult sendTaskToHandlerAccount(String appTaskId, List<String> handlerAccounts) {
         try {
-            return JsonUtils.fromJson(sendTaskToHandlerBase(appTaskId, handlerAccounts), ApiResult.class);
+            return JsonUtils.fromJson(sendTaskToHandlerAccountBase(appTaskId, handlerAccounts), ApiResult.class);
         } catch (Exception e) {
-            LogFactory.error("sendTaskToHandler fail - msg:{},ex:", e.getMessage(), e);
+            LogFactory.error("sendTaskToHandlerAccount fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
         }
     }
@@ -212,7 +212,7 @@ public class TodoCenterClient extends ApiClient {
      * @param handlerAccounts 处理人列表
      * @return String
      */
-    private String sendTaskToHandlerBase(String appTaskId, List<String> handlerAccounts) {
+    private String sendTaskToHandlerAccountBase(String appTaskId, List<String> handlerAccounts) {
         if (StringUtils.isBlank(appTaskId)) {
             return "appTaskId cannot be empty!";
         }
@@ -226,6 +226,53 @@ public class TodoCenterClient extends ApiClient {
         paramMap.put("appId", "Third-Party");
         paramMap.put("appTaskId", appTaskId);
         paramMap.put("handlerAccounts", handlerAccounts);
+
+        String url = baseInfo.getUrl(URI + "/web/todo-task/sendTaskToHandler");
+        String paramJson = JsonUtils.toJson(paramMap);
+        Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes(StandardCharsets.UTF_8).length);
+
+        LogFactory.info("paramJson: {}; headers: {}", paramJson, JsonUtils.toJson(headers));
+        return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
+    }
+
+
+    /**
+     * 发送待办任务给处理人
+     *
+     * @param appTaskId  待办任务id
+     * @param handlerIds 处理人id列表
+     * @return ApiResult
+     */
+    public ApiResult sendTaskToHandler(String appTaskId, List<Long> handlerIds) {
+        try {
+            return JsonUtils.fromJson(sendTaskToHandlerBase(appTaskId, handlerIds), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("sendTaskToHandler fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    /**
+     * 发送待办任务给处理人
+     *
+     * @param appTaskId  待办任务id
+     * @param handlerIds 处理人id列表
+     * @return String
+     */
+    private String sendTaskToHandlerBase(String appTaskId, List<Long> handlerIds) {
+        if (StringUtils.isBlank(appTaskId)) {
+            return "appTaskId cannot be empty!";
+        }
+
+        if (handlerIds == null || handlerIds.isEmpty()) {
+            return "handlerIds cannot be empty!";
+        }
+
+        Map<String, Object> paramMap = new HashMap<>(4);
+        // 这里的appId只是占位符，真正的值取自于开发平台透传的appId
+        paramMap.put("appId", "Third-Party");
+        paramMap.put("appTaskId", appTaskId);
+        paramMap.put("handlerIds", handlerIds);
 
         String url = baseInfo.getUrl(URI + "/web/todo-task/sendTaskToHandler");
         String paramJson = JsonUtils.toJson(paramMap);

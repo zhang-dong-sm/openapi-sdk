@@ -23,7 +23,7 @@ public class TodoCenterClientTest {
     }
 
     private static void sendTaskToHandler() {
-        System.out.println(todoCenterClient.sendTaskToHandler("app_task_id_1", Collections.singletonList("admin")));
+        System.out.println(todoCenterClient.sendTaskToHandler("app_task_id_1", Collections.singletonList(8888890571L)));
     }
 
     public static void pushBatch() {
@@ -31,7 +31,7 @@ public class TodoCenterClientTest {
         todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setTitle("title");
         todoTaskDto.setHandleEntry(Collections.singletonList(
-                new TodoTaskDto.HandleEntry("admin", 1)));
+                new TodoTaskDto.HandleEntry(8888890571L, 1)));
 
         todoTaskDto.setDetailUrl("detailUrl");
         todoTaskDto.setCoverUrl("coverUrl");
@@ -54,14 +54,14 @@ public class TodoCenterClientTest {
     public static void finishBatch() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
-        todoTaskDto.setHandlerAccounts(Collections.singletonList("admin"));
+        todoTaskDto.setHandlerIds(Collections.singletonList("8888890571L"));
         System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto)));
     }
 
     public static void revokeBatch() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
-        todoTaskDto.setHandlerAccounts(Collections.singletonList("admin"));
+        todoTaskDto.setHandlerIds(Collections.singletonList("8888890571L"));
         System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto)));
     }
 }

@@ -237,6 +237,14 @@ public class TodoTaskDto {
         this.sponsorId = sponsorId;
     }
 
+    public String getSponsorAccount() {
+        return sponsorAccount;
+    }
+
+    public void setSponsorAccount(String sponsorAccount) {
+        this.sponsorAccount = sponsorAccount;
+    }
+
     public Long getSponsorUnitId() {
         return sponsorUnitId;
     }
