@@ -58,4 +58,5 @@ public class ContactClient extends ApiClient {
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }
+
 }
