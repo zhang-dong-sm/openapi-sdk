@@ -1,2 +1,73 @@
-
 == 通讯录
+
+=== 单位详情接口
+
+接口地址：/sync/getOrgInfo +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|===
+
+=== 各级单位详情接口
+
+接口地址：/sync/getOrgInfoList +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+"data": [{
+    "id":"1",
+    "name":"通讯录", // 单位名称
+    "code":"123456", // 单位编码
+    "address":"杭州XXX" // 单位地址
+    }], //状态码0表示成功, 其他表示失败
+"success": true //true表示成功, false表示失败
+}
+....
+
+=== 各级部门详情接口
+
+接口地址：/sync/getDeptInfoList +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|deptId |Long |必须 | |部门Id
+|flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门递归 4：所有下级部门
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+"data": [{
+    "id":"1",
+    "name":"通讯录", // 部门名称
+    "code":"123456", // 部门编码
+    "sequence":"1", // 排序字段
+    "parentId":"123", // 父节点
+    "orgId":"168", // 单位Id
+    "leaderUid":"555", // 部门领导uid
+    }], //状态码0表示成功, 其他表示失败
+"success": true //true表示成功, false表示失败
+}
+....
