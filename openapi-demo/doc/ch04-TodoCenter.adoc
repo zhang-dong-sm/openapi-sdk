@@ -31,7 +31,7 @@ ____
 |handleEntry |HandleEntry [] |非必须 | |处理人和处理类型列表
 |iconUrl |string |非必须 | |图标url (最长200字符)
 |sponsorDepId |integer |非必须 | |发起人部门id
-|sponsorAccount |string |非必须 | |发起人账号
+|sponsorId |integer |非必须 | |发起人id
 |sponsorTime |string |非必须 | |发起时间 (时间格式：yyyy-MM-dd HH:mm:ss)
 |sponsorUnitId |integer |非必须 | |发起人单位id
 |summary |string |非必须 | |摘要
@@ -52,7 +52,7 @@ handleEntry嵌套结构：
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |handleType |integer |必须 |1 |处理类型(1-待处理，2-待查阅)
-|handlerAccount |String |必须 | |处理人账号
+|handlerId |long |必须 | |处理人id
 |===
 
 *请求示例：*
@@ -77,16 +77,16 @@ handleEntry嵌套结构：
             "handleEntry":[
                 {
                     "handleType":1,
-                    "handlerAccount":"james"
+                    "handlerId":8888890571
                 },
                 {
                     "handleType":2,
-                    "handlerAccount":"wade"
+                    "handlerId":8888890572
                 }
             ],
             "iconUrl":"iconUrl",
             "sponsorDepId":56169855,
-            "sponsorAccount":"mike",
+            "sponsorId":8888890573,
             "sponsorTime":"1990-11-30 19:17:55",
             "sponsorUnitId":12624303,
             "summary":"summary"
@@ -125,7 +125,7 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerAccounts |string [] |必须 | |待办任务关联的处理人账号列表
+|handlerIds |integer [] |必须 | |待办任务关联的处理人账号列表
 |===
 
 *请求示例：*
@@ -136,10 +136,10 @@ ____
     "appTasks":[
         {
             "appTaskId":"appTaskId",
-            "handlerAccounts":[
-                "james",
-                "mike",
-                "wade"
+            "handlerIds":[
+                8888890571,
+                8888890572,
+                8888890573
             ]
         }
     ]
@@ -172,7 +172,7 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerAccounts |string [] |必须 | |待办任务关联的处理人账号列表
+|handlerIds |integer [] |必须 | |待办任务关联的处理人账号列表
 |===
 
 *请求示例：*
@@ -183,10 +183,10 @@ ____
     "appTasks":[
         {
             "appTaskId":"appTaskId",
-            "handlerAccounts":[
-                "james",
-                "mike",
-                "wade"
+            "handlerIds":[
+                8888890571,
+                8888890572,
+                8888890573
             ]
         }
     ]
@@ -217,7 +217,7 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerAccounts |string [] |必须 | |处理人账号列表
+|handlerIds |integer [] |必须 | |处理人账号列表
 |===
 
 *请求示例：*
@@ -226,10 +226,10 @@ ____
 ----
 {
   "appTaskId": "appTaskId",
-  "handlerAccounts": [
-    "james",
-    "mike",
-    "wade"
+  "handlerIds": [
+    8888890571,
+    8888890572,
+    8888890573
   ]
 }
 ----
