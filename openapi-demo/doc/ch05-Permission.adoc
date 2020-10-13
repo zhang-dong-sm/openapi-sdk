@@ -1,0 +1,161 @@
+== 权限
+
+=== 获取人员权限接口
+
+*基础信息：*
+
+接口地址：/getUserPermission
+
+请求方式：POST （content-type: application/json; charset=utf-8）
+
+接口描述：根据开发者账号编码和用户编码查询用户的权限树
+
+*Request Body数据格式：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|devId |Long |必须 | 无 | 开发者账号编码
+|uid |Long |必须 | 无 | 用户编码
+|===
+
+*请求示例：*
+
+[source,json]
+----
+{
+    "devId": 571788888,
+    "uid" : 10104
+}
+----
+
+*返回数据：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|id |Long |必须 | | 菜单编码
+|name |String |必须 | |菜单名称
+|pid |Long |必须 | |上级菜单编码
+|pidName |String |必须 | |上级菜单名称
+|type |Integer |必须 | | 菜单类型：0：模块 1：菜单组 2：菜单 3：按钮 4：权限端
+|url |String |非必须 | | 菜单Url
+|weight |Integer |必须 |0 |权重，用于菜单排序，升序排列
+|identity |String |非必须 | |应用、菜单、按钮标识，唯一
+|apiUrl |String |非必须 | |接口路径，多个接口需要根据,分隔的字符串，当type=2时存在
+|status |Integer |必须 |1 |菜单是否有效 0：失效 1：有效
+|key |Long |必须 | |便于渲染菜单树，值与id字段相同
+|title |String |必须 | |便于渲染菜单树，值与name字段相同
+|env |Integer |非必须 |0 |端类型，0：管理后台 1：PC  2：手机端
+|children |List |非必须 | |下级菜单，字段与上述字段一致
+|===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
+*Response Body返回示例：*
+
+[source,json]
+----
+{
+    "id": 1,
+    "name": "角色权限",
+    "pid": 0,
+    "pidName": "无",
+    "type": 0,
+    "url": "",
+    "weight": 0,
+    "identity": "",
+    "apiUrl": "",
+    "status": 1,
+    "key": 1,
+    "title": "角色权限",
+    "env": 0,
+    "children": [
+        {
+            "id": 2,
+            "name": "PC端权限",
+            "pid": 1,
+            "pidName": "角色权限",
+            "type": 4,
+            "url": "#/privilege-manage",
+            "weight": 0,
+            "identity": "privilege-manage",
+            "apiUrl": "",
+            "status": 1,
+            "key": 2,
+            "title": "PC端权限",
+            "env": 1,
+            "children": [
+                {
+                    "id": 4,
+                    "name": "菜单定义",
+                    "pid": 2,
+                    "pidName": "PC端权限",
+                    "type": 2,
+                    "url": "/privilege-manage/auth-definition",
+                    "weight": 0,
+                    "identity": "",
+                    "apiUrl": "",
+                    "status": 1,
+                    "key": 4,
+                    "title": "业务权限定义",
+                    "env": 0,
+                    "authType": 0,
+                    "cyTag": "",
+                    "children": [
+                    	{
+                            "id": 6,
+                            "name": "导出",
+                            "pid": 2,
+                            "pidName": "菜单定义",
+                            "type": 2,
+                            "url": "",
+                            "weight": 0,
+                            "identity": "btn_add",
+                            "apiUrl": "",
+                            "status": 1,
+                            "key": 6,
+                            "title": "导出",
+                            "env": 0,
+                            "children": null
+                      }
+                    ]
+                },
+                {
+                    "id": 5,
+                    "name": "角色定义",
+                    "pid": 2,
+                    "pidName": "PC端权限",
+                    "type": 2,
+                    "url": "/privilege-manage/role-definition",
+                    "weight": 0,
+                    "identity": "",
+                    "apiUrl": "",
+                    "status": 1,
+                    "key": 5,
+                    "title": "角色定义",
+                    "env": 0
+                }
+            ]
+        }
+    ]
+}
+----
