@@ -58,6 +58,21 @@ public class ContactClientTest {
         System.out.println(json);
     }
 
+    public void getOrgInfoByJson(Long orgId) {
+        String json = contactClient.getOrgInfoByJson(orgId);
+        System.out.println(json);
+    }
+
+    public void getDeptInfoByJson(Long orgId, Long deptId) {
+        String json = contactClient.getDeptInfoByJson(orgId, deptId);
+        System.out.println(json);
+    }
+
+    public void getUserInfoByJson(Long orgId, Long deptId, Long uid) {
+        String json = contactClient.getUserInfoByJson(orgId, deptId, uid);
+        System.out.println(json);
+    }
+
     public void getOrgInfoListByJson(Long orgId, int flag) {
         String json = contactClient.getOrgInfoListByJson(orgId, flag);
         System.out.println(json);
@@ -67,4 +82,31 @@ public class ContactClientTest {
         String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
         System.out.println(json);
     }
+
+    public void getThirdUserInfo(Long uid) {
+        String json = contactClient.getThirdUserInfo(uid);
+        System.out.println(json);
+    }
+
+    public void getUidsByRoleBase(String roleCode, Long devId) {
+        String json = contactClient.getUidsByRoleBase(roleCode, devId);
+        System.out.println(json);
+    }
+
+    public void getUidsByDeptBase(Long orgId, Long deptId, int flag) {
+        String json = contactClient.getUidsByDeptBase(orgId, deptId, flag);
+        System.out.println(json);
+    }
+
+    public void getOrgTreeBase(Long orgId) {
+        String json = contactClient.getOrgTreeBase(orgId);
+        System.out.println(json);
+    }
+
+    public void getDeptTreeBase(Long orgId, Long deptId) {
+        String json = contactClient.getDeptTreeBase(orgId, deptId);
+        System.out.println(json);
+    }
+
+
 }

@@ -79,7 +79,92 @@
 |account |String |账号
 |===
 
-=== 根据uid获取人员详情接口
+=== 各级单位详情接口
+
+接口地址：/info/getOrgInfoList +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |单位id
+|name |String |单位名称
+|parentId |Long |上级单位id
+|code |String |单位编码
+|address |String |单位地址
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+"data": [{
+    "id":"1",
+    "name":"通讯录",
+    "code":"123456",
+    "parentId":"10104"
+    "address":"杭州XXX"
+    }],
+"success": true
+}
+....
+
+=== 各级部门详情接口
+
+接口地址：/info/getDeptInfoList +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位Id
+|deptId |Long |必须 | |部门Id
+|flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |部门id
+|name |String |部门名称
+|code |String |部门编码
+|sequence|Integer | 排序字段
+|parentId |Long |上级部门id
+|orgId |Long |单位id
+|leaderUid |String |部门领导uid
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+"data": [{
+    "id":"1",
+    "name":"通讯录",
+    "code":"123456",
+    "sequence":"1",
+    "parentId":"123",
+    "orgId":"168",
+    "leaderUid":"555",
+    }],
+"success": true
+}
+....
+
+=== 根据用户id获取人员详情接口
 
 接口地址：/info/getThirdUserInfo +
 请求方式：GET +
@@ -288,87 +373,4 @@ Response响应说明： +
      ]
 }
 ....
-=== 各级单位详情接口
 
-接口地址：/info/getOrgInfoList +
-请求方式：GET +
-*请求参数：*
-
-[cols="<,<,<,<,<",options="header",]
-|===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
-|flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
-|===
-
-*返回参数：*
-[cols="<,<,<",options="header",]
-|===
-|名称 |类型 |备注
-|id |Long |单位id
-|name |String |单位名称
-|parentId |Long |上级单位id
-|code |String |单位编码
-|address |String |单位地址
-|===
-
-Response响应说明： +
-[source,json]
-
-....
-{
-"data": [{
-    "id":"1",
-    "name":"通讯录",
-    "code":"123456",
-    "parentId":"10104"
-    "address":"杭州XXX"
-    }],
-"success": true
-}
-....
-
-=== 各级部门详情接口
-
-接口地址：/info/getDeptInfoList +
-请求方式：GET +
-*请求参数：*
-
-[cols="<,<,<,<,<",options="header",]
-|===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
-|deptId |Long |必须 | |部门Id
-|flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
-|===
-
-*返回参数：*
-[cols="<,<,<",options="header",]
-|===
-|名称 |类型 |备注
-|id |Long |部门id
-|name |String |部门名称
-|code |String |部门编码
-|sequence|Integer | 排序字段
-|parentId |Long |上级部门id
-|orgId |Long |单位id
-|leaderUid |String |部门领导uid
-|===
-
-Response响应说明： +
-[source,json]
-
-....
-{
-"data": [{
-    "id":"1",
-    "name":"通讯录",
-    "code":"123456",
-    "sequence":"1",
-    "parentId":"123",
-    "orgId":"168",
-    "leaderUid":"555",
-    }],
-"success": true
-}
-....

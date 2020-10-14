@@ -181,7 +181,7 @@ public class ContactClient extends ApiClient {
      * 根据角色编码查询人员
      *
      * @param roleCode 角色编码
-     * @param devId 开发者账号编码
+     * @param devId    开发者账号编码
      * @return
      */
     public ApiResult<List<Long>> getUidsByRole(String roleCode, Long devId) {
@@ -249,6 +249,21 @@ public class ContactClient extends ApiClient {
      * @param orgId
      * @return
      */
+    public ApiResult getOrgTree(Long orgId) {
+        try {
+            return JsonUtils.fromJson(getOrgTreeBase(orgId), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("getOrgTree fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    /**
+     * 获取单位组织架构
+     *
+     * @param orgId
+     * @return
+     */
     public String getOrgTreeBase(Long orgId) {
         String url = baseInfo.getUrl(URI + "/info/getOrgTree");
         if (orgId != null) {
@@ -256,6 +271,22 @@ public class ContactClient extends ApiClient {
         }
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+    /**
+     * 获取部门组织架构
+     *
+     * @param orgId
+     * @param deptId
+     * @return
+     */
+    public ApiResult getOrgTree(Long orgId, Long deptId) {
+        try {
+            return JsonUtils.fromJson(getDeptTreeBase(orgId, deptId), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("getOrgTree fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
     }
 
     /**

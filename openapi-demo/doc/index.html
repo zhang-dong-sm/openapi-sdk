@@ -459,13 +459,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_单位详情接口">单位详情接口</a></li>
 <li><a href="#_部门详情接口">部门详情接口</a></li>
 <li><a href="#_用户详情接口">用户详情接口</a></li>
-<li><a href="#_根据uid获取人员详情接口">根据uid获取人员详情接口</a></li>
+<li><a href="#_各级单位详情接口">各级单位详情接口</a></li>
+<li><a href="#_各级部门详情接口">各级部门详情接口</a></li>
+<li><a href="#_根据用户id获取人员详情接口">根据用户id获取人员详情接口</a></li>
 <li><a href="#_根据角色编码查询人员接口">根据角色编码查询人员接口</a></li>
 <li><a href="#_根据部门查询人员接口">根据部门查询人员接口</a></li>
 <li><a href="#_获取单位组织架构树接口">获取单位组织架构树接口</a></li>
 <li><a href="#_获取部门组织架构树接口">获取部门组织架构树接口</a></li>
-<li><a href="#_各级单位详情接口">各级单位详情接口</a></li>
-<li><a href="#_各级部门详情接口">各级部门详情接口</a></li>
 </ul>
 </li>
 <li><a href="#_消息中心">消息中心</a>
@@ -1074,13 +1074,238 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-82">
-<h3 id="_根据uid获取人员详情接口">根据uid获取人员详情接口</h3>
+<h3 id="_各级单位详情接口">各级单位详情接口</h3>
 <div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-84">
-<p>接口地址：/info/getThirdUserInfo<br>
+<p>接口地址：/info/getOrgInfoList<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
 <table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-89">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">类型</th>
+<th class="tableblock halign-left valign-top">是否必须</th>
+<th class="tableblock halign-left valign-top">默认值</th>
+<th class="tableblock halign-left valign-top">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-95">
+<p><strong>返回参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-97">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">类型</th>
+<th class="tableblock halign-left valign-top">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位名称</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parentId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上级单位id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位编码</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位地址</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-106">
+<p>Response响应说明：<br></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-109">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+<span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">通讯录</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">10104</span><span style="color:#710">&quot;</span></span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>address</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">杭州XXX</span><span style="color:#710">&quot;</span></span>
+    }],
+<span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-122">
+<h3 id="_各级部门详情接口">各级部门详情接口</h3>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-124">
+<p>接口地址：/info/getDeptInfoList<br>
+请求方式：GET<br>
+<strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-129">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">类型</th>
+<th class="tableblock halign-left valign-top">是否必须</th>
+<th class="tableblock halign-left valign-top">默认值</th>
+<th class="tableblock halign-left valign-top">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deptId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">部门Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-136">
+<p><strong>返回参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-138">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">类型</th>
+<th class="tableblock halign-left valign-top">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">部门id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">部门名称</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">部门编码</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sequence</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">排序字段</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parentId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">上级部门id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leaderUid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">部门领导uid</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-149">
+<p>Response响应说明：<br></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-152">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+<span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">通讯录</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>sequence</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>orgId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">168</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>leaderUid</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">555</span><span style="color:#710">&quot;</span></span>,
+    }],
+<span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-167">
+<h3 id="_根据用户id获取人员详情接口">根据用户id获取人员详情接口</h3>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-169">
+<p>接口地址：/info/getThirdUserInfo<br>
+请求方式：GET<br>
+<strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-174">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1107,10 +1332,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-94">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-179">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-97">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-182">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1342,14 +1567,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-144">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-229">
 <h3 id="_根据角色编码查询人员接口">根据角色编码查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-146">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-231">
 <p>接口地址：/info/getUidsByRole<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-151">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-236">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1383,10 +1608,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-157">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-242">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-159">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-244">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1408,14 +1633,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-164">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-249">
 <h3 id="_根据部门查询人员接口">根据部门查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-166">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-251">
 <p>接口地址：/info/getUidsByDept<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-171">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-256">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1456,10 +1681,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-178">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-263">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-180">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-265">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1481,14 +1706,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-185">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-270">
 <h3 id="_获取单位组织架构树接口">获取单位组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-187">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-272">
 <p>接口地址：/info/getOrgTree<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-192">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-277">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1515,10 +1740,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-197">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-282">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-199">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-284">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1559,10 +1784,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-208">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-293">
 <p>Response响应说明：<br></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-211">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-296">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{
@@ -1588,14 +1813,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-235">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-320">
 <h3 id="_获取部门组织架构树接口">获取部门组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-237">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-322">
 <p>接口地址：/info/getDeptTree<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-242">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-327">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1629,10 +1854,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-248">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-333">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-250">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-335">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1683,10 +1908,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-261">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-346">
 <p>Response响应说明：<br></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-264">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-349">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{
@@ -1712,231 +1937,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
             <span style="color:#606"><span style="color:#404">&quot;</span><span>children</span><span style="color:#404">&quot;</span></span>:[]
          }
      ]
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-291">
-<h3 id="_各级单位详情接口">各级单位详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-293">
-<p>接口地址：/info/getOrgInfoList<br>
-请求方式：GET<br>
-<strong>请求参数：</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-298">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">类型</th>
-<th class="tableblock halign-left valign-top">是否必须</th>
-<th class="tableblock halign-left valign-top">默认值</th>
-<th class="tableblock halign-left valign-top">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位Id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">flag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-304">
-<p><strong>返回参数：</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-306">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">类型</th>
-<th class="tableblock halign-left valign-top">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位名称</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">parentId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上级单位id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位编码</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">address</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位地址</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-315">
-<p>Response响应说明：<br></p>
-</div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-318">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-<span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">通讯录</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">10104</span><span style="color:#710">&quot;</span></span>
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>address</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">杭州XXX</span><span style="color:#710">&quot;</span></span>
-    }],
-<span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-331">
-<h3 id="_各级部门详情接口">各级部门详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-333">
-<p>接口地址：/info/getDeptInfoList<br>
-请求方式：GET<br>
-<strong>请求参数：</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-338">
-<colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">类型</th>
-<th class="tableblock halign-left valign-top">是否必须</th>
-<th class="tableblock halign-left valign-top">默认值</th>
-<th class="tableblock halign-left valign-top">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位Id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">deptId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">部门Id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">flag</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-345">
-<p><strong>返回参数：</strong></p>
-</div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-347">
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">名称</th>
-<th class="tableblock halign-left valign-top">类型</th>
-<th class="tableblock halign-left valign-top">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">部门id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">部门名称</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">部门编码</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sequence</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">排序字段</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">parentId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">上级部门id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">orgId</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">leaderUid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">部门领导uid</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-358">
-<p>Response响应说明：<br></p>
-</div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-361">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="json">{
-<span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">通讯录</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>sequence</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>orgId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">168</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>leaderUid</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">555</span><span style="color:#710">&quot;</span></span>,
-    }],
-<span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
 }</code></pre>
 </div>
 </div>
