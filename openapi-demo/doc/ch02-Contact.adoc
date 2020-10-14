@@ -18,6 +18,7 @@
 |名称 |类型 |备注
 |id |Long |单位id
 |name |String |单位名称
+|parentId |Long |上级单位id
 |code |String |单位编码
 |address |String |单位地址
 |===
