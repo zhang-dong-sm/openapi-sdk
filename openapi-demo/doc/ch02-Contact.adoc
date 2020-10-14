@@ -79,6 +79,215 @@
 |account |String |账号
 |===
 
+=== 根据uid获取人员详情接口
+
+接口地址：/info/getThirdUserInfo +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|uid |Long |必须 | |用户Id
+|===
+
+*返回参数：*
+
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|changeType |int |操作类型	0-新增或修改1-删除
+|changeTime |String |数据变更时间	2008-09-04 17:26:36.169464
+|synKind |int |用户类型	0-内部用户，1-外部用户
+|status |int |用户状态	0正常，1锁定，2未启用3 注销
+|uid |String |用户帐号	zhangsan@hq.cmcc
+|cn |String |中文姓名	张三
+|sn |String |用户中文姓	张
+|employeeNumber |String |员工编号	120211
+|o |String | 所属组织	00010002000300040005
+|workOrg |String |工作组织编码	00010002000400040005
+|description |String |描述	管理信息系统部
+|email |String |电子邮件	zhangsan@chinamobile.com
+|duty |String |职务	中国移动通信集团公司\综合部-副总经理
+|gender |String |用户性别	1-男，2-女，3-未知
+|birthday |String |生日	19770706000000
+|nation |String |民族	汉
+|c |String |国籍	中国
+|religion |String |政治面貌	04
+|positionLevel |String |层级	3
+|preferredMobile |String |首选移动电话	135873938745
+|employeeType |String |用户类型	01
+|l |String |所属地市	总部
+|level |String | 职级	12
+|levelName |String |岗位名称	IT规划岗
+|function |String |业务	0005
+|entryTime |String |入职日期	20080122122300Z
+|startTime |String |开始生效时间	20070122122300Z
+|endTime |String |结束生效时间	20080122122300Z
+|category |String |员工套入职级	12
+|memberOf |String |用户所属的用户组	"HQ00000001"表示用户属于总部编号为00000001的组
+|idCardNumber |String |身份证号	726631199901012201
+|postalCode |String |邮政编码	100000账号
+|telephoneNumber |String |办公电话	010-39392323
+|postalAddress |String |用户通讯地址
+|mobile |String |移动电话	13754556789
+|facsimileTelephoneNumber |String |传真	010-39392323
+|displayOrder |String | 显示顺序	00030000000000000001/1~
+|supporterCorpName |String |所属公司名称	华为
+|supporterDept |String |所属公司部门	网络部
+|supporterCorpContact |String |所属公司联系人	张平
+|Supervisor |String | 移动负责人	lishi@hq.cmcc
+|Password |String |用户密码	{SHA1}DDDsfgsgfsr66afadgFFD
+|superviseDept |String |所属主管部门编码	00010002000300040005
+|===
+
+=== 根据角色编码查询人员接口
+
+接口地址：/info/getUidsByRole +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|roleCode |String |必须 | |角色编码
+|devId |Long |必须 | |开发者账号编码
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|uids |List |所有的用户id
+|===
+
+=== 根据部门查询人员接口
+
+接口地址：/info/getUidsByDept +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位id
+|dept |deptId |必须 | |部门id
+|flag |int |必须 | | 0：在本级部门中查询 1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|uids |List |所有的用户id
+|===
+
+=== 获取单位组织架构树接口
+
+接口地址：/info/getOrgTree +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位id
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |单位id
+|name |String |单位名称
+|parentId |Long |上级单位id
+|code |String |单位编码
+|address |String |单位地址
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+    "node":{
+    "id":1,
+    "name":"第一",
+    "parentId":0,
+    "code":"111111",
+    "address":"杭州"
+    },
+    "children":[
+         {
+            "node":{
+            "id":2,
+            "name":"第一",
+            "parentId":0,
+            "code":"111111",
+            "address":"杭州"
+            },
+            "children":[]
+         }
+     ]
+}
+....
+
+=== 获取部门组织架构树接口
+
+接口地址：/info/getDeptTree +
+请求方式：GET +
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|orgId |Long |必须 | |单位id
+|dept |deptId |必须 | |部门id
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |部门id
+|name |String |部门名称
+|code |String |部门编码
+|sequence|Integer | 排序字段
+|parentId |Long |上级部门id
+|orgId |Long |单位id
+|leaderUid |String |部门领导uid
+|===
+
+Response响应说明： +
+[source,json]
+
+....
+{
+    "node":{
+    "id":1,
+    "name":"第一",
+    "code":"111111",
+    "sequence":"2",
+    "parentId":0,
+    "orgId":"168",
+    "leaderUid":"888"
+    },
+    "children":[
+         {
+            "node":{
+            "id":1,
+            "name":"第一",
+            "code":"111111",
+            "sequence":"2",
+            "parentId":1,
+            "orgId":"168",
+            "leaderUid":"777"
+            },
+            "children":[]
+         }
+     ]
+}
+....
 === 各级单位详情接口
 
 接口地址：/info/getOrgInfoList +
@@ -92,6 +301,17 @@
 |flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
 |===
 
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |单位id
+|name |String |单位名称
+|parentId |Long |上级单位id
+|code |String |单位编码
+|address |String |单位地址
+|===
+
 Response响应说明： +
 [source,json]
 
@@ -99,11 +319,12 @@ Response响应说明： +
 {
 "data": [{
     "id":"1",
-    "name":"通讯录", // 单位名称
-    "code":"123456", // 单位编码
-    "address":"杭州XXX" // 单位地址
-    }], //状态码0表示成功, 其他表示失败
-"success": true //true表示成功, false表示失败
+    "name":"通讯录",
+    "code":"123456",
+    "parentId":"10104"
+    "address":"杭州XXX"
+    }],
+"success": true
 }
 ....
 
@@ -121,6 +342,19 @@ Response响应说明： +
 |flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
 |===
 
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|id |Long |部门id
+|name |String |部门名称
+|code |String |部门编码
+|sequence|Integer | 排序字段
+|parentId |Long |上级部门id
+|orgId |Long |单位id
+|leaderUid |String |部门领导uid
+|===
+
 Response响应说明： +
 [source,json]
 
@@ -128,13 +362,13 @@ Response响应说明： +
 {
 "data": [{
     "id":"1",
-    "name":"通讯录", // 部门名称
-    "code":"123456", // 部门编码
-    "sequence":"1", // 排序字段
-    "parentId":"123", // 父节点
-    "orgId":"168", // 单位Id
-    "leaderUid":"555", // 部门领导uid
-    }], //状态码0表示成功, 其他表示失败
-"success": true //true表示成功, false表示失败
+    "name":"通讯录",
+    "code":"123456",
+    "sequence":"1",
+    "parentId":"123",
+    "orgId":"168",
+    "leaderUid":"555",
+    }],
+"success": true
 }
 ....
