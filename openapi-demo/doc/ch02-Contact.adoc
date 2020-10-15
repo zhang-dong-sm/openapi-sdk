@@ -188,7 +188,7 @@ Response响应说明： +
 |changeTime |Long |数据变更时间(时间戳)
 |synKind |Integer |用户类型（0：内部用户；1：外部用户）
 |employeeType |String |用户类型（01：长期员工；02：短期聘用工；03：劳*工；04：聘用港澳台及外籍人员；05：退养人员(工资总额支付)；06：退养人员(其他渠道支付)；07：聘用本单位离退休人员；08：聘用外单位离退休人员；09：离退休人员(除本单位返聘)；10：临时员工）
-|status|Integer |用户状态
+|status|Integer |用户状态（0：正常；1：锁定；2：未启用；3：注销）
 |nickName |String |中文姓名
 |email |String | 邮箱
 |position |String |岗位
