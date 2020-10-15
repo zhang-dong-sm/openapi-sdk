@@ -785,9 +785,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-5">
 <p>接口地址：/info/getOrgInfo<br>
 请求方式：GET<br>
+接口描述： 通用接口，根据单位id获取单位详情<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-10">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-11">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -814,10 +815,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-15">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-16">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-17">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-18">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -858,15 +859,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-26">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-26">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-29">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-36">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-38">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-46">
 <h3 id="_部门详情接口">部门详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-28">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-48">
 <p>接口地址：/info/getDeptInfo<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 通用接口，根据单位id,部门id获取部门详情<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-33">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-52">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-55">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -900,10 +929,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-39">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-61">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-41">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-63">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -954,15 +983,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-74">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-52">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-77">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-84">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-86">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-94">
 <h3 id="_用户详情接口">用户详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-54">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-96">
 <p>接口地址：/info/getUserInfo<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 通用接口，根据单位id,部门id,用户id获取用户详情<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-59">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-100">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-103">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1003,10 +1060,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-66">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-110">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-68">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-112">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1077,15 +1134,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-127">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-83">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-130">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-137">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-139">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-147">
 <h3 id="_各级单位详情接口">各级单位详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-85">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-149">
 <p>接口地址：/info/getOrgInfoList<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 通用接口，根据单位id,flag标识获取对应级别单位详情<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-90">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-153">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-156">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1119,10 +1204,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-96">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-162">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-98">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-164">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1163,17 +1248,42 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-107">
-<p>Response响应说明：<br></p>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-173">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-110">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-176">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-183">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-185">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-193">
+<p>Response 返回示例：</p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-196">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
 <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">通讯录</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123456</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">10104</span><span style="color:#710">&quot;</span></span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">10104</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606"><span style="color:#404">&quot;</span><span>address</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">杭州XXX</span><span style="color:#710">&quot;</span></span>
     }],
 <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
@@ -1181,14 +1291,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-123">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-209">
 <h3 id="_各级部门详情接口">各级部门详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-125">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-211">
 <p>接口地址：/info/getDeptInfoList<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 通用接口，根据单位id,部门id,flag标识获取对应级别部门详情<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-130">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-215">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-218">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1229,10 +1342,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-137">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-225">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-139">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-227">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1283,10 +1396,35 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-150">
-<p>Response响应说明：<br></p>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-238">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-153">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-241">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-248">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-250">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-258">
+<p>Response 返回示例：</p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-261">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
 <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: [{
@@ -1296,21 +1434,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
     <span style="color:#606"><span style="color:#404">&quot;</span><span>sequence</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">1</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606"><span style="color:#404">&quot;</span><span>parentId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123</span><span style="color:#710">&quot;</span></span>,
     <span style="color:#606"><span style="color:#404">&quot;</span><span>orgId</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">168</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>leaderUid</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">555</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>leaderUid</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">555</span><span style="color:#710">&quot;</span></span>
     }],
 <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
 }</code></pre>
 </div>
 </div>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-168">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-276">
 <h3 id="_根据用户id获取人员详情接口">根据用户id获取人员详情接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-170">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-278">
 <p>接口地址：/info/getThirdUserInfo<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 基础人员信息接口,根据用户id获取<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-175">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-282">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-285">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1337,10 +1478,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-180">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-290">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-183">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-293">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1454,27 +1595,45 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">办公电话</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">insertTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入库时间(时间戳)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">syncState</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">同步状态</p></td>
-</tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-317">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-209">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-320">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-327">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-329">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-337">
 <h3 id="_根据角色编码查询人员接口">根据角色编码查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-211">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-339">
 <p>接口地址：/info/getUidsByRole<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 角色编码查询人员信息接口,注意获取到的是用户id数组<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-216">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-343">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-346">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1508,10 +1667,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-222">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-352">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-224">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-354">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1532,15 +1691,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-359">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-229">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-362">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-369">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-371">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-378">
 <h3 id="_根据部门查询人员接口">根据部门查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-231">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-380">
 <p>接口地址：/info/getUidsByDept<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 部门查询人员信息接口,注意获取到的是用户id数组<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-236">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-384">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-387">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1566,8 +1753,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dept</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">deptId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">部门id</p></td>
@@ -1581,10 +1768,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-243">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-394">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-245">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-396">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1605,15 +1792,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-401">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-250">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-404">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-411">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-413">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-421">
 <h3 id="_获取单位组织架构树接口">获取单位组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-252">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-423">
 <p>接口地址：/info/getOrgTree<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 根据单位id获取整某个单位组织架构树<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-257">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-427">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-430">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1640,10 +1855,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-262">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-435">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-264">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-437">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1684,10 +1899,35 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-273">
-<p>Response响应说明：<br></p>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-446">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-276">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-449">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-456">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-458">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-466">
+<p>Response 返回示例：</p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-469">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{
@@ -1713,14 +1953,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-300">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-493">
 <h3 id="_获取部门组织架构树接口">获取部门组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-302">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-495">
 <p>接口地址：/info/getDeptTree<br>
 请求方式：GET<br>
-<strong>请求参数：</strong></p>
+接口描述： 根据单位id,部门id获取对应单位下某个部门组织架构树<br></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-307">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-499">
+<p><strong>请求参数：</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-502">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1746,18 +1989,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">单位id</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">dept</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">deptId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">必须</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">部门id</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-313">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-508">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-315">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-510">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1808,10 +2051,35 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-326">
-<p>Response响应说明：<br></p>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-521">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-329">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-524">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>data</span><span style="color:#404">&quot;</span></span>: <span style="color:#F00;background-color:#FAA">O</span><span style="color:#F00;background-color:#FAA">b</span><span style="color:#F00;background-color:#FAA">j</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">t</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">返</span><span style="color:#F00;background-color:#FAA">回</span><span style="color:#F00;background-color:#FAA">数</span><span style="color:#F00;background-color:#FAA">据</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-531">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-533">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="json">{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>code</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">500</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">c</span><span style="color:#F00;background-color:#FAA">o</span><span style="color:#F00;background-color:#FAA">d</span><span style="color:#F00;background-color:#FAA">e</span><span style="color:#F00;background-color:#FAA">=</span><span style="color:#00D">200</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">接</span><span style="color:#F00;background-color:#FAA">口</span><span style="color:#F00;background-color:#FAA">调</span><span style="color:#F00;background-color:#FAA">用</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>,<span style="color:#F00;background-color:#FAA">其</span><span style="color:#F00;background-color:#FAA">他</span><span style="color:#F00;background-color:#FAA">标</span><span style="color:#F00;background-color:#FAA">识</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>success</span><span style="color:#404">&quot;</span></span>:<span style="color:#088">false</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#088">true</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">成</span><span style="color:#F00;background-color:#FAA">功</span>, <span style="color:#088">false</span><span style="color:#F00;background-color:#FAA">表</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">失</span><span style="color:#F00;background-color:#FAA">败</span>
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>message</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">接口失败原因</span><span style="color:#710">&quot;</span></span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">错</span><span style="color:#F00;background-color:#FAA">误</span><span style="color:#F00;background-color:#FAA">提</span><span style="color:#F00;background-color:#FAA">示</span><span style="color:#F00;background-color:#FAA">消</span><span style="color:#F00;background-color:#FAA">息</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-541">
+<p>Response 返回示例：</p>
+</div>
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-544">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{

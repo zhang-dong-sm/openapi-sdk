@@ -4,6 +4,7 @@
 
 接口地址：/info/getOrgInfo +
 请求方式：GET +
+接口描述： 通用接口，根据单位id获取单位详情 +
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -22,11 +23,32 @@
 |code |String |单位编码
 |address |String |单位地址
 |===
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
 
 === 部门详情接口
 
 接口地址：/info/getDeptInfo +
 请求方式：GET +
+接口描述： 通用接口，根据单位id,部门id获取部门详情 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -49,10 +71,32 @@
 |leaderUid |Long |领导人ID
 |===
 
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
 === 用户详情接口
 
 接口地址：/info/getUserInfo +
 请求方式：GET +
+接口描述： 通用接口，根据单位id,部门id,用户id获取用户详情 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -80,10 +124,32 @@
 |account |String |账号
 |===
 
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
 === 各级单位详情接口
 
 接口地址：/info/getOrgInfoList +
 请求方式：GET +
+接口描述： 通用接口，根据单位id,flag标识获取对应级别单位详情 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -105,25 +171,47 @@
 |===
 
 Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
 [source,json]
 
-....
+----
 {
 "data": [{
     "id":"1",
     "name":"通讯录",
     "code":"123456",
-    "parentId":"10104"
+    "parentId":"10104",
     "address":"杭州XXX"
     }],
 "success": true
 }
-....
+----
 
 === 各级部门详情接口
 
 接口地址：/info/getDeptInfoList +
 请求方式：GET +
+接口描述： 通用接口，根据单位id,部门id,flag标识获取对应级别部门详情 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -148,9 +236,29 @@ Response响应说明： +
 |===
 
 Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
 [source,json]
 
-....
+----
 {
 "data": [{
     "id":"1",
@@ -159,16 +267,18 @@ Response响应说明： +
     "sequence":"1",
     "parentId":"123",
     "orgId":"168",
-    "leaderUid":"555",
+    "leaderUid":"555"
     }],
 "success": true
 }
-....
+----
 
 === 根据用户id获取人员详情接口
 
 接口地址：/info/getThirdUserInfo +
 请求方式：GET +
+接口描述： 基础人员信息接口,根据用户id获取 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -202,14 +312,34 @@ Response响应说明： +
 |function |String |业务职责编码
 |preferredMobile |String |首选移动电话
 |telephoneNumber |String |办公电话
-|insertTime |Long |入库时间(时间戳)
-|syncState |String |同步状态
 |===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
 
 === 根据角色编码查询人员接口
 
 接口地址：/info/getUidsByRole +
 请求方式：GET +
+接口描述： 角色编码查询人员信息接口,注意获取到的是用户id数组 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -226,17 +356,38 @@ Response响应说明： +
 |uids |List |所有的用户id
 |===
 
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
 === 根据部门查询人员接口
 
 接口地址：/info/getUidsByDept +
 请求方式：GET +
+接口描述： 部门查询人员信息接口,注意获取到的是用户id数组 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |orgId |Long |必须 | |单位id
-|dept |deptId |必须 | |部门id
+|deptId |Long |必须 | |部门id
 |flag |int |必须 | | 0：在本级部门中查询 1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
 |===
 
@@ -247,10 +398,32 @@ Response响应说明： +
 |uids |List |所有的用户id
 |===
 
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
 === 获取单位组织架构树接口
 
 接口地址：/info/getOrgTree +
 请求方式：GET +
+接口描述： 根据单位id获取整某个单位组织架构树 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
@@ -271,9 +444,29 @@ Response响应说明： +
 |===
 
 Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
 [source,json]
 
-....
+----
 {
     "node":{
     "id":1,
@@ -295,19 +488,21 @@ Response响应说明： +
          }
      ]
 }
-....
+----
 
 === 获取部门组织架构树接口
 
 接口地址：/info/getDeptTree +
 请求方式：GET +
+接口描述： 根据单位id,部门id获取对应单位下某个部门组织架构树 +
+
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |orgId |Long |必须 | |单位id
-|dept |deptId |必须 | |部门id
+|deptId |Long |必须 | |部门id
 |===
 
 *返回参数：*
@@ -324,9 +519,29 @@ Response响应说明： +
 |===
 
 Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "message":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
 [source,json]
 
-....
+----
 {
     "node":{
     "id":1,
@@ -352,5 +567,5 @@ Response响应说明： +
          }
      ]
 }
-....
+----
 
