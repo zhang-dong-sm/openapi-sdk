@@ -1355,231 +1355,126 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">changeType</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">操作类型	0-新增或修改1-删除</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">主键</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">synid</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">account</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用户账号</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">changeTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">数据变更时间	2008-09-04 17:26:36.169464</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">数据变更时间(时间戳)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">synKind</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户类型	0-内部用户，1-外部用户</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">int</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户状态	0正常，1锁定，2未启用3 注销</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">uid</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户帐号	<a href="mailto:zhangsan@hq.cmcc">zhangsan@hq.cmcc</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">中文姓名	张三</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sn</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户中文姓	张</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">employeeNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">员工编号	120211</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">o</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属组织	00010002000300040005</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">workOrg</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">工作组织编码	00010002000400040005</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">描述	管理信息系统部</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">电子邮件	<a href="mailto:zhangsan@chinamobile.com">zhangsan@chinamobile.com</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">duty</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">职务	中国移动通信集团公司\综合部-副总经理</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">gender</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户性别	1-男，2-女，3-未知</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">birthday</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">生日	19770706000000</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">nation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">民族	汉</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">c</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">国籍	中国</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">religion</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">政治面貌	04</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">positionLevel</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">层级	3</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">preferredMobile</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">首选移动电话	135873938745</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用户类型（0：内部用户；1：外部用户）</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">employeeType</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户类型	01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用户类型（01：长期员工；02：短期聘用工；03：劳*工；04：聘用港澳台及外籍人员；05：退养人员(工资总额支付)；06：退养人员(其他渠道支付)；07：聘用本单位离退休人员；08：聘用外单位离退休人员；09：离退休人员(除本单位返聘)；10：临时员工）</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">l</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属地市	总部</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">用户状态</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">level</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">nickName</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">职级	12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">中文姓名</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">levelName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">email</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">岗位名称	IT规划岗</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">邮箱</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">position</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">业务	0005</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">entryTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">入职日期	20080122122300Z</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">startTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">开始生效时间	20070122122300Z</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">结束生效时间	20080122122300Z</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">category</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">员工套入职级	12</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">memberOf</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户所属的用户组	"HQ00000001"表示用户属于总部编号为00000001的组</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">idCardNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">身份证号	726631199901012201</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">postalCode</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">邮政编码	100000账号</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">telephoneNumber</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">办公电话	010-39392323</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">postalAddress</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户通讯地址</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">岗位</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mobile</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">移动电话	13754556789</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">手机号</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">facsimileTelephoneNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">levelName</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">传真	010-39392323</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">displayOrder</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">显示顺序	00030000000000000001/1~</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">supporterCorpName</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属公司名称	华为</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">岗位名称</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">supporterDept</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属公司部门	网络部</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">所属公司部门</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">supporterCorpContact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属公司联系人	张平</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">所属组织</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Supervisor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">employeeNumber</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">移动负责人	<a href="mailto:lishi@hq.cmcc">lishi@hq.cmcc</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">员工编号</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Password</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">workOrg</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">用户密码	{SHA1}DDDsfgsgfsr66afadgFFD</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">工作组织编码</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">superviseDept</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">所属主管部门编码	00010002000300040005</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">工作组织描述</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">function</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">业务职责编码</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">preferredMobile</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">首选移动电话</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">telephoneNumber</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">办公电话</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">insertTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">入库时间(时间戳)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">syncState</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">同步状态</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-230">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-209">
 <h3 id="_根据角色编码查询人员接口">根据角色编码查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-232">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-211">
 <p>接口地址：/info/getUidsByRole<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-237">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-216">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1613,10 +1508,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-243">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-222">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-245">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-224">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1638,14 +1533,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-250">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-229">
 <h3 id="_根据部门查询人员接口">根据部门查询人员接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-252">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-231">
 <p>接口地址：/info/getUidsByDept<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-257">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-236">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1686,10 +1581,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-264">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-243">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-266">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-245">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1711,14 +1606,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-271">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-250">
 <h3 id="_获取单位组织架构树接口">获取单位组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-273">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-252">
 <p>接口地址：/info/getOrgTree<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-278">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-257">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1745,10 +1640,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-283">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-262">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-285">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-264">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1789,10 +1684,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-294">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-273">
 <p>Response响应说明：<br></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-297">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-276">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{
@@ -1818,14 +1713,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 </div>
-<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-321">
+<div class="sect2 has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-300">
 <h3 id="_获取部门组织架构树接口">获取部门组织架构树接口</h3>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-323">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-302">
 <p>接口地址：/info/getDeptTree<br>
 请求方式：GET<br>
 <strong>请求参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-328">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-307">
 <colgroup>
 <col style="width: 20%;">
 <col style="width: 20%;">
@@ -1859,10 +1754,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-334">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-313">
 <p><strong>返回参数：</strong></p>
 </div>
-<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-336">
+<table class="tableblock frame-all grid-all stretch has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-315">
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -1913,10 +1808,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
-<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-347">
+<div class="paragraph has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-326">
 <p>Response响应说明：<br></p>
 </div>
-<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-350">
+<div class="listingblock has-source-line data-line-C:/Users/Administrator/IdeaProjects/baas/openapi-sdk/openapi-demo/doc/ch02-Contact.adoc-329">
 <div class="content">
 <pre class="CodeRay highlight"><code data-lang="json">{
     <span style="color:#606"><span style="color:#404">&quot;</span><span>node</span><span style="color:#404">&quot;</span></span>:{

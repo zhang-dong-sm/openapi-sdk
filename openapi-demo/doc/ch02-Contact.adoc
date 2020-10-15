@@ -182,49 +182,28 @@ Response响应说明： +
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
-|changeType |int |操作类型	0-新增或修改1-删除
-|changeTime |String |数据变更时间	2008-09-04 17:26:36.169464
-|synKind |int |用户类型	0-内部用户，1-外部用户
-|status |int |用户状态	0正常，1锁定，2未启用3 注销
-|uid |String |用户帐号	zhangsan@hq.cmcc
-|cn |String |中文姓名	张三
-|sn |String |用户中文姓	张
-|employeeNumber |String |员工编号	120211
-|o |String | 所属组织	00010002000300040005
-|workOrg |String |工作组织编码	00010002000400040005
-|description |String |描述	管理信息系统部
-|email |String |电子邮件	zhangsan@chinamobile.com
-|duty |String |职务	中国移动通信集团公司\综合部-副总经理
-|gender |String |用户性别	1-男，2-女，3-未知
-|birthday |String |生日	19770706000000
-|nation |String |民族	汉
-|c |String |国籍	中国
-|religion |String |政治面貌	04
-|positionLevel |String |层级	3
-|preferredMobile |String |首选移动电话	135873938745
-|employeeType |String |用户类型	01
-|l |String |所属地市	总部
-|level |String | 职级	12
-|levelName |String |岗位名称	IT规划岗
-|function |String |业务	0005
-|entryTime |String |入职日期	20080122122300Z
-|startTime |String |开始生效时间	20070122122300Z
-|endTime |String |结束生效时间	20080122122300Z
-|category |String |员工套入职级	12
-|memberOf |String |用户所属的用户组	"HQ00000001"表示用户属于总部编号为00000001的组
-|idCardNumber |String |身份证号	726631199901012201
-|postalCode |String |邮政编码	100000账号
-|telephoneNumber |String |办公电话	010-39392323
-|postalAddress |String |用户通讯地址
-|mobile |String |移动电话	13754556789
-|facsimileTelephoneNumber |String |传真	010-39392323
-|displayOrder |String | 显示顺序	00030000000000000001/1~
-|supporterCorpName |String |所属公司名称	华为
-|supporterDept |String |所属公司部门	网络部
-|supporterCorpContact |String |所属公司联系人	张平
-|Supervisor |String | 移动负责人	lishi@hq.cmcc
-|Password |String |用户密码	{SHA1}DDDsfgsgfsr66afadgFFD
-|superviseDept |String |所属主管部门编码	00010002000300040005
+|id |Long |主键
+|synid |Long |
+|account |String |用户账号
+|changeTime |Long |数据变更时间(时间戳)
+|synKind |Integer |用户类型（0：内部用户；1：外部用户）
+|employeeType |String |用户类型（01：长期员工；02：短期聘用工；03：劳*工；04：聘用港澳台及外籍人员；05：退养人员(工资总额支付)；06：退养人员(其他渠道支付)；07：聘用本单位离退休人员；08：聘用外单位离退休人员；09：离退休人员(除本单位返聘)；10：临时员工）
+|status|Integer |用户状态
+|nickName |String |中文姓名
+|email |String | 邮箱
+|position |String |岗位
+|mobile |String |手机号
+|levelName |String |岗位名称
+|supporterDept |String |所属公司部门
+|organization |String |所属组织
+|employeeNumber |String |员工编号
+|workOrg |String |工作组织编码
+|description|String |工作组织描述
+|function |String |业务职责编码
+|preferredMobile |String |首选移动电话
+|telephoneNumber |String |办公电话
+|insertTime |Long |入库时间(时间戳)
+|syncState |String |同步状态
 |===
 
 === 根据角色编码查询人员接口
