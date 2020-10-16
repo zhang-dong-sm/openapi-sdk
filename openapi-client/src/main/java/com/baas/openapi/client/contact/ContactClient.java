@@ -86,7 +86,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getOrgInfoByJson(Long orgId) {
-        String url = baseInfo.getUrl(URI + "/info/getOrgInfo");
+        String url = baseInfo.getUrl(URI + "/info/org/getOrgInfo");
         if (orgId != null) {
             url = url + "?orgId=" + orgId;
         }
@@ -119,7 +119,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getDeptInfoByJson(Long orgId, Long deptId) {
-        String url = baseInfo.getUrl(URI + "/info/getDeptInfo");
+        String url = baseInfo.getUrl(URI + "/info/dept/getDeptInfo");
         if (orgId != null && deptId != null) {
             url = url + "?orgId=" + orgId + "&deptId=" + deptId;
         }
@@ -154,7 +154,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getUserInfoByJson(Long orgId, Long deptId, Long uid) {
-        String url = baseInfo.getUrl(URI + "/info/getUserInfo");
+        String url = baseInfo.getUrl(URI + "/info/user/getUserInfo");
         if (orgId != null && deptId != null && uid != null) {
             url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&uid=" + uid;
         }
@@ -169,7 +169,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getThirdUserInfo(Long uid) {
-        String url = baseInfo.getUrl(URI + "/info/getThirdUserInfo");
+        String url = baseInfo.getUrl(URI + "/info/user/getThirdUserInfo");
         if (uid != null) {
             url = url + "?uid=" + uid;
         }
@@ -201,7 +201,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getUidsByRoleBase(String roleCode, Long devId) {
-        String url = baseInfo.getUrl(URI + "/info/getUidsByRole");
+        String url = baseInfo.getUrl(URI + "/info/user/getUidsByRole");
         if (roleCode != null && devId != null) {
             url = url + "?roleCode=" + roleCode + "&devId=" + devId;
         }
@@ -235,7 +235,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getUidsByDeptBase(Long orgId, Long deptId, int flag) {
-        String url = baseInfo.getUrl(URI + "/info/getUidsByDept");
+        String url = baseInfo.getUrl(URI + "/info/user/getUidsByDept");
         if (orgId != null && deptId != null) {
             url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&" + "flag=" + flag;
         }
@@ -265,7 +265,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getOrgTreeBase(Long orgId) {
-        String url = baseInfo.getUrl(URI + "/info/getOrgTree");
+        String url = baseInfo.getUrl(URI + "/info/org/getOrgTree");
         if (orgId != null) {
             url = url + "?orgId=" + orgId;
         }
@@ -297,7 +297,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getDeptTreeBase(Long orgId, Long deptId) {
-        String url = baseInfo.getUrl(URI + "/info/getDeptTree");
+        String url = baseInfo.getUrl(URI + "/info/dept/getDeptTree");
         if (orgId != null) {
             url = url + "?orgId=" + orgId + "&deptId=" + deptId;
         }
@@ -348,7 +348,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getOrgInfoListByJson(Long orgId, int flag) {
-        String url = baseInfo.getUrl(URI + "/info/getOrgInfoList");
+        String url = baseInfo.getUrl(URI + "/info/org/getOrgInfoList");
         if (orgId != null) {
             url = url + "?orgId=" + orgId + "&" + "flag=" + flag;
         }
@@ -365,7 +365,7 @@ public class ContactClient extends ApiClient {
      * @return
      */
     public String getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-        String url = baseInfo.getUrl(URI + "/info/getDeptInfoList");
+        String url = baseInfo.getUrl(URI + "/info/dept/getDeptInfoList");
         if (orgId != null && deptId != null) {
             url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&flag=" + flag;
         }
