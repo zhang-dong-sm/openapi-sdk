@@ -139,7 +139,8 @@
                             <tasks>
                                 <copy todir="../openapi-demo/lib" overwrite="true">
                                     <fileset dir="${project.build.directory}">
-                                        <include name="${project.artifactId}-${project.version}-jar-with-dependencies.jar"/>
+                                        <include
+                                                name="${project.artifactId}-${project.version}-jar-with-dependencies.jar"/>
                                     </fileset>
                                 </copy>
                             </tasks>
