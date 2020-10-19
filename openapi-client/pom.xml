@@ -11,7 +11,7 @@
 
     <groupId>com.baas.openapi</groupId>
     <artifactId>openapi-client</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
