@@ -2,7 +2,7 @@
 
 === 单位详情接口
 
-接口地址：/info/org/getOrgInfo +
+接口地址：/org/getOrgInfo +
 请求方式：GET +
 接口描述： 通用接口，根据单位id获取单位详情 +
 *请求参数：*
@@ -45,7 +45,7 @@ Response响应说明： +
 
 === 部门详情接口
 
-接口地址：/info/dept/getDeptInfo +
+接口地址：/dept/getDeptInfo +
 请求方式：GET +
 接口描述： 通用接口，根据单位id,部门id获取部门详情 +
 
@@ -93,7 +93,7 @@ Response响应说明： +
 
 === 用户详情接口
 
-接口地址：/info/user/getUserInfo +
+接口地址：/user/getUserInfo +
 请求方式：GET +
 接口描述： 通用接口，根据单位id,部门id,用户id获取用户详情 +
 
@@ -146,7 +146,7 @@ Response响应说明： +
 
 === 各级单位详情接口
 
-接口地址：/info/org/getOrgInfoList +
+接口地址：/org/getOrgInfoList +
 请求方式：GET +
 接口描述： 通用接口，根据单位id,flag标识获取对应级别单位详情 +
 
@@ -208,7 +208,7 @@ Response 返回示例：
 
 === 各级部门详情接口
 
-接口地址：/info/dept/getDeptInfoList +
+接口地址：/dept/getDeptInfoList +
 请求方式：GET +
 接口描述： 通用接口，根据单位id,部门id,flag标识获取对应级别部门详情 +
 
@@ -275,7 +275,7 @@ Response 返回示例：
 
 === 根据用户id获取人员详情接口
 
-接口地址：/info/user/getThirdUserInfo +
+接口地址：/user/getThirdUserInfo +
 请求方式：GET +
 接口描述： 基础人员信息接口,根据用户id获取 +
 
@@ -336,7 +336,7 @@ Response响应说明： +
 
 === 根据角色编码查询人员接口
 
-接口地址：/info/user/getUidsByRole +
+接口地址：/user/getUidsByRole +
 请求方式：GET +
 接口描述： 角色编码查询人员信息接口,注意获取到的是用户id数组 +
 
@@ -377,7 +377,7 @@ Response响应说明： +
 ....
 === 根据部门查询人员接口
 
-接口地址：/info/user/getUidsByDept +
+接口地址：/user/getUidsByDept +
 请求方式：GET +
 接口描述： 部门查询人员信息接口,注意获取到的是用户id数组 +
 
@@ -420,7 +420,7 @@ Response响应说明： +
 
 === 获取单位组织架构树接口
 
-接口地址：/info/org/getOrgTree +
+接口地址：/org/getOrgTree +
 请求方式：GET +
 接口描述： 根据单位id获取整某个单位组织架构树 +
 
@@ -492,7 +492,7 @@ Response 返回示例：
 
 === 获取部门组织架构树接口
 
-接口地址：/info/dept/getDeptTree +
+接口地址：/dept/getDeptTree +
 请求方式：GET +
 接口描述： 根据单位id,部门id获取对应单位下某个部门组织架构树 +
 
