@@ -29,7 +29,7 @@ public class LoginClient extends ApiClient {
             if (StringUtils.isBlank(ssoToken)) {
                 return ApiResult.fail("token参数不存在");
             }
-            String result = reqWithGetUserInfoByToken(URI + "/oauth2/getUserInfoByToken?token=" + ssoToken);
+            String result = reqWithGetUserInfoByToken(URI + "/sso/getUserInfoByToken?ssoToken=" + ssoToken);
             return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
