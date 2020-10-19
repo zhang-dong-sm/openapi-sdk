@@ -1,9 +1,9 @@
 == 新闻、公告
 
-=== 新闻、公告拉取
+=== 新闻、公告推送
 
 接口名称：接收新闻、公告信息 +
-接口地址：/news/pull +
+接口地址：/news/push +
 请求方式：POST（content-type:application/json; charset=utf-8） +
 Request请求说明： +
 
@@ -12,7 +12,6 @@ Request请求说明： +
 [source,json]
 ....
 [{
-	"id": 12,
 	"title": "test",
 	"publisher": "dsd",
 	"digest": "sfdss",
@@ -24,11 +23,10 @@ Request请求说明： +
 	"baasNewsType": 2,
 	"categoryNames":"分类名称",
 	"newsType":1,
-     "status":1,
-     "gmtPublish":232131231
+     "status":2,
+     "gmtPublish":1603108140390
 },
 {
-	"id": 12,
 	"title": "test",
 	"publisher": "dsd",
 	"digest": "sfdss",
@@ -40,8 +38,8 @@ Request请求说明： +
 	"baasNewsType": 2,
 	"categoryNames":"分类名称",
 	"newsType":1,
-     "status":1,
-     "gmtPublish":2123182132
+     "status":2,
+     "gmtPublish":1603108140390
 }]
 
 ....
@@ -50,12 +48,6 @@ Request请求说明： +
 
 |===
 |名称 |类型 |必须 |默认值 |说明
-
-| id
-| Long
-| 是
-| 0
-| 新闻Id
 
 | title
 | String
@@ -94,10 +86,10 @@ Request请求说明： +
 | 分类名称
 
 | gmtPublish
-|
+| Long
 | 是
 |
-| 时间戳
+| 发布时间 (时间戳 ms)
 
 | newsType
 | Integer
@@ -109,10 +101,10 @@ Request请求说明： +
 | Integer
 | 是
 |
-| 仅对新闻 0 普通新闻 1 文件新闻 2 链接新闻 3 视屏新闻
+| 公告都传0  新闻：2-普通新闻 3-视频新闻
 
 | fileContent
-|
+| 对象格式（[{}]）
 | 是
 |
 |链接新闻的url
@@ -120,8 +112,8 @@ Request请求说明： +
 | status
 | Integer
 | 是
-|
-| 状态 2正常
+| 2
+| 状态 -1-删除 0-失效 2-正常
 
 
 |===
@@ -142,39 +134,87 @@ Response响应说明： +
 [source,json]
 ....
 {
-"status":4800, //状态码0表示成功, 其他表示失败
+"status":500, //状态码0表示成功, 其他表示失败
 "success":false, //true表示成功, false表示失败
 "message":"消息格式错误" //错误提示消息
 }
 ....
+=== 新闻、公告 分类推送
+接口地址：/newsCategory/push +
+请求方式：POST +
+接口描述：新闻、公告分类推送 +
+Request请求说明： +
 
-`status状态码说明:`
+`Body数据格式:` +
+
+[source,json]
+....
+[{  "id":45678,
+	"categoryName": "分类名称",
+	"parentId":12,
+	"categoryType":1,
+    "status":0
+},
+{
+	"id":45678,
+	"categoryName": "分类名称",
+	"parentId":12,
+	"categoryType":1,
+    "status":0
+}]
+....
+`body数据字段说明` +
 
 |===
-|状态码 |说明
+|名称 |类型 |必须 |默认值 |说明
 
+| id
+| Long
+| 是
+|
+| 分类Id
+
+| categoryName
+| string
+| 是
+|
+| 分类名称
+
+| parentId
+| Long
+| 是
 | 0
-| 成功
+| 父分类Id
 
-| 4800
-| 消息格式错误
+| categoryType
+| Integer
+| 是
+|
+| 新闻分类 0-新闻，1-公告
 
-| 4801
-| 消息类型不能为空
-
-| 4802
-| 消息标题不能为空
-
-|4803
-|消息接收者列表不能为空
-
-|4804
-|加密消息的密钥ID不能为空
-
-|4805
-|接收者不属于当前操作的企业
-
-|4806
-|消息发送失败
-
+| status
+| Integer
+| 是
+| 0
+| 0-正常，-1-删除
 |===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....

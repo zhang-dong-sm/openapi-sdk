@@ -528,7 +528,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_新闻公告">新闻、公告</a>
 <ul class="sectlevel2">
-<li><a href="#_新闻公告拉取">新闻、公告拉取</a></li>
+<li><a href="#_新闻公告推送">新闻、公告推送</a></li>
+<li><a href="#_新闻公告_分类推送">新闻、公告 分类推送</a></li>
 </ul>
 </li>
 </ul>
@@ -4360,10 +4361,10 @@ Request请求说明：<br></p>
 <h2 id="_新闻公告">新闻、公告</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_新闻公告拉取">新闻、公告拉取</h3>
+<h3 id="_新闻公告推送">新闻、公告推送</h3>
 <div class="paragraph">
 <p>接口名称：接收新闻、公告信息<br>
-接口地址：/news/pull<br>
+接口地址：/news/push<br>
 请求方式：POST（content-type:application/json; charset=utf-8）<br>
 Request请求说明：<br></p>
 </div>
@@ -4373,7 +4374,6 @@ Request请求说明：<br></p>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json">[{
-	"id": 12,
 	"title": "test",
 	"publisher": "dsd",
 	"digest": "sfdss",
@@ -4385,11 +4385,10 @@ Request请求说明：<br></p>
 	"baasNewsType": 2,
 	"categoryNames":"分类名称",
 	"newsType":1,
-     "status":1,
-     "gmtPublish":232131231
+     "status":2,
+     "gmtPublish":1603108140390
 },
 {
-	"id": 12,
 	"title": "test",
 	"publisher": "dsd",
 	"digest": "sfdss",
@@ -4401,8 +4400,8 @@ Request请求说明：<br></p>
 	"baasNewsType": 2,
 	"categoryNames":"分类名称",
 	"newsType":1,
-     "status":1,
-     "gmtPublish":2123182132
+     "status":2,
+     "gmtPublish":1603108140390
 }]</code></pre>
 </div>
 </div>
@@ -4427,13 +4426,6 @@ Request请求说明：<br></p>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">新闻Id</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">title</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
@@ -4478,10 +4470,10 @@ Request请求说明：<br></p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">gmtPublish</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">时间戳</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">发布时间 (时间戳 ms)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">newsType</p></td>
@@ -4495,11 +4487,11 @@ Request请求说明：<br></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">仅对新闻 0 普通新闻 1 文件新闻 2 链接新闻 3 视屏新闻</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">公告都传0  新闻：2-普通新闻 3-视频新闻</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">fileContent</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">对象格式（[{}]）</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">链接新闻的url</p></td>
@@ -4508,8 +4500,8 @@ Request请求说明：<br></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">状态 2正常</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">状态 -1-删除 0-失效 2-正常</p></td>
 </tr>
 </tbody>
 </table>
@@ -4531,61 +4523,124 @@ Request请求说明：<br></p>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json">{
-"status":4800, //状态码0表示成功, 其他表示失败
+"status":500, //状态码0表示成功, 其他表示失败
 "success":false, //true表示成功, false表示失败
 "message":"消息格式错误" //错误提示消息
 }</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_新闻公告_分类推送">新闻、公告 分类推送</h3>
 <div class="paragraph">
-<p><code>status状态码说明:</code></p>
+<p>接口地址：/newsCategory/push<br>
+请求方式：POST<br>
+接口描述：新闻、公告分类推送<br>
+Request请求说明：<br></p>
+</div>
+<div class="paragraph">
+<p><code>Body数据格式:</code><br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json">[{  "id":45678,
+	"categoryName": "分类名称",
+	"parentId":12,
+	"categoryType":1,
+    "status":0
+},
+{
+	"id":45678,
+	"categoryName": "分类名称",
+	"parentId":12,
+	"categoryType":1,
+    "status":0
+}]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>body数据字段说明</code><br></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">状态码</th>
+<th class="tableblock halign-left valign-top">名称</th>
+<th class="tableblock halign-left valign-top">类型</th>
+<th class="tableblock halign-left valign-top">必须</th>
+<th class="tableblock halign-left valign-top">默认值</th>
 <th class="tableblock halign-left valign-top">说明</th>
 </tr>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">分类Id</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categoryName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">分类名称</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">parentId</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">成功</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">父分类Id</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4800</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">消息格式错误</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">categoryType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">新闻分类 0-新闻，1-公告</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4801</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">消息类型不能为空</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4802</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">消息标题不能为空</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4803</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">消息接收者列表不能为空</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4804</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">加密消息的密钥ID不能为空</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4805</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">接收者不属于当前操作的企业</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">4806</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">消息发送失败</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">是</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0-正常，-1-删除</p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>Response响应说明：<br>
+<code>成功响应数据格式:</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json">{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><code>失败响应数据格式:</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json">{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
