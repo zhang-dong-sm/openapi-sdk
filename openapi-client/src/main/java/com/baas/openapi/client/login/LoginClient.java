@@ -5,6 +5,7 @@ import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
+import com.shinemo.baas.openapi.login.client.dto.LoginUserInfoDTO;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Map;
@@ -23,13 +24,13 @@ public class LoginClient extends ApiClient {
         super(baseInfo);
     }
 
-    public ApiResult getUserInfoByToken(String ssoToken) {
+    public ApiResult<LoginUserInfoDTO> getUserInfoByToken(String ssoToken) {
         try {
             if (StringUtils.isBlank(ssoToken)) {
                 return ApiResult.fail("token参数不存在");
             }
-            String result = getUserInfoByToken("/oauth2/getUserInfoByToken", ssoToken);
-            return ApiResultUtils.convert(result, Map.class);
+            String result = reqWithGetUserInfoByToken(URI + "/oauth2/getUserInfoByToken?token=" + ssoToken);
+            return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
         }
@@ -38,13 +39,11 @@ public class LoginClient extends ApiClient {
     /**
      * token 获取用户信息
      *
-     * @param ssoToken
-     * @param reqUri
+     * @param url
      * @return
      */
-    public String getUserInfoByToken(String ssoToken, String reqUri) {
-        String pullUri = URI + reqUri;
-        String url = baseInfo.getUrl(pullUri);
+    public String reqWithGetUserInfoByToken(String url) {
+        String reqUrl = baseInfo.getUrl(url);
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }

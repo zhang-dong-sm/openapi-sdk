@@ -231,7 +231,12 @@ Query：
 | 参数名称 | 是否必须 | 示例 | 备注
 
 | accessToken
-| 是
+| 否
+| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
+| 访问token(调用获取token接口获取到的accessToken)
+
+| ssoToken
+| 否
 | MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
 | 访问token(调用获取token接口获取到的accessToken)
 |===
