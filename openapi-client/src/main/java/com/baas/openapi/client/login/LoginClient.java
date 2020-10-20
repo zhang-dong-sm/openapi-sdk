@@ -24,27 +24,44 @@ public class LoginClient extends ApiClient {
         super(baseInfo);
     }
 
-    public ApiResult<LoginUserInfoDTO> getUserInfoByToken(String ssoToken) {
+    /**
+     * ssoToken 获取用户信息
+     *
+     * @param
+     * @return 返回结构体
+     */
+    public ApiResult<LoginUserInfoDTO> getUserInfoBySSOToken(String ssoToken) {
         try {
             if (StringUtils.isBlank(ssoToken)) {
-                return ApiResult.fail("token参数不存在");
+                return ApiResult.fail("ssoToken参数不存在");
             }
-            String result = reqWithGetUserInfoByToken(URI + "/sso/getUserInfoByToken?ssoToken=" + ssoToken);
+            String result = getUserInfoBySSOToken(URI + "/sso/getUserInfoByToken", ssoToken);
             return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
         }
     }
 
+    private final String err = "{\"success\":false,\"date\":null,\"msg\":\"%s\",\"code\":500}";
+
     /**
-     * token 获取用户信息
+     * ssoToken 获取用户信息
      *
-     * @param url
-     * @return
+     * @param ssoToken
+     * @return 返回json结构
      */
-    public String reqWithGetUserInfoByToken(String url) {
-        String reqUrl = baseInfo.getUrl(url);
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    public String getUserInfoBySSOTokenByJson(String ssoToken) {
+        if (StringUtils.isBlank(ssoToken)) {
+            return String.format(err, "ssoToken参数不存在");
+        }
+        return getUserInfoBySSOToken(URI + "/sso/getUserInfoByToken", ssoToken);
+    }
+
+
+    private String getUserInfoBySSOToken(String url, String ssoToken) {
+        url = url + "?ssoToken=" + ssoToken;
+        String reqUrl = this.baseInfo.getUrl(url);
+        Map<String, Object> headers = this.baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
     }
 }

@@ -15,6 +15,140 @@
 :data-uri:
 
 == SSO免登
+=== Token获取用户信息(H5应用)
+基本信息::
+接口名称：根据Token获取用户信息 +
+接口地址：/sso/getUserInfoByToken +
+请求方式：GET +
+接口描述： +
+该接口用于第三方H5应用获取用户信息，姓名、手机号、登录账号、唯一标识等 +
+
+请求参数::
+Headers：
+|===
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
+|===
+
+Query：
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| ssoToken
+| 是
+| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
+| 交换token(客户端跳转第三方应用页面会拼在链接后面)
+|===
+
+返回数据::
+响应体结构： +
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+|
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
+|===
+data对象结构： +
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| name
+| string
+| 是
+|
+| 用户姓名
+|
+
+| mobile
+| string
+| 是
+|
+| 用户手机号
+|
+
+| uid
+| int
+| 是
+|
+| 用户唯一标识
+|
+
+| account
+| string
+| 是
+|
+| 用户登录账号
+|
+|===
+
+`成功响应数据样例:`
+[source,json]
+....
+{
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": {
+        "name": "张三",
+        "mobile": "14000000000",
+        "uid": 123456987,
+        "account": "zhangsan"
+    }
+}
+....
+`失败响应数据样例:`
+[source,json]
+....
+{
+    "code": 500,
+    "msg": "token过期",
+    "success": false,
+    "data": null
+}
+....
 
 === OAuth使用
     OAuth是一个关于授权的开放的网络协议，在第三方应用与服务提供商之间设置一个授权层。第三方应用不能直接登录服务提供商，只能登录授权层，以此将用户与客户端区分开来。第三方应用登录授权层所用的令牌，与用户的密码不同。用户可以在登录授权的时候，指定授权层令牌的权限范围和有效期。第三方应用登录授权层以后，服务提供商根据令牌的权限范围和有效期，向第三方应用开放用户资源。 +
@@ -234,11 +368,6 @@ Query：
 | 否
 | MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
 | 访问token(调用获取token接口获取到的accessToken)
-
-| ssoToken
-| 否
-| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
-| token(调用获取token接口获取到的accessToken)
 |===
 
 返回数据::
