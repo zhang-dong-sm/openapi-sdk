@@ -35,7 +35,7 @@ public class LoginClient extends ApiClient {
             if (StringUtils.isBlank(ssoToken)) {
                 return ApiResult.fail("ssoToken参数不存在");
             }
-            String result = getUserInfoBySSOToken(URI + "/sso/getUserInfoByToken", ssoToken);
+            String result = getUserInfoBySSOTokenByJson(ssoToken);
             return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
@@ -54,12 +54,7 @@ public class LoginClient extends ApiClient {
         if (StringUtils.isBlank(ssoToken)) {
             return String.format(err, "ssoToken参数不存在");
         }
-        return getUserInfoBySSOToken(URI + "/sso/getUserInfoByToken", ssoToken);
-    }
-
-
-    private String getUserInfoBySSOToken(String url, String ssoToken) {
-        url = url + "?ssoToken=" + ssoToken;
+        String url = URI + "/sso/getUserInfoByToken?ssoToken=" + ssoToken;
         String reqUrl = this.baseInfo.getUrl(url);
         Map<String, Object> headers = this.baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
