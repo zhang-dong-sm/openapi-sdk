@@ -702,7 +702,7 @@ Response响应说明： +
 
 === 保存用户接口
 
-接口地址：/dept/saveUser +
+接口地址：/user/saveUser +
 请求方式：POST（content-type:application/json; charset=utf-8） +
 接口描述： +
 此接口用于添加某个企业部门下的用户
@@ -720,7 +720,7 @@ Response响应说明： +
 |mobile |String |必须 | |手机号
 |title |String |必须 |  |职位
 |name |String |必须 | |名字
-|sex |Byte |必须 | | 性别
+|sex |Byte |必须 | | 性别 0：男,1：女
 |email |String |必须 | |邮箱
 |account |String |必须 | |账号
 |===
