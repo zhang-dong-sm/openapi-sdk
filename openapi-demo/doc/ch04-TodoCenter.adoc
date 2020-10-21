@@ -52,7 +52,8 @@ handleEntry嵌套结构：
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |handleType |integer |必须 |1 |处理类型(1-待处理，2-待查阅)
-|handlerId |long |必须 | |处理人id
+|handlerId |long |非必须(基于通讯录时：必须) | |处理人id
+|handlerAccount |string |非必须(基于IAM时：必须) | |处理人账号
 |===
 
 *请求示例：*
@@ -125,7 +126,8 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerIds |integer [] |必须 | |待办任务关联的处理人账号列表
+|handlerIds |integer [] |非必须(基于通讯录时：必须) | |待办任务关联的处理人id列表
+|handlerAccounts |string [] |非必须(基于IAM时：必须) | |待办任务关联的处理人账号列表
 |===
 
 *请求示例：*
@@ -172,7 +174,8 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerIds |integer [] |必须 | |待办任务关联的处理人账号列表
+|handlerIds |integer [] |非必须(基于通讯录时：必须) | |待办任务关联的处理人id列表
+|handlerAccounts |string [] |非必须(基于IAM时：必须) | |待办任务关联的处理人账号列表
 |===
 
 *请求示例：*
@@ -217,7 +220,8 @@ ____
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 |appTaskId |string |必须 | |应用中的待办任务id
-|handlerIds |integer [] |必须 | |处理人账号列表
+|handlerIds |integer [] |非必须(基于通讯录时：必须) | |处理人id列表
+|handlerAccounts |string [] |非必须(基于IAM时：必须) | |处理人账号列表
 |===
 
 *请求示例：*

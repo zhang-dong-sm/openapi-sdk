@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.apache.commons.lang3.StringUtils;
+import com.baas.openapi.client.common.util.StringUtils;
 
 import java.util.HashMap;
 import java.util.Map;

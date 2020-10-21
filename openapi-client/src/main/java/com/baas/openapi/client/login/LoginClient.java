@@ -6,7 +6,7 @@ import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
 import com.shinemo.baas.openapi.login.client.dto.LoginUserInfoDTO;
-import org.apache.commons.lang3.StringUtils;
+import com.baas.openapi.client.common.util.StringUtils;
 
 import java.util.Map;
 
