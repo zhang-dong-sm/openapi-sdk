@@ -20,10 +20,11 @@ public class LoginClientTest {
 
     public static void main(String[] args) {
         // 以下配置需要对接相关开发提供
+        // http://zct.cc.jl.cegn.cn:21006/
         final String openApiUri = "http://zct.cc.jl.cegn.cn:21006/";
         final String appId = "rLaaVD1h";
         final String appSecret = "KKvkx7ZRBylPeaHU";
-        final String ssoToken = "";
+        final String ssoToken = "eyJtb2JpbGUiOiIxODY5NjI0NTg5NiIsIm9yZ0lkIjoxMDEwNCwic2lnbmF0dXJlIjoiNDk0NjliMTE0NTc2NTgzOGVhNDc4YTMwMzY5NjAwYjYiLCJzaXRlSWQiOjkwMDAsInRpbWVzdGFtcCI6MTYwMzE2NTk0MTU2OSwidWlkIjoiODg4ODkwNzE4NSIsInVzZXJuYW1lIjoiMTg2OTYyNDU4OTYifQ==&from=844b&vit=fps";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         LoginClient loginClient = new LoginClient(baseConfig);
