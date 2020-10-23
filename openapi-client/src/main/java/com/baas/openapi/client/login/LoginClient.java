@@ -61,7 +61,7 @@ public class LoginClient extends ApiClient {
     }
 
     /**
-     * 获取访问Token
+     * 获取AccessToken
      *
      * @param code 授权码(调用授权接口获得的授权码code)
      * @return
@@ -100,12 +100,12 @@ public class LoginClient extends ApiClient {
      * @param accessToken 访问token(调用获取token接口获取到的accessToken)
      * @return
      */
-    public ApiResult<LoginUserInfoDTO> getUserInfoByToken(String accessToken) {
+    public ApiResult<LoginUserInfoDTO> getUserInfoByAccessToken(String accessToken) {
         try {
             if (StringUtils.isBlank(accessToken)) {
                 return ApiResult.fail("accessToken参数不存在");
             }
-            String result = getUserInfoByTokenJson(accessToken);
+            String result = getUserInfoByAccessTokenJson(accessToken);
             return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
@@ -118,7 +118,7 @@ public class LoginClient extends ApiClient {
      * @param accessToken 访问token(调用获取token接口获取到的accessToken)
      * @return
      */
-    public String getUserInfoByTokenJson(String accessToken) {
+    public String getUserInfoByAccessTokenJson(String accessToken) {
         if (StringUtils.isBlank(accessToken)) {
             return String.format(err, "accessToken参数不存在");
         }
