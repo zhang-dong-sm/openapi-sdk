@@ -59,4 +59,74 @@ public class LoginClient extends ApiClient {
         Map<String, Object> headers = this.baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
     }
+
+    /**
+     * 获取访问Token
+     *
+     * @param code 授权码(调用授权接口获得的授权码code)
+     * @return
+     */
+    public ApiResult getToken(String code) {
+        try {
+            if (StringUtils.isBlank(code)) {
+                return ApiResult.fail("code参数不存在");
+            }
+            String result = getTokenByJson(code);
+            return ApiResultUtils.convert(result, ApiResult.class);
+        } catch (Exception e) {
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    /**
+     * 获取访问Token
+     *
+     * @param code 授权码(调用授权接口获得的授权码code)
+     * @return
+     */
+    public String getTokenByJson(String code) {
+        if (StringUtils.isBlank(code)) {
+            return String.format(err, "code参数不存在");
+        }
+        String url = URI + "/oauth2/getToken?code=" + code;
+        String reqUrl = this.baseInfo.getUrl(url);
+        Map<String, Object> headers = this.baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
+    }
+
+    /**
+     * 根据Token获取用户信息
+     *
+     * @param accessToken 访问token(调用获取token接口获取到的accessToken)
+     * @return
+     */
+    public ApiResult<LoginUserInfoDTO> getUserInfoByToken(String accessToken) {
+        try {
+            if (StringUtils.isBlank(accessToken)) {
+                return ApiResult.fail("accessToken参数不存在");
+            }
+            String result = getUserInfoByTokenJson(accessToken);
+            return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
+        } catch (Exception e) {
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    /**
+     * 根据Token获取用户信息
+     *
+     * @param accessToken 访问token(调用获取token接口获取到的accessToken)
+     * @return
+     */
+    public String getUserInfoByTokenJson(String accessToken) {
+        if (StringUtils.isBlank(accessToken)) {
+            return String.format(err, "accessToken参数不存在");
+        }
+        String url = URI + "/oauth2/getUserInfoByToken?accessToken=" + accessToken;
+        String reqUrl = this.baseInfo.getUrl(url);
+        Map<String, Object> headers = this.baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
+    }
+
+
 }
