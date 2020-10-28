@@ -27,14 +27,15 @@ public class ContactClientTest {
         //0r3MfoWF
         //jYzTIcQulFNkyGdq
         //10.1.7.5:21006/
-        final String openApiUri = "http://10.1.7.5:21006/";
-        final String appId = "0r3MfoWF";
-        final String appSecret = "jYzTIcQulFNkyGdq";
+        final String openApiUri = "http://baas.uban360.net:21006/";
+        final String appId = "ErnIXGv3";
+        final String appSecret = "c04IwsEeEjZiFGji";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
          //test.pullOfSyncByJson(null);
-         test.getOrgInfoByJson(10016L);
+        // test.getOrgInfoByJson(10016L);
+        test.getUidsByDeptBase(10104L, 10003383L, 4);
     }
 
     /**
