@@ -18,6 +18,11 @@ public class TodoTaskDto {
     private String detailUrl;
 
     /**
+     * pc端详情url
+     */
+    private String webDetailUrl;
+
+    /**
      * 封面图片url
      */
     private String coverUrl;
@@ -195,6 +200,14 @@ public class TodoTaskDto {
 
     public void setDetailUrl(String detailUrl) {
         this.detailUrl = detailUrl;
+    }
+
+    public String getWebDetailUrl() {
+        return webDetailUrl;
+    }
+
+    public void setWebDetailUrl(String webDetailUrl) {
+        this.webDetailUrl = webDetailUrl;
     }
 
     public String getCoverUrl() {
