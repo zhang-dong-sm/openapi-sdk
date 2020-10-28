@@ -24,14 +24,17 @@ public class ContactClientTest {
 
     public static void main(String[] args) {
         // 以下配置需要对接相关开发提供
-        final String openApiUri = "https://36.134.7.227:13001/";
-        final String appId = "2Shn5ViI";
-        final String appSecret = "ARs8crZtUa8CJsCE";
+        //0r3MfoWF
+        //jYzTIcQulFNkyGdq
+        //10.1.7.5:21006/
+        final String openApiUri = "http://10.1.7.5:21006/";
+        final String appId = "0r3MfoWF";
+        final String appSecret = "jYzTIcQulFNkyGdq";
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
          //test.pullOfSyncByJson(null);
-         test.getUserInfoByJson(10016L,10024L,0L);
+         test.getOrgInfoByJson(10016L);
     }
 
     /**
