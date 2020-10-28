@@ -64,16 +64,6 @@ public class OkHttpUtils {
                 .connectTimeout(3, TimeUnit.SECONDS)
                 .readTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(30, TimeUnit.SECONDS)
-                // Hostname 36.134.7.227 not verified:
-                //    certificate: sha256/JcM3VHIrQiqsez1tTWiDBQe7vaL7T1SP2edQBPmfN0I=
-                //    DN: CN=36.134.7.227, O="ShinemoOU=Shinemo", L=ZheJiang, ST=HangZhou, C=CN
-                //    subjectAltNames: []
-                .hostnameVerifier(
-                        (s, sslSession) -> {
-                            // TODO: Make this more restrictive
-                            return true;
-                        }
-                )
                 .build()
                 .newCall(builder.build());
     }
