@@ -34,8 +34,8 @@ public class ContactClientTest {
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
          //test.pullOfSyncByJson(null);
-        // test.getOrgInfoByJson(10016L);
-        test.getUidsByDeptBase(10104L, 10003383L, 4);
+         test.getOrgInfoByJson(null);
+        //test.getUidsByDeptBase(10104L, 10003383L, 4);
     }
 
     /**

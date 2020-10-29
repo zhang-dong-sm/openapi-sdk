@@ -4,13 +4,13 @@
 
 接口地址：/org/getOrgInfo +
 请求方式：GET +
-接口描述： 通用接口，根据单位id获取单位详情 +
+接口描述： 通用接口，根据单位编码获取单位详情 +
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
+|orgCode |Long |必须 | |单位编码
 |===
 
 *返回参数：*
@@ -47,15 +47,14 @@ Response响应说明： +
 
 接口地址：/dept/getDeptInfo +
 请求方式：GET +
-接口描述： 通用接口，根据单位id,部门id获取部门详情 +
+接口描述： 通用接口，根据部门编码获取部门详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
-|deptId |Long |必须 | |部门Id
+|deptCode |String |必须 | |部门编码
 |===
 
 *返回参数：*
@@ -95,16 +94,14 @@ Response响应说明： +
 
 接口地址：/user/getUserInfo +
 请求方式：GET +
-接口描述： 通用接口，根据单位id,部门id,用户id获取用户详情 +
+接口描述： 通用接口，根据用户编码获取用户详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
-|deptId |Long |必须 | |部门Id
-|uid |Long |必须 | |用户Id
+|userCode |String |必须 | |用户编码
 |===
 
 *返回参数：*
@@ -148,14 +145,14 @@ Response响应说明： +
 
 接口地址：/org/getOrgInfoList +
 请求方式：GET +
-接口描述： 通用接口，根据单位id,flag标识获取对应级别单位详情 +
+接口描述： 通用接口，根据单位编码,flag标识获取对应级别单位详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
+|orgCode |Long |必须 | |单位编码
 |flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
 |===
 
@@ -210,15 +207,14 @@ Response 返回示例：
 
 接口地址：/dept/getDeptInfoList +
 请求方式：GET +
-接口描述： 通用接口，根据单位id,部门id,flag标识获取对应级别部门详情 +
+接口描述： 通用接口，根据部门编码,flag标识获取对应级别部门详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
-|deptId |Long |必须 | |部门Id
+|deptCode |Long |必须 | |部门编码
 |flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
 |===
 
@@ -386,8 +382,7 @@ Response响应说明： +
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位id
-|deptId |Long |必须 | |部门id
+|deptCode |Long |必须 | |部门编码
 |flag |int |必须 | | 0：在本级部门中查询 1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
 |===
 
@@ -422,14 +417,14 @@ Response响应说明： +
 
 接口地址：/org/getOrgTree +
 请求方式：GET +
-接口描述： 根据单位id获取整某个单位组织架构树 +
+接口描述： 根据单位编码获取整某个单位组织架构树 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位id
+|orgCode |Long |必须 | |单位编码
 |===
 
 *返回参数：*
@@ -494,15 +489,14 @@ Response 返回示例：
 
 接口地址：/dept/getDeptTree +
 请求方式：GET +
-接口描述： 根据单位id,部门id获取对应单位下某个部门组织架构树 +
+接口描述： 根据部门编码获取对应单位下某个部门组织架构树 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位id
-|deptId |Long |必须 | |部门id
+|deptCode |Long |必须 | |部门编码
 |===
 
 *返回参数：*
@@ -581,10 +575,9 @@ Response 返回示例：
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|id |Long |必须 | |单位id
+|code |String |必须 | |单位编码
 |name |String |必须 | |单位名称
 |parentId |Long |必须 | |上级单位id
-|code |String |必须 | |单位编码
 |address |String |必须 | |单位地址
 |===
 
@@ -593,10 +586,9 @@ Response 返回示例：
 [source,json]
 ----
 {
-  "id": "10104",
+  "code": "123456",
   "name": "测试企业",
   "parentId": "10096",
-  "code": "123456",
   "address": "xxx"
 }
 ----
@@ -644,12 +636,10 @@ Response响应说明： +
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|id |Long |必须 | |部门id
-|name |String |必须 | |部门名称
 |code |String |必须 | |部门编码
+|name |String |必须 | |部门名称
 |sequence |Integer |必须 | |部门排序
 |parentId |Long |必须 | |上级部门id
-|orgId |Long |必须 | |对应部门所属单位id
 |leaderUid |Long |必须 | |领导uid
 |===
 
@@ -658,12 +648,10 @@ Response响应说明： +
 [source,json]
 ----
 {
-  "id": "10104",
-  "name": "测试部门",
   "code": "123456",
+  "name": "测试部门",
   "sequence": "12",
   "parentId": "10096",
-  "orgId": "168",
   "leaderUid": "258"
 }
 ----
@@ -712,10 +700,7 @@ Response响应说明： +
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgId |Long |必须 | |单位Id
 |code |String |必须 | |员工编码
-|uid |Long |必须 | |用户Id
-|departmentId |Long |必须 | |部门Id
 |sequence |Integer|必须 |  |员工排序
 |mobile |String |必须 | |手机号
 |title |String |必须 |  |职位
@@ -730,10 +715,7 @@ Response响应说明： +
 [source,json]
 ----
 {
-  "orgId": "10104",
   "code": "123",
-  "uid": "123456",
-  "departmentId": "1258",
   "sequence": "12",
   "mobile": "123456789",
   "title": "xxx",
