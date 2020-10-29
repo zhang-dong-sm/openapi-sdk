@@ -66,12 +66,12 @@ public class LoginClient extends ApiClient {
      * @param code 授权码(调用授权接口获得的授权码code)
      * @return
      */
-    public ApiResult getToken(String code) {
+    public ApiResult getAccessTokenByCode(String code) {
         try {
             if (StringUtils.isBlank(code)) {
                 return ApiResult.fail("code参数不存在");
             }
-            String result = getTokenByJson(code);
+            String result = getAccessTokenByCodeByJson(code);
             return ApiResultUtils.convert(result, ApiResult.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
@@ -84,11 +84,11 @@ public class LoginClient extends ApiClient {
      * @param code 授权码(调用授权接口获得的授权码code)
      * @return
      */
-    public String getTokenByJson(String code) {
+    public String getAccessTokenByCodeByJson(String code) {
         if (StringUtils.isBlank(code)) {
             return String.format(err, "code参数不存在");
         }
-        String url = URI + "/oauth2/getToken?code=" + code;
+        String url = URI + "/oauth2/getTokenByCode?code=" + code;
         String reqUrl = this.baseInfo.getUrl(url);
         Map<String, Object> headers = this.baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
