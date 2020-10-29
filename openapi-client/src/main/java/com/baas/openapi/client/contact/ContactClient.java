@@ -66,12 +66,12 @@ public class ContactClient extends ApiClient {
     /**
      * 获取单位详情
      *
-     * @param orgId 单位id
+     * @param orgCode 单位编码
      * @return
      */
-    public ApiResult<OrgInfoDTO> getOrgInfo(Long orgId) {
+    public ApiResult<OrgInfoDTO> getOrgInfo(String orgCode) {
         try {
-            String result = getOrgInfoByJson(orgId);
+            String result = getOrgInfoByJson(orgCode);
             return ApiResultUtils.convert(result, OrgInfoDTO.class);
         } catch (Exception e) {
             LogFactory.error("getOrgInfo fail - msg:{},ex:", e.getMessage(), e);
@@ -82,13 +82,13 @@ public class ContactClient extends ApiClient {
     /**
      * 获取单位详情
      *
-     * @param orgId 单位id
+     * @param orgCode 单位编码
      * @return
      */
-    public String getOrgInfoByJson(Long orgId) {
+    public String getOrgInfoByJson(String orgCode) {
         String url = baseInfo.getUrl(URI + "/org/getOrgInfo");
-        if (orgId != null) {
-            url = url + "?orgId=" + orgId;
+        if (orgCode != null) {
+            url = url + "?orgCode=" + orgCode;
         }
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
@@ -97,13 +97,12 @@ public class ContactClient extends ApiClient {
     /**
      * 获取部门详情
      *
-     * @param orgId  单位id
-     * @param deptId 部门id
+     * @param deptCode 部门编码
      * @return
      */
-    public ApiResult<DeptInfoDTO> getDeptInfo(Long orgId, Long deptId) {
+    public ApiResult<DeptInfoDTO> getDeptInfo(String deptCode) {
         try {
-            String result = getDeptInfoByJson(orgId, deptId);
+            String result = getDeptInfoByJson(deptCode);
             return ApiResultUtils.convert(result, DeptInfoDTO.class);
         } catch (Exception e) {
             LogFactory.error("getDeptInfo fail - msg:{},ex:", e.getMessage(), e);
@@ -114,14 +113,13 @@ public class ContactClient extends ApiClient {
     /**
      * 获取部门详情
      *
-     * @param orgId
-     * @param deptId
+     * @param deptCode
      * @return
      */
-    public String getDeptInfoByJson(Long orgId, Long deptId) {
+    public String getDeptInfoByJson(String deptCode) {
         String url = baseInfo.getUrl(URI + "/dept/getDeptInfo");
-        if (orgId != null && deptId != null) {
-            url = url + "?orgId=" + orgId + "&deptId=" + deptId;
+        if (deptCode != null) {
+            url = url + "?deptCode=" + deptCode;
         }
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
