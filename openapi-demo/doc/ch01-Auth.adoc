@@ -477,14 +477,38 @@ data对象结构： +
 | 成功
 
 | 500
-| 异常(具体错误见msg字段)
+| 异常(详情见返回msg)
+
+| 20001
+| accessToken不存在
+
+| 20002
+| accessToken不合法
+
+| 20003
+| accessToken已过期
+
+| 20004
+| code不存在
+
+| 20005
+| code不合法
+
+| 20006
+| code已过期
+
+| 20007
+| ssoToken不存在
+
+| 20008
+| ssoToken不合法
+
+| 20009
+| ssoToken已过期
+
+| 20010
+| ssoToken校验不通过
 |===
-
-
-
-
-
-
 
 
 
