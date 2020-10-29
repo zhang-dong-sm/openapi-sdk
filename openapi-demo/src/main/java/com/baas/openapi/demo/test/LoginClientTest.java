@@ -1,15 +1,7 @@
 package com.baas.openapi.demo.test;
 
-import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
-import com.baas.openapi.client.contact.ContactClient;
-import com.baas.openapi.client.contact.dto.DeptDto;
-import com.baas.openapi.client.contact.dto.OrgDto;
-import com.baas.openapi.client.contact.dto.UserDto;
 import com.baas.openapi.client.login.LoginClient;
-import com.shinemo.baas.openapi.login.client.dto.LoginUserInfoDTO;
-
-import java.util.List;
 
 /**
  * Create Time:2020/9/1

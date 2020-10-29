@@ -1,11 +1,11 @@
 package com.baas.openapi.demo.test;
 
 import com.baas.openapi.client.common.config.ApiResult;
+import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.contact.ContactClient;
 import com.baas.openapi.client.contact.dto.DeptDto;
 import com.baas.openapi.client.contact.dto.OrgDto;
 import com.baas.openapi.client.contact.dto.UserDto;
-import com.baas.openapi.client.common.config.BaseConfig;
 
 import java.util.List;
 
@@ -33,8 +33,8 @@ public class ContactClientTest {
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
-         //test.pullOfSyncByJson(null);
-         test.getOrgInfoByJson(null);
+        //test.pullOfSyncByJson(null);
+//        test.getOrgInfoByJson(null);
         //test.getUidsByDeptBase(10104L, 10003383L, 4);
     }
 
@@ -58,60 +58,60 @@ public class ContactClientTest {
         System.out.println(apiResult.getCode());
     }
 
-    public void pullOfSyncByJson(Long orgId) {
-        String json = contactClient.pullOfSyncByJson(orgId);
-        System.out.println(json);
-    }
-
-    public void getOrgInfoByJson(Long orgId) {
-        String json = contactClient.getOrgInfoByJson(orgId);
-        System.out.println(json);
-    }
-
-    public void getDeptInfoByJson(Long orgId, Long deptId) {
-        String json = contactClient.getDeptInfoByJson(orgId, deptId);
-        System.out.println(json);
-    }
-
-    public void getUserInfoByJson(Long orgId, Long deptId, Long uid) {
-        String json = contactClient.getUserInfoByJson(orgId, deptId, uid);
-        System.out.println(json);
-    }
-
-    public void getOrgInfoListByJson(Long orgId, int flag) {
-        String json = contactClient.getOrgInfoListByJson(orgId, flag);
-        System.out.println(json);
-    }
-
-    public void getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-        String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
-        System.out.println(json);
-    }
-
-    public void getThirdUserInfo(Long uid) {
-        String json = contactClient.getThirdUserInfo(uid);
-        System.out.println(json);
-    }
-
-    public void getUidsByRoleBase(String roleCode, Long devId) {
-        String json = contactClient.getUidsByRoleBase(roleCode, devId);
-        System.out.println(json);
-    }
-
-    public void getUidsByDeptBase(Long orgId, Long deptId, int flag) {
-        String json = contactClient.getUidsByDeptBase(orgId, deptId, flag);
-        System.out.println(json);
-    }
-
-    public void getOrgTreeBase(Long orgId) {
-        String json = contactClient.getOrgTreeBase(orgId);
-        System.out.println(json);
-    }
-
-    public void getDeptTreeBase(Long orgId, Long deptId) {
-        String json = contactClient.getDeptTreeBase(orgId, deptId);
-        System.out.println(json);
-    }
+//    public void pullOfSyncByJson(Long orgId) {
+//        String json = contactClient.pullOfSyncByJson(orgId);
+//        System.out.println(json);
+//    }
+//
+//    public void getOrgInfoByJson(Long orgId) {
+//        String json = contactClient.getOrgInfoByJson(orgId);
+//        System.out.println(json);
+//    }
+//
+//    public void getDeptInfoByJson(Long orgId, Long deptId) {
+//        String json = contactClient.getDeptInfoByJson(orgId, deptId);
+//        System.out.println(json);
+//    }
+//
+//    public void getUserInfoByJson(Long orgId, Long deptId, Long uid) {
+//        String json = contactClient.getUserInfoByJson(orgId, deptId, uid);
+//        System.out.println(json);
+//    }
+//
+//    public void getOrgInfoListByJson(Long orgId, int flag) {
+//        String json = contactClient.getOrgInfoListByJson(orgId, flag);
+//        System.out.println(json);
+//    }
+//
+//    public void getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
+//        String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
+//        System.out.println(json);
+//    }
+//
+//    public void getThirdUserInfo(Long uid) {
+//        String json = contactClient.getThirdUserInfo(uid);
+//        System.out.println(json);
+//    }
+//
+//    public void getUidsByRoleBase(String roleCode, Long devId) {
+//        String json = contactClient.getUidsByRoleBase(roleCode, devId);
+//        System.out.println(json);
+//    }
+//
+//    public void getUidsByDeptBase(Long orgId, Long deptId, int flag) {
+//        String json = contactClient.getUidsByDeptBase(orgId, deptId, flag);
+//        System.out.println(json);
+//    }
+//
+//    public void getOrgTreeBase(Long orgId) {
+//        String json = contactClient.getOrgTreeBase(orgId);
+//        System.out.println(json);
+//    }
+//
+//    public void getDeptTreeBase(Long orgId, Long deptId) {
+//        String json = contactClient.getDeptTreeBase(orgId, deptId);
+//        System.out.println(json);
+//    }
 
 
 }
