@@ -172,9 +172,7 @@ data对象结构： +
 
 ==== OAuth流程
 
-image::image/单点登录流程.png[]
-
-image::image/OAuth认证流程.png[]
+image::image/统一认证流程.png[]
 
 ==== 应用授权
 
