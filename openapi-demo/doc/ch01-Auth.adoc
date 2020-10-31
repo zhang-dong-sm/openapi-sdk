@@ -164,15 +164,24 @@ data对象结构： +
 
 === PC端
 
-    PC跳转第三方应用采用OAuth2.0标准，以授权码模式完成认证过程
+    PC跳转第三方应用采用OAuth2.0标准，以授权码模式完成认证过程。
 
 ==== OAuth介绍
 
-    OAuth是一个关于授权的开放的网络协议，在第三方应用与服务提供商之间设置一个授权层。第三方应用不能直接登录服务提供商，只能登录授权层，以此将用户与客户端区分开来。第三方应用登录授权层所用的令牌，与用户的密码不同。用户可以在登录授权的时候，指定授权层令牌的权限范围和有效期。第三方应用登录授权层以后，服务提供商根据令牌的权限范围和有效期，向第三方应用开放用户资源。
+隐式授权模式::
+第一步：用户访问页面时，重定向到认证服务器。 +
+第二步：认证服务器给用户一个认证页面，等待用户授权。 +
+第三步：用户授权，认证服务器想应用页面返回Token +
+第四步：验证Token，访问真正的资源页面 +
+适用于场景：
+
 
 ==== OAuth流程
 
 image::image/认证授权码模式.png[]
+
+备注::
+如果第三方应用有自己的会话体系，则可以不执行写cookie和校验cookie的操作，但需要在每次业务请求调用中，后端都必须调用刷新token接口，用于维护主平台与第三方应用的token有效时间保持一致
 
 ==== 应用授权
 
@@ -284,10 +293,10 @@ Query：
 |
 
 | data
-| string
+| object
 | 是
 |
-| 访问Token，用于交换用户信息
+| 数据对象
 |
 
 | code
@@ -295,6 +304,26 @@ Query：
 | 是
 | 0
 | 状态码 code=200表示接口调用成功,其他标识失败
+|
+|===
+
+data字段结构::
+
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| accessToken
+| string
+| 是
+| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
+| 访问token，用于获取用户信息
+|
+
+| refreshToken
+| string
+| 是
+| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
+| 刷新token，用于刷新主平台会话
 |
 |===
 
@@ -306,7 +335,10 @@ Query：
     "code": 200,
     "msg": "",
     "success": true,
-    "data": "MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw=="
+    "data": {
+        "accessToken":"MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==",
+        "refreshToken":"WDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw=="
+    }
 }
 ....
 
@@ -459,12 +491,121 @@ data对象结构： +
 [source,json]
 ....
 {
-    "code": 500,
-    "msg": "token过期",
+    "code": 20003,
+    "msg": "accessToken已过期",
     "success": false,
     "data": null
 }
 ....
+
+
+==== RefreshToken刷新主平台会话(可选)
+
+基本信息::
+接口名称：根据刷新Token刷新主平台会话 +
+接口地址：/oauth2/refreshSessionByToken +
+请求方式：GET +
+接口描述： +
+该接口用于第三方应用获取用户信息，姓名、手机号、登录账号、唯一标识等 +
+
+请求参数::
+Headers：
+
+|===
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
+|===
+
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| refreshToken
+| 否
+| MDAwMDkzMDQ3QkQzRkQ0QjcyMThDRjdGMjQw==
+| 刷新token(调用获取token接口获取到的accessToken)
+|===
+
+返回数据::
+响应体结构： +
+
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+| null
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
+|===
+
+`成功响应数据样例:`
+
+[source,json]
+....
+{
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": null
+}
+....
+
+`失败响应数据样例:`
+
+[source,json]
+....
+{
+    "code": 20013,
+    "msg": "refreshToken已过期",
+    "success": false,
+    "data": null
+}
+....
+
+
+
 
 ==== 返回码参考
 
@@ -506,6 +647,15 @@ data对象结构： +
 
 | 20010
 | ssoToken校验不通过
+
+| 20011
+| refreshToken不存在
+
+| 20012
+| refreshToken不合法
+
+| 20013
+| refreshToken已过期
 |===
 
 

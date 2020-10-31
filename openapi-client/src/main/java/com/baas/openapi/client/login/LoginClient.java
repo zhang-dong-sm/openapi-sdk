@@ -5,8 +5,9 @@ import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
-import com.shinemo.baas.openapi.login.client.dto.LoginUserInfoDTO;
 import com.baas.openapi.client.common.util.StringUtils;
+import com.shinemo.baas.openapi.login.client.dto.LoginUserInfoDTO;
+import com.shinemo.baas.openapi.login.client.dto.TokenDTO;
 
 import java.util.Map;
 
@@ -66,13 +67,13 @@ public class LoginClient extends ApiClient {
      * @param code 授权码(调用授权接口获得的授权码code)
      * @return
      */
-    public ApiResult getAccessTokenByCode(String code) {
+    public ApiResult<TokenDTO> getTokenByCode(String code) {
         try {
             if (StringUtils.isBlank(code)) {
                 return ApiResult.fail("code参数不存在");
             }
-            String result = getAccessTokenByCodeByJson(code);
-            return ApiResultUtils.convert(result, ApiResult.class);
+            String result = getTokenByCodeByJson(code);
+            return ApiResultUtils.convert(result, TokenDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
         }
@@ -84,7 +85,7 @@ public class LoginClient extends ApiClient {
      * @param code 授权码(调用授权接口获得的授权码code)
      * @return
      */
-    public String getAccessTokenByCodeByJson(String code) {
+    public String getTokenByCodeByJson(String code) {
         if (StringUtils.isBlank(code)) {
             return String.format(err, "code参数不存在");
         }
@@ -105,7 +106,7 @@ public class LoginClient extends ApiClient {
             if (StringUtils.isBlank(accessToken)) {
                 return ApiResult.fail("accessToken参数不存在");
             }
-            String result = getUserInfoByAccessTokenJson(accessToken);
+            String result = getUserInfoByATByJson(accessToken);
             return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
@@ -118,7 +119,7 @@ public class LoginClient extends ApiClient {
      * @param accessToken 访问token(调用获取token接口获取到的accessToken)
      * @return
      */
-    public String getUserInfoByAccessTokenJson(String accessToken) {
+    public String getUserInfoByATByJson(String accessToken) {
         if (StringUtils.isBlank(accessToken)) {
             return String.format(err, "accessToken参数不存在");
         }
@@ -129,4 +130,37 @@ public class LoginClient extends ApiClient {
     }
 
 
+    /**
+     * 根据refreshToken刷新主平台会话
+     *
+     * @param refreshToken
+     * @return
+     */
+    public ApiResult<LoginUserInfoDTO> refreshSessionByRT(String refreshToken) {
+        try {
+            if (StringUtils.isBlank(refreshToken)) {
+                return ApiResult.fail("refreshToken参数不存在");
+            }
+            String result = refreshSessionByRTByJson(refreshToken);
+            return ApiResultUtils.convert(result, LoginUserInfoDTO.class);
+        } catch (Exception e) {
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    /**
+     * 根据refreshToken刷新主平台会话
+     *
+     * @param refreshToken
+     * @return
+     */
+    public String refreshSessionByRTByJson(String refreshToken) {
+        if (StringUtils.isBlank(refreshToken)) {
+            return String.format(err, "refreshToken参数不存在");
+        }
+        String url = URI + "/oauth2/refreshSessionByToken?refreshToken=" + refreshToken;
+        String reqUrl = this.baseInfo.getUrl(url);
+        Map<String, Object> headers = this.baseInfo.getHeaders(0);
+        return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
+    }
 }
