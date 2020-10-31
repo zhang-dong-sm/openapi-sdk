@@ -8,3 +8,7 @@ target
 out
 gen
 *.log
+/openapi-client/openapi-client.ipr
+/openapi-client/openapi-client.iws
+/openapi-sdk.ipr
+/openapi-sdk.iws
