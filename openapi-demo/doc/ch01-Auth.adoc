@@ -164,7 +164,7 @@ data对象结构： +
 
 === PC端
 
-    PC跳转第三方应用采用OAuth2.0标准
+    PC跳转第三方应用采用OAuth2.0标准，以授权码模式完成认证过程
 
 ==== OAuth介绍
 
@@ -172,13 +172,13 @@ data对象结构： +
 
 ==== OAuth流程
 
-image::image/统一认证流程.png[]
+image::image/认证授权码模式.png[]
 
 ==== 应用授权
 
 基本信息::
 接口名称：应用授权 +
-接口地址：https://{host}:{port}/oauth2/authorize +
+接口地址：https://{host}:{port}/login/#/login +
 请求方式：GET +
 接口描述： +
 此接口是浏览器redirect跳转方式调用； +
