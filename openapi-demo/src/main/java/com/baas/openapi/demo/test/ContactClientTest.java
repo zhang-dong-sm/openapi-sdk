@@ -6,6 +6,7 @@ import com.baas.openapi.client.contact.ContactClient;
 import com.baas.openapi.client.contact.dto.DeptDto;
 import com.baas.openapi.client.contact.dto.OrgDto;
 import com.baas.openapi.client.contact.dto.UserDto;
+import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class ContactClientTest {
         //test.pullOfSyncByJson(null);
 //        test.getOrgInfoByJson(null);
         //test.getUidsByDeptBase(10104L, 10003383L, 4);
+        test.saveOrgBase();
     }
 
     /**
@@ -112,6 +114,17 @@ public class ContactClientTest {
 //        String json = contactClient.getDeptTreeBase(orgId, deptId);
 //        System.out.println(json);
 //    }
+
+    public void saveOrgBase() {
+        OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
+        orgInfoDTO.setId(10105L);
+        orgInfoDTO.setParentId(0L);
+        orgInfoDTO.setCode("123");
+        orgInfoDTO.setName("测试3330");
+        orgInfoDTO.setAddress("xxxxxx");
+        String json = contactClient.saveOrgBase(orgInfoDTO);
+        System.out.println(json);
+    }
 
 
 }

@@ -8,6 +8,7 @@ import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.JsonUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
 import com.baas.openapi.client.contact.dto.OrgDto;
+import com.baas.openapi.client.message.dto.SmsMessageDto;
 import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
@@ -369,5 +370,21 @@ public class ContactClient extends ApiClient {
         }
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
+    }
+
+    public ApiResult saveOrg(OrgInfoDTO orgInfoDTO) {
+        try {
+            return JsonUtils.fromJson(saveOrgBase(orgInfoDTO), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    public String saveOrgBase(OrgInfoDTO orgInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/org/saveOrg");
+        String paramJson = JsonUtils.toJson(orgInfoDTO);
+        Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
+        return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
     }
 }
