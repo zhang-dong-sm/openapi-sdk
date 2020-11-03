@@ -6,7 +6,9 @@ import com.baas.openapi.client.contact.ContactClient;
 import com.baas.openapi.client.contact.dto.DeptDto;
 import com.baas.openapi.client.contact.dto.OrgDto;
 import com.baas.openapi.client.contact.dto.UserDto;
+import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
+import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
 
 import java.util.List;
 
@@ -122,6 +124,61 @@ public class ContactClientTest {
         orgInfoDTO.setName("测试3330");
         orgInfoDTO.setAddress("xxxxxx");
         String json = contactClient.saveOrgBase(orgInfoDTO);
+        System.out.println(json);
+    }
+
+    /**
+     * {
+     *     "name":"冰山部门",
+     *     "parentId":0,
+     *     "code":"113456",
+     *     "address":"123",
+     *     "sequence":1,
+     *     "orgId":11912,
+     *     "leaderUid":123
+     * }
+     * 冰山
+     * {
+     *     "orgId":11914,
+     *     "code":"113456777",
+     *     "uid":"555",
+     *     "departmentId":"10004007",
+     *     "parentId":0,
+     *     "mobile":"113456",
+     *     "title":"123",
+     *     "sequence":1,
+     *     "orgId":11912,
+     *     "name":"冰山",
+     *     "email":"bingshan@foxmail.com",
+     *     "account":"123"
+     * }
+     */
+
+    public void saveDeptBase() {
+        DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
+        deptInfoDTO.setName("冰山部门");
+        deptInfoDTO.setParentId(0L);
+        deptInfoDTO.setCode("113456");
+        deptInfoDTO.setSequence(1);
+        deptInfoDTO.setOrgId(11912L);
+        deptInfoDTO.setLeaderUid(123L);
+        String json = contactClient.saveDeptBase(deptInfoDTO);
+        System.out.println(json);
+    }
+
+    public void saveUserBase() {
+        UserInfoDTO userInfoDTO = new UserInfoDTO();
+        userInfoDTO.setOrgId(0L);
+        userInfoDTO.setCode("123");
+        userInfoDTO.setUid(555L);
+        userInfoDTO.setDepartmentId(555L);
+        userInfoDTO.setMobile("12345678998");
+        userInfoDTO.setTitle("123");
+        userInfoDTO.setSequence(1);
+        userInfoDTO.setName("bingshan");
+        userInfoDTO.setEmail("bingshan@foxmail.com");
+        userInfoDTO.setAccount("123");
+        String json = contactClient.saveUserBase(userInfoDTO);
         System.out.println(json);
     }
 
