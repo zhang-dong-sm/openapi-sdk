@@ -117,7 +117,6 @@ public class ContactClientTest {
 
     public void saveOrgBase() {
         OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
-        orgInfoDTO.setId(10105L);
         orgInfoDTO.setParentId(0L);
         orgInfoDTO.setCode("123");
         orgInfoDTO.setName("测试3330");
