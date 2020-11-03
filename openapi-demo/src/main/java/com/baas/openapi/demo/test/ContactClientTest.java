@@ -127,32 +127,6 @@ public class ContactClientTest {
         System.out.println(json);
     }
 
-    /**
-     * {
-     *     "name":"冰山部门",
-     *     "parentId":0,
-     *     "code":"113456",
-     *     "address":"123",
-     *     "sequence":1,
-     *     "orgId":11912,
-     *     "leaderUid":123
-     * }
-     * 冰山
-     * {
-     *     "orgId":11914,
-     *     "code":"113456777",
-     *     "uid":"555",
-     *     "departmentId":"10004007",
-     *     "parentId":0,
-     *     "mobile":"113456",
-     *     "title":"123",
-     *     "sequence":1,
-     *     "orgId":11912,
-     *     "name":"冰山",
-     *     "email":"bingshan@foxmail.com",
-     *     "account":"123"
-     * }
-     */
 
     public void saveDeptBase() {
         DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
