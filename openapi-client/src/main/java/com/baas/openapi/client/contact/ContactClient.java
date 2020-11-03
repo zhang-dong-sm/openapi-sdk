@@ -387,4 +387,36 @@ public class ContactClient extends ApiClient {
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
         return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
     }
+
+    public ApiResult saveDept(DeptInfoDTO deptInfoDTO) {
+        try {
+            return JsonUtils.fromJson(saveDeptBase(deptInfoDTO), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    public String saveDeptBase(DeptInfoDTO deptInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/dept/saveDept");
+        String paramJson = JsonUtils.toJson(deptInfoDTO);
+        Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
+        return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
+    }
+
+    public ApiResult saveUser(UserInfoDTO userInfoDTO) {
+        try {
+            return JsonUtils.fromJson(saveUserBase(userInfoDTO), ApiResult.class);
+        } catch (Exception e) {
+            LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
+            return ApiResult.fail("请求失败");
+        }
+    }
+
+    public String saveUserBase(UserInfoDTO userInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/user/saveUser");
+        String paramJson = JsonUtils.toJson(userInfoDTO);
+        Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
+        return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
+    }
 }
