@@ -43,6 +43,8 @@ public class LoginClient extends ApiClient {
         }
     }
 
+
+
     private final String err = "{\"success\":false,\"date\":null,\"msg\":\"%s\",\"code\":500}";
 
     /**
@@ -95,6 +97,8 @@ public class LoginClient extends ApiClient {
         return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
     }
 
+
+
     /**
      * 根据Token获取用户信息
      *
@@ -146,6 +150,17 @@ public class LoginClient extends ApiClient {
         } catch (Exception e) {
             return ApiResult.fail("请求失败");
         }
+    }
+
+    /**
+
+     */
+    public String loginTest() {
+            String url = URI + "/oauth2/loginTest" ;
+            String reqUrl = this.baseInfo.getUrl(url);
+            Map<String, Object> headers = this.baseInfo.getHeaders(0);
+            return OkHttpUtils.syncHttps(reqUrl, "GET", headers, null, null);
+
     }
 
     /**
