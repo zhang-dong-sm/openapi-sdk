@@ -6,8 +6,8 @@ import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.factory.LogFactory;
 import com.baas.openapi.client.common.util.JsonUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
-import com.baas.openapi.client.todocenter.dto.TodoTaskDto;
 import com.baas.openapi.client.common.util.StringUtils;
+import com.baas.openapi.client.todocenter.dto.TodoTaskDto;
 
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -38,9 +38,9 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 待办任务列表
      * @return com.shinemo.baas.openapi.client.common.config.ApiResult
      */
-    public ApiResult pushBatch(List<TodoTaskDto> todoTasks) {
+    public ApiResult pushBatch(List<TodoTaskDto> todoTasks, String accountSource) {
         try {
-            return JsonUtils.fromJson(pushBatchBase(todoTasks), ApiResult.class);
+            return JsonUtils.fromJson(pushBatchBase(todoTasks, accountSource), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("pushBatch fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
@@ -53,7 +53,7 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 待办任务列表
      * @return json串
      */
-    private String pushBatchBase(List<TodoTaskDto> todoTasks) {
+    private String pushBatchBase(List<TodoTaskDto> todoTasks, String accountSource) {
         if (todoTasks == null || todoTasks.isEmpty()) {
             return "To-do task cannot be empty!";
         }
@@ -62,6 +62,9 @@ public class TodoCenterClient extends ApiClient {
         // 这里的appId只是占位符，真正的值取自于开发平台透传的appId
         paramMap.put("appId", "Third-Party");
         paramMap.put("appTasks", todoTasks);
+        if (StringUtils.isNotBlank(accountSource)) {
+            paramMap.put("accountSource", accountSource);
+        }
 
         String url = baseInfo.getUrl(URI + "/web/todo-task/pushBatch");
         String paramJson = JsonUtils.toJson(paramMap);
@@ -110,9 +113,9 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 应用中的待办事项id / 待办事项关联的处理人id列表
      * @return com.shinemo.baas.openapi.client.common.config.ApiResult
      */
-    public ApiResult revokeBatch(List<TodoTaskDto> todoTasks) {
+    public ApiResult revokeBatch(List<TodoTaskDto> todoTasks, String accountSource) {
         try {
-            return JsonUtils.fromJson(revokeBatchBase(todoTasks), ApiResult.class);
+            return JsonUtils.fromJson(revokeBatchBase(todoTasks, accountSource), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("revokeBatch fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
@@ -125,7 +128,7 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 应用中的待办事项id / 待办事项关联的处理人id列表
      * @return String
      */
-    private String revokeBatchBase(List<TodoTaskDto> todoTasks) {
+    private String revokeBatchBase(List<TodoTaskDto> todoTasks, String accountSource) {
         List<TodoTaskDto> okTodoTasks = todoTasks.stream()
                 .filter(dto -> StringUtils.isNotBlank(dto.getAppTaskId()))
                 .collect(Collectors.toList());
@@ -136,6 +139,9 @@ public class TodoCenterClient extends ApiClient {
         // 这里的appId只是占位符，真正的值取自于开发平台透传的appId
         paramMap.put("appId", "Third-Party");
         paramMap.put("appTasks", okTodoTasks);
+        if (StringUtils.isNotBlank(accountSource)) {
+            paramMap.put("accountSource", accountSource);
+        }
 
         String url = baseInfo.getUrl(URI + "/web/todo-task/revokeBatch");
         String paramJson = JsonUtils.toJson(paramMap);
@@ -151,9 +157,9 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 应用中的待办事项id / 待办事项关联的处理人id列表
      * @return com.shinemo.baas.openapi.client.common.config.ApiResult
      */
-    public ApiResult finishBatch(List<TodoTaskDto> todoTasks) {
+    public ApiResult finishBatch(List<TodoTaskDto> todoTasks, String accountSource) {
         try {
-            return JsonUtils.fromJson(finishBatchBase(todoTasks), ApiResult.class);
+            return JsonUtils.fromJson(finishBatchBase(todoTasks, accountSource), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("finishBatch fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
@@ -166,7 +172,7 @@ public class TodoCenterClient extends ApiClient {
      * @param todoTasks 应用中的待办事项id / 待办事项关联的处理人id列表
      * @return String
      */
-    private String finishBatchBase(List<TodoTaskDto> todoTasks) {
+    private String finishBatchBase(List<TodoTaskDto> todoTasks, String accountSource) {
         List<TodoTaskDto> okTodoTasks = todoTasks.stream()
                 .filter(dto -> StringUtils.isNotBlank(dto.getAppTaskId()))
                 .collect(Collectors.toList());
@@ -179,6 +185,9 @@ public class TodoCenterClient extends ApiClient {
         // 这里的appId只是占位符，真正的值取自于开发平台透传的appId
         paramMap.put("appId", "Third-Party");
         paramMap.put("appTasks", okTodoTasks);
+        if (StringUtils.isNotBlank(accountSource)) {
+            paramMap.put("accountSource", accountSource);
+        }
 
         String url = baseInfo.getUrl(URI + "/web/todo-task/finishBatch");
         String paramJson = JsonUtils.toJson(paramMap);
@@ -241,7 +250,7 @@ public class TodoCenterClient extends ApiClient {
      * @param handlerAccounts 处理人账号列表
      * @return ApiResult
      */
-    public ApiResult sendTaskToHandlerAccount(String appTaskId, List<String> handlerAccounts) {
+    public ApiResult sendTaskToHandlerAccount(String appTaskId, List<String> handlerAccounts, String accountSource) {
         try {
             if (StringUtils.isBlank(appTaskId)) {
                 return ApiResult.fail("appTaskId cannot be empty!");
@@ -256,6 +265,9 @@ public class TodoCenterClient extends ApiClient {
             paramMap.put("appId", "Third-Party");
             paramMap.put("appTaskId", appTaskId);
             paramMap.put("handlerAccounts", handlerAccounts);
+            if (StringUtils.isNotBlank(accountSource)) {
+                paramMap.put("accountSource", accountSource);
+            }
 
             String url = baseInfo.getUrl(URI + "/web/todo-task/sendTaskToHandler");
             String paramJson = JsonUtils.toJson(paramMap);
