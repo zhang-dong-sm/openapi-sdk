@@ -428,7 +428,7 @@ Response响应说明： +
 |名称 |类型 |是否必须 |默认值 |备注
 |code |String |必须 | |单位编码
 |name |String |必须 | |单位名称
-|parentId |Long |必须 | |上级单位id
+|parentCode |Long |必须 | |上级单位id
 |address |String |必须 | |单位地址
 |===
 
@@ -439,7 +439,7 @@ Response响应说明： +
 {
   "code": "123456",
   "name": "测试企业",
-  "parentId": "10096",
+  "parentCode": "10096",
   "address": "xxx"
 }
 ----
@@ -490,7 +490,7 @@ Response响应说明： +
 |code |String |必须 | |部门编码
 |name |String |必须 | |部门名称
 |sequence |Integer |必须 | |部门排序
-|parentId |Long |必须 | |上级部门id
+|parentCode |Long |必须 | |上级部门id
 |leaderUid |Long |必须 | |领导uid
 |===
 
@@ -502,7 +502,7 @@ Response响应说明： +
   "code": "123456",
   "name": "测试部门",
   "sequence": "12",
-  "parentId": "10096",
+  "parentCode": "10096",
   "leaderUid": "258"
 }
 ----
@@ -551,7 +551,9 @@ Response响应说明： +
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|code |String |必须 | |员工编码
+|orgCode |String |必须 | |单位编码
+|deptCode |String |必须 | |部门编码
+|userCode |String |必须 | |员工编码
 |sequence |Integer|必须 |  |员工排序
 |mobile |String |必须 | |手机号
 |title |String |必须 |  |职位
@@ -566,7 +568,9 @@ Response响应说明： +
 [source,json]
 ----
 {
-  "code": "123",
+  "orgCode": "123",
+  "deptCode":"45",
+  "userCode": "123",
   "sequence": "12",
   "mobile": "123456789",
   "title": "xxx",
