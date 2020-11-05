@@ -14,7 +14,7 @@
 *请求参数：*
 
 ____
-注意：最外层是appTasks，详见请求示例
+注意：最外层是appTasks，accountSource; 详见请求示例
 ____
 
 [cols="<,<,<,<,<",options="header",]
@@ -61,6 +61,7 @@ handleEntry嵌套结构：
 [source,json]
 ----
 {
+    "accountSource": "userCode",
     "appTasks":[
         {
             "businessType":1,
@@ -119,7 +120,7 @@ handleEntry嵌套结构：
 *请求参数：*
 
 ____
-注意：最外层是appTasks，详见请求示例
+注意：最外层是appTasks，accountSource; 详见请求示例
 ____
 
 [cols="<,<,<,<,<",options="header",]
@@ -135,6 +136,7 @@ ____
 [source,json]
 ----
 {
+    "accountSource": "userCode",
     "appTasks":[
         {
             "appTaskId":"appTaskId",
@@ -170,6 +172,10 @@ ____
 
 *请求参数：*
 
+____
+注意：最外层是appTasks，accountSource; 详见请求示例
+____
+
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
@@ -183,6 +189,7 @@ ____
 [source,json]
 ----
 {
+    "accountSource": "userCode",
     "appTasks":[
         {
             "appTaskId":"appTaskId",
@@ -219,6 +226,7 @@ ____
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
+|accountSource |string |非必须 | |账号源头
 |appTaskId |string |必须 | |应用中的待办任务id
 |handlerIds |integer [] |非必须(基于通讯录时：必须) | |处理人id列表
 |handlerAccounts |string [] |非必须(基于IAM时：必须) | |处理人账号列表
@@ -229,6 +237,7 @@ ____
 [source,json]
 ----
 {
+  "accountSource": "userCode",
   "appTaskId": "appTaskId",
   "handlerIds": [
     8888890571,
