@@ -428,7 +428,7 @@ Response响应说明： +
 |名称 |类型 |是否必须 |默认值 |备注
 |code |String |必须 | |单位编码
 |name |String |必须 | |单位名称
-|parentCode |Long |必须 | |上级单位id
+|parentCode |Long |必须 | |上级单位code
 |address |String |必须 | |单位地址
 |===
 
@@ -490,8 +490,8 @@ Response响应说明： +
 |code |String |必须 | |部门编码
 |name |String |必须 | |部门名称
 |sequence |Integer |必须 | |部门排序
-|parentCode |Long |必须 | |上级部门id
-|leaderUid |Long |必须 | |领导uid
+|parentCode |Long |必须 | |上级部门code
+|leaderCode |Long |必须 | |领导code
 |===
 
 *请求示例：*
