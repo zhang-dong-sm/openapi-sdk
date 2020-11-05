@@ -119,8 +119,8 @@ public class ContactClientTest {
 
     public void saveOrgBase() {
         OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
-        orgInfoDTO.setParentId(0L);
-        orgInfoDTO.setCode("123");
+        orgInfoDTO.setParentCode("0");
+        orgInfoDTO.setCode("12345");
         orgInfoDTO.setName("测试3330");
         orgInfoDTO.setAddress("xxxxxx");
         String json = contactClient.saveOrgBase(orgInfoDTO);
@@ -130,22 +130,21 @@ public class ContactClientTest {
 
     public void saveDeptBase() {
         DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
-        deptInfoDTO.setName("冰山部门");
-        deptInfoDTO.setParentId(0L);
-        deptInfoDTO.setCode("113456");
+        deptInfoDTO.setName("冰山测试部门");
+        deptInfoDTO.setParentCode("0");
+        deptInfoDTO.setDeptCode("258");
         deptInfoDTO.setSequence(1);
-        deptInfoDTO.setOrgId(11912L);
-        deptInfoDTO.setLeaderUid(123L);
+        deptInfoDTO.setOrgCode("12345");
+        deptInfoDTO.setLeaderCode("258963");
         String json = contactClient.saveDeptBase(deptInfoDTO);
         System.out.println(json);
     }
 
     public void saveUserBase() {
         UserInfoDTO userInfoDTO = new UserInfoDTO();
-        userInfoDTO.setOrgId(0L);
-        userInfoDTO.setCode("123");
-        userInfoDTO.setUid(555L);
-        userInfoDTO.setDepartmentId(555L);
+        userInfoDTO.setOrgCode("12345");
+        userInfoDTO.setUserCode("123");
+        userInfoDTO.setDeptCode("258");
         userInfoDTO.setMobile("12345678998");
         userInfoDTO.setTitle("123");
         userInfoDTO.setSequence(1);
