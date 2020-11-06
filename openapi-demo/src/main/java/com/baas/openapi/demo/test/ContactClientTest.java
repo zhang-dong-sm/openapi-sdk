@@ -127,7 +127,6 @@ public class ContactClientTest {
         System.out.println(json);
     }
 
-
     public void saveDeptBase() {
         DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
         deptInfoDTO.setName("冰山测试部门");
