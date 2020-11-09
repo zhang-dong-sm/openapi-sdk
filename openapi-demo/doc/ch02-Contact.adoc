@@ -492,7 +492,7 @@ Response响应说明： +
 |sequence |Integer |必须 | |部门排序
 |parentCode |String |必须 | |上级部门code
 |leaderCode |String |必须 | |领导code
-|orgCode | String |必须 | 单位编码
+|orgCode | String |必须 | |单位编码
 |===
 
 *请求示例：*
