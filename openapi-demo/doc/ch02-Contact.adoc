@@ -2,7 +2,7 @@
 
 === 单位详情接口
 
-接口地址：/org/getOneOrg +
+接口地址：/org/getOrgInfo +
 请求方式：GET +
 接口描述： 通用接口，根据单位编码获取单位详情 +
 *请求参数：*
@@ -10,141 +10,110 @@
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|===
-
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+|orgCode |Long |必须 | |单位编码
 |===
 
 *返回参数：*
-
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
 |id |Long |单位id
 |name |String |单位名称
-|orgCode |String |单位编码
-|parentOrgCode |String |上级单位编码
+|parentId |Long |上级单位id
+|code |String |单位编码
 |address |String |单位地址
 |===
-
-返回示例：
+Response响应说明： +
+`成功响应数据格式:`
 [source,json]
-
-----
+....
 {
-    "code":200,
-	"data": {
-        "id":"1",
-        "name":"通讯录",
-        "orgCode":"123456",
-        "parentOrgCode":"123",
-        "address":"xx"
-    },
-"success": true
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
 }
-----
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
 
 === 部门详情接口
 
-接口地址：/dept/getOneDept +
+接口地址：/dept/getDeptInfo +
 请求方式：GET +
-接口描述： 通用接口，根据单位编码,部门编码获取部门详情 +
+接口描述： 通用接口，根据部门编码获取部门详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
 |deptCode |String |必须 | |部门编码
 |===
 
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
-|===
-
 *返回参数：*
-
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
 |id |Long |部门id
 |name |String |部门名称
-|deptCode |String |部门编码
+|code |String |部门编码
 |sequence |Integer |部门排序
-|parentDeptCode |String |上级部门编码
-|orgCode |String |所属单位编码
-|leaderCode |String |领导人编码
+|parentId |Long |上级部门ID
+|orgId |Long |所属单位ID
+|leaderUid |Long |领导人ID
 |===
 
-*返回示例：*
-
+Response响应说明： +
+`成功响应数据格式:`
 [source,json]
-----
+....
 {
-    "code":200,
-    "data":{
-        "id":10024,
-        "name":"测试⼈员",
-        "deptCode":"cs",
-        "sequence":1,
-        "parentId":0,
-        "orgCode": "xx领导",
-        "leaderCode":0
-    },
-    "success":true
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
 }
-----
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
 
 === 用户详情接口
 
-接口地址：/user/getOneUser +
+接口地址：/user/getOne +
 请求方式：GET +
-接口描述： 通用接口，根据单位编码,部门编码和用户编码获取用户详情 +
+接口描述： 通用接口，根据用户编码获取用户详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
+|orgCode |String |必须 | |编码
+|deptCode |String |必须 | |用户编码
 |userCode |String |必须 | |用户编码
 |===
 
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
-|===
-
 *返回参数：*
-
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
-|orgCode |String |单位编码
-|deptCode |String |部门编码
-|userCode |String |用户编码
+|orgId |Long |单位Id
+|code |String |员工编码
 |uid |Long |用户Id
+|departmentId |Long |部门Id
 |sequence |Integer |员工排序
 |mobile |String |手机号
 |title |String |职位
@@ -154,76 +123,82 @@
 |account |String |账号
 |===
 
-*返回示例：*
-
+Response响应说明： +
+`成功响应数据格式:`
 [source,json]
-----
+....
 {
-    "code":200,
-    "data":{
-        "orgCode":"123",
-        "deptCode":"456",
-        "userCode": "258",
-        "uid":0,
-        "sequence":0,
-        "mobile":"",
-        "title":"",
-        "name":"",
-        "sex":0,
-        "email":"",
-        "account":""
-    },
-    "success":true
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
 }
-----
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
 
 === 各级单位详情接口
 
-接口地址：/org/getListOrg +
+接口地址：/org/getOrgInfoList +
 请求方式：GET +
-接口描述： 通用接口,根据单位编码,flag标识获取对应级别单位详情 +
+接口描述： 通用接口，根据单位编码,flag标识获取对应级别单位详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
+|orgCode |Long |必须 | |单位编码
 |flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
 |===
 
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | Array | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
-|===
-
 *返回参数：*
-
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
 |id |Long |单位id
 |name |String |单位名称
-|parentorgCode |Long |上级单位编码
-|orgCode |String |单位编码
+|parentId |Long |上级单位id
+|code |String |单位编码
 |address |String |单位地址
 |===
 
-*返回示例：*
-
+Response响应说明： +
+`成功响应数据格式:`
 [source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
+[source,json]
+
 ----
 {
 "data": [{
     "id":"1",
     "name":"通讯录",
-    "orgCode":"123456",
-    "parentorgCode":"10104",
+    "code":"123456",
+    "parentId":"10104",
     "address":"杭州XXX"
     }],
 "success": true
@@ -234,26 +209,80 @@
 
 接口地址：/dept/getDeptInfoList +
 请求方式：GET +
-接口描述： 通用接口，根据单位编码,部门编码,flag标识获取对应级别部门详情 +
+接口描述： 通用接口，根据部门编码,flag标识获取对应级别部门详情 +
 
 *请求参数：*
 
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
+|deptCode |Long |必须 | |部门编码
 |flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
 |===
 
-响应体结构： +
-
+*返回参数：*
+[cols="<,<,<",options="header",]
 |===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | Array | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+|名称 |类型 |备注
+|id |Long |部门id
+|name |String |部门名称
+|code |String |部门编码
+|sequence|Integer | 排序字段
+|parentId |Long |上级部门id
+|orgId |Long |单位id
+|leaderUid |String |部门领导uid
+|===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
+
+Response 返回示例：
+[source,json]
+
+----
+{
+"data": [{
+    "id":"1",
+    "name":"通讯录",
+    "code":"123456",
+    "sequence":"1",
+    "parentId":"123",
+    "orgId":"168",
+    "leaderUid":"555"
+    }],
+"success": true
+}
+----
+
+=== 根据用户id获取人员详情接口
+
+接口地址：/user/getThirdUserInfo +
+请求方式：GET +
+接口描述： 基础人员信息接口,根据用户id获取 +
+
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|uid |Long |必须 | |用户Id
 |===
 
 *返回参数：*
@@ -261,32 +290,131 @@
 [cols="<,<,<",options="header",]
 |===
 |名称 |类型 |备注
-|id |Long |部门id
-|name |String |部门名称
-|deptCode |String |部门编码
-|sequence|Integer | 排序字段
-|parentCode |Long |上级部门编码
-|orgCode |Long |单位编码
-|leaderCode |String |部门领导编码
+|id |Long |主键
+|synid |Long |
+|account |String |用户账号
+|changeTime |Long |数据变更时间(时间戳)
+|synKind |Integer |用户类型（0：内部用户；1：外部用户）
+|employeeType |String |用户类型（01：长期员工；02：短期聘用工；03：劳*工；04：聘用港澳台及外籍人员；05：退养人员(工资总额支付)；06：退养人员(其他渠道支付)；07：聘用本单位离退休人员；08：聘用外单位离退休人员；09：离退休人员(除本单位返聘)；10：临时员工）
+|status|Integer |用户状态（0：正常；1：锁定；2：未启用；3：注销）
+|nickName |String |中文姓名
+|email |String | 邮箱
+|position |String |岗位
+|mobile |String |手机号
+|levelName |String |岗位名称
+|supporterDept |String |所属公司部门
+|organization |String |所属组织
+|employeeNumber |String |员工编号
+|workOrg |String |工作组织编码
+|description|String |工作组织描述
+|function |String |业务职责编码
+|preferredMobile |String |首选移动电话
+|telephoneNumber |String |办公电话
 |===
 
-*返回示例：*
-
+Response响应说明： +
+`成功响应数据格式:`
 [source,json]
-----
+....
 {
-"data": [{
-    "id":"1",
-    "name":"通讯录",
-    "deptCode":"123456",
-    "sequence":"1",
-    "parentCode":"123",
-    "orgCode":"168",
-    "leaderCode":"555"
-    }],
-"success": true
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
 }
-----
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
+
+=== 根据角色编码查询人员接口
+
+接口地址：/user/getUidsByRole +
+请求方式：GET +
+接口描述： 角色编码查询人员信息接口,注意获取到的是用户id数组 +
+
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|roleCode |String |必须 | |角色编码
+|devId |Long |必须 | |开发者账号编码
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|uids |List |所有的用户id
+|===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
+=== 根据部门查询人员接口
+
+接口地址：/user/getUidsByDept +
+请求方式：GET +
+接口描述： 部门查询人员信息接口,注意获取到的是用户id数组 +
+
+*请求参数：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|deptCode |Long |必须 | |部门编码
+|flag |int |必须 | | 0：在本级部门中查询 1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
+|===
+
+*返回参数：*
+[cols="<,<,<",options="header",]
+|===
+|名称 |类型 |备注
+|uids |List |所有的用户id
+|===
+
+Response响应说明： +
+`成功响应数据格式:`
+[source,json]
+....
+{
+    "code": 200, //code=200表示接口调用成功,其他标识失败
+    "success": true //true表示成功, false表示失败
+    "data": Object //返回数据
+}
+....
+`失败响应数据格式:`
+[source,json]
+....
+{
+    "code":500, //code=200表示接口调用成功,其他标识失败
+    "success":false, //true表示成功, false表示失败
+    "msg":"接口失败原因" //错误提示消息
+}
+....
+
 
 === 保存单位接口
 
