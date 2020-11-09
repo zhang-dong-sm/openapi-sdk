@@ -504,7 +504,7 @@ Response响应说明： +
   "name": "测试部门",
   "sequence": "12",
   "parentCode": "10096",
-  "leaderUid": "258",
+  "leaderCode": "258",
   "orgCode": "2588"
 }
 ----
