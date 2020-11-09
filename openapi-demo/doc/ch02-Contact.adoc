@@ -92,7 +92,7 @@ Response响应说明： +
 
 === 用户详情接口
 
-接口地址：/user/getUserInfo +
+接口地址：/user/getOne +
 请求方式：GET +
 接口描述： 通用接口，根据用户编码获取用户详情 +
 
@@ -101,6 +101,8 @@ Response响应说明： +
 [cols="<,<,<,<,<",options="header",]
 |===
 |名称 |类型 |是否必须 |默认值 |备注
+|orgCode |String |必须 | |编码
+|deptCode |String |必须 | |用户编码
 |userCode |String |必须 | |用户编码
 |===
 
