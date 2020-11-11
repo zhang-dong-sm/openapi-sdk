@@ -436,7 +436,15 @@ Response响应说明： +
 |name |String |必须 | |名字
 |sex |Byte |必须 | | 性别 0：男,1：女
 |email |String |必须 | |邮箱
-|account |String |必须 | |账号
+
+|extend | Object | 非必须 | | 扩展字段
+|===
+
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+
+| identity_card | String | 否 | | 身份证号
+
 |===
 
 *请求示例：*
