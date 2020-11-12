@@ -1,166 +1,511 @@
 == 通讯录
 
-=== 单位详情接口
+=== 获取单位详情接口
 
-接口地址：/org/getOneOrg +
+接口地址：/org/getOne +
 请求方式：GET +
 接口描述： 通用接口，根据单位编码获取单位详情 +
-*请求参数：*
 
-[cols="<,<,<,<,<",options="header",]
+请求参数::
+Headers：
+
 |===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| orgCode
+| 是
+| abc
+| 单位编码
+|===
+
+返回数据::
 响应体结构： +
 
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+|
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
-*返回参数：*
+data对象结构： +
 
-[cols="<,<,<",options="header",]
 |===
-|名称 |类型 |备注
-|id |Long |单位id
-|name |String |单位名称
-|orgCode |String |单位编码
-|parentOrgCode |String |上级单位编码
-|address |String |单位地址
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| name
+| string
+| 是
+|
+| 单位名称
+|
+
+| orgCode
+| string
+| 是
+|
+| 单位编码
+|
+
+| address
+| string
+| 是
+|
+| 单位地址
+|
+
+| parentOrgCode
+| string
+| 是
+|
+| 上级单位编码
+|
 |===
 
-返回示例：
+`成功响应数据样例:`
+
 [source,json]
-
-----
+....
 {
-    "code":200,
-	"data": {
-        "id":"1",
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": {
         "name":"通讯录",
         "orgCode":"123456",
         "parentOrgCode":"123",
         "address":"xx"
-    },
-"success": true
+    }
 }
-----
+....
 
-=== 部门详情接口
+`失败响应数据样例:`
 
-接口地址：/dept/getOneDept +
+[source,json]
+....
+{
+    "code": 500,
+    "msg": "单位编码不存在",
+    "success": false,
+    "data": null
+}
+....
+
+=== 获取部门详情接口
+
+接口地址：/dept/getOne +
 请求方式：GET +
 接口描述： 通用接口，根据单位编码,部门编码获取部门详情 +
 
-*请求参数：*
+请求参数::
+Headers：
 
-[cols="<,<,<,<,<",options="header",]
 |===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| orgCode
+| 是
+| abc
+| 单位编码
+
+| deptCode
+| 是
+| abc
+| 部门编码
+|===
+
+返回数据::
 响应体结构： +
 
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+|
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
-*返回参数：*
+data对象结构： +
 
-[cols="<,<,<",options="header",]
 |===
-|名称 |类型 |备注
-|id |Long |部门id
-|name |String |部门名称
-|deptCode |String |部门编码
-|sequence |Integer |部门排序
-|parentDeptCode |String |上级部门编码
-|orgCode |String |所属单位编码
-|leaderCode |String |领导人编码
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| name
+| string
+| 是
+|
+| 单位名称
+|
+
+| deptCode
+| string
+| 是
+|
+| 部门编码
+|
+
+| sequence
+| int
+| 是
+|
+| 排序
+|
+
+| parentDeptCode
+| string
+| 是
+|
+| 上级部门编码
+|
+
+| orgCode
+| string
+| 是
+|
+| 单位编码
+|
+
+| leaderCode
+| string
+| 是
+|
+| 部门leader编码
+|
 |===
 
-*返回示例：*
+`成功响应数据样例:`
 
 [source,json]
-----
+....
 {
-    "code":200,
-    "data":{
-        "id":10024,
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": {
         "name":"测试⼈员",
         "deptCode":"cs",
         "sequence":1,
-        "parentId":0,
-        "orgCode": "xx领导",
-        "leaderCode":0
-    },
-    "success":true
+        "parentDeptCode":"abc",
+        "orgCode": "abc",
+        "leaderCode":"1232"
+    }
 }
-----
+....
 
-=== 用户详情接口
+`失败响应数据样例:`
 
-接口地址：/user/getOneUser +
+[source,json]
+....
+{
+    "code": 500,
+    "msg": "单位编码不存在",
+    "success": false,
+    "data": null
+}
+....
+
+
+=== 获取用户详情接口
+
+接口地址：/user/getOne +
 请求方式：GET +
 接口描述： 通用接口，根据单位编码,部门编码和用户编码获取用户详情 +
 
-*请求参数：*
+请求参数::
+Headers：
 
-[cols="<,<,<,<,<",options="header",]
 |===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
-|userCode |String |必须 | |用户编码
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| orgCode
+| 是
+| abc
+| 单位编码
+
+| deptCode
+| 是
+| abc
+| 部门编码
+
+| userCode
+| 是
+| abc
+| 员工编码
+|===
+
+返回数据::
 响应体结构： +
 
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+|
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
-*返回参数：*
+data对象结构： +
 
-[cols="<,<,<",options="header",]
 |===
-|名称 |类型 |备注
-|orgCode |String |单位编码
-|deptCode |String |部门编码
-|userCode |String |用户编码
-|uid |Long |用户Id
-|sequence |Integer |员工排序
-|mobile |String |手机号
-|title |String |职位
-|name |String |名字
-|sex |Byte | 性别
-|email |String |邮箱
-|account |String |账号
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| orgCode
+| string
+| 是
+|
+| 单位编码
+|
+
+| deptCode
+| string
+| 是
+|
+| 部门编码
+|
+
+| userCode
+| string
+| 是
+|
+| 员工编码
+|
+
+| sequence
+| int
+| 是
+|
+| 在该部门下的排序
+|
+
+| mobile
+| string
+| 是
+|
+| 手机号
+|
+
+| title
+| string
+| 是
+|
+| 在该部门下的职位
+|
+
+| name
+| string
+| 是
+|
+| 姓名
+|
+
+| sex
+| byte
+| 是
+|
+| 性别
+|
+
+
+| sex
+| byte
+| 是
+|
+| 性别
+|
+
+
+| email
+| string
+| 是
+|
+| 邮箱
+|
+
+| customField
+| object
+| 是
+|
+| 扩展字段
+|
 |===
 
-*返回示例：*
+customField对象结构： +
+
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| workNum1
+| string
+| 是
+|
+| 工号1
+|
+
+| workNum2
+| string
+| 是
+|
+| 工号2
+|
+|===
+
+`成功响应数据样例:`
 
 [source,json]
-----
+....
 {
-    "code":200,
-    "data":{
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": {
         "orgCode":"123",
         "deptCode":"456",
         "userCode": "258",
@@ -171,329 +516,433 @@
         "name":"",
         "sex":0,
         "email":"",
-        "account":""
-    },
-    "success":true
+        "customField":{
+            "workNum1":"",
+            "workNum2":""
+        }
+    }
 }
-----
+....
 
-=== 各级单位详情接口
-
-接口地址：/org/getListOrg +
-请求方式：GET +
-接口描述： 通用接口,根据单位编码,flag标识获取对应级别单位详情 +
-
-*请求参数：*
-
-[cols="<,<,<,<,<",options="header",]
-|===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|flag |int |必须 | |1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
-|===
-
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | Array | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
-|===
-
-*返回参数：*
-
-[cols="<,<,<",options="header",]
-|===
-|名称 |类型 |备注
-|id |Long |单位id
-|name |String |单位名称
-|parentorgCode |Long |上级单位编码
-|orgCode |String |单位编码
-|address |String |单位地址
-|===
-
-*返回示例：*
+`失败响应数据样例:`
 
 [source,json]
-----
+....
 {
-"data": [{
-    "id":"1",
-    "name":"通讯录",
-    "orgCode":"123456",
-    "parentorgCode":"10104",
-    "address":"杭州XXX"
-    }],
-"success": true
+    "code": 500,
+    "msg": "单位编码不存在",
+    "success": false,
+    "data": null
 }
-----
-
-=== 各级部门详情接口
-
-接口地址：/dept/getDeptInfoList +
-请求方式：GET +
-接口描述： 通用接口，根据单位编码,部门编码,flag标识获取对应级别部门详情 +
-
-*请求参数：*
-
-[cols="<,<,<,<,<",options="header",]
-|===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
-|flag |int |必须 | |1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
-|===
-
-响应体结构： +
-
-|===
-| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | Array | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
-|===
-
-*返回参数：*
-
-[cols="<,<,<",options="header",]
-|===
-|名称 |类型 |备注
-|id |Long |部门id
-|name |String |部门名称
-|deptCode |String |部门编码
-|sequence|Integer | 排序字段
-|parentCode |Long |上级部门编码
-|orgCode |Long |单位编码
-|leaderCode |String |部门领导编码
-|===
-
-*返回示例：*
-
-[source,json]
-----
-{
-"data": [{
-    "id":"1",
-    "name":"通讯录",
-    "deptCode":"123456",
-    "sequence":"1",
-    "parentCode":"123",
-    "orgCode":"168",
-    "leaderCode":"555"
-    }],
-"success": true
-}
-----
+....
 
 === 保存单位接口
 
-接口地址：/org/saveOrg +
+接口地址：/org/saveOne +
 请求方式：POST（content-type:application/json; charset=utf-8） +
 接口描述： +
 此接口用于创建一家单位
 
-*请求参数：*
+请求参数::
+Headers：
 
-[cols="<,<,<,<,<",options="header",]
 |===
-|名称 |类型 |是否必须 |默认值 |备注
-|code |String |必须 | |单位编码
-|name |String |必须 | |单位名称
-|parentCode |String |必须 | |上级单位code
-|address |String |必须 | |单位地址
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
-*请求示例：*
+Query：
 
-[source,json]
-----
-{
-  "code": "123456",
-  "name": "测试企业",
-  "parentCode": "10096",
-  "address": "xxx"
-}
-----
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+|orgCode
+|必须
+|
+|单位编码
+
+|name
+|必须
+|
+|单位名称
+
+|parentOrgCode
+|必须
+|
+|上级单位编码
+
+|address
+|必须
+|
+|单位地址
+|===
 
 返回数据::
 响应体结构： +
 
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+| null
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
-Response响应说明： +
-`成功响应数据格式:`
+`成功响应数据样例:`
+
 [source,json]
 ....
 {
-    "code": 200, //code=200表示接口调用成功,其他标识失败
-    "success": true //true表示成功, false表示失败
-    "data": Object //返回数据
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": null
 }
 ....
-`失败响应数据格式:`
+
+`失败响应数据样例:`
+
 [source,json]
 ....
 {
-    "code":500, //code=200表示接口调用成功,其他标识失败
-    "success":false, //true表示成功, false表示失败
-    "msg":"接口失败原因" //错误提示消息
+    "code": 500,
+    "msg": "单位编码已存在",
+    "success": false,
+    "data": null
 }
 ....
 
 === 保存部门接口
 
-接口地址：/dept/saveDept +
+接口地址：/dept/saveOne +
 请求方式：POST（content-type:application/json; charset=utf-8） +
 接口描述： +
 此接口用于创建一个部门
 
-*请求参数：*
+请求参数::
+Headers：
 
-[cols="<,<,<,<,<",options="header",]
 |===
-|名称 |类型 |是否必须 |默认值 |备注
-|deptCode |String |必须 | |部门编码
-|name |String |必须 | |部门名称
-|sequence |Integer |必须 | |部门排序
-|parentCode |String |必须 | |上级部门code
-|leaderCode |String |必须 | |领导code
-|orgCode | String |必须 | |单位编码
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
-*请求示例：*
+Query：
 
-[source,json]
-----
-{
-  "deptCode": "123456",
-  "name": "测试部门",
-  "sequence": "12",
-  "parentCode": "10096",
-  "leaderCode": "258",
-  "orgCode": "2588"
-}
-----
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+|orgCode
+|必须
+|
+|单位编码
+
+|deptCode
+|必须
+|
+|部门编码
+
+
+|name
+|必须
+|
+|单位名称
+
+|parentDeptCode
+|必须
+|0
+|上级部门编码
+
+|sequence
+|必须
+|
+|部门排序
+
+|leaderCode
+|必须
+|
+|部门leader编码
+|===
+
 返回数据::
 响应体结构： +
 
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+| null
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
+`成功响应数据样例:`
 
-Response响应说明： +
-`成功响应数据格式:`
 [source,json]
 ....
 {
-    "code": 200, //code=200表示接口调用成功,其他标识失败
-    "success": true //true表示成功, false表示失败
-    "data": Object //返回数据
-}
-....
-`失败响应数据格式:`
-[source,json]
-....
-{
-    "code":500, //code=200表示接口调用成功,其他标识失败
-    "success":false, //true表示成功, false表示失败
-    "msg":"接口失败原因" //错误提示消息
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": null
 }
 ....
 
+`失败响应数据样例:`
+
+[source,json]
+....
+{
+    "code": 500,
+    "msg": "单位编码已存在",
+    "success": false,
+    "data": null
+}
+....
 
 === 保存用户接口
 
-接口地址：/user/saveUser +
+接口地址：/user/saveOne +
 请求方式：POST（content-type:application/json; charset=utf-8） +
 接口描述： +
 此接口用于添加某个企业部门下的用户
 
-*请求参数：*
-
-[cols="<,<,<,<,<",options="header",]
-|===
-|名称 |类型 |是否必须 |默认值 |备注
-|orgCode |String |必须 | |单位编码
-|deptCode |String |必须 | |部门编码
-|userCode |String |必须 | |员工编码
-|sequence |Integer|必须 |  |员工排序
-|mobile |String |必须 | |手机号
-|title |String |必须 |  |职位
-|name |String |必须 | |名字
-|sex |Byte |必须 | | 性别 0：男,1：女
-|email |String |必须 | |邮箱
-
-|extend | Object | 非必须 | | 扩展字段
-|===
-
-extend 结构体参数
+请求参数::
+Headers：
 
 |===
-|名称 |类型 |是否必须 |默认值 |备注
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
 
-| job_number_1 | String | 否 | | 工号1
-| job_number_2 | String | 否 | | 工号2
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
 
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
 |===
 
-*请求示例：*
+Query：
 
-[source,json]
-----
-{
-  "orgCode": "123",
-  "deptCode":"45",
-  "userCode": "123",
-  "sequence": "12",
-  "mobile": "123456789",
-  "title": "xxx",
-  "name": "测试",
-  "sex": "0",
-  "email": "xxx@xxx.com",
-  "account": ""
-}
-----
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+|orgCode
+|必须
+|
+|单位编码
+
+|deptCode
+|必须
+|
+|部门编码
+
+｜userCode
+|必须
+|
+|员工编码
+
+|name
+|必须
+|
+|单位名称
+
+|sex
+|必须
+|0
+|性别
+
+|sequence
+|必须
+|
+|在部门内排序
+
+|title
+|必须
+|
+|在部门内职位
+
+|mobile
+|必须
+|
+|手机号
+
+|email
+|必须
+|
+|邮箱
+
+|extend
+|非必须
+|
+|扩展字段
+|===
+
+extend 结构体参数 +
+
+|===
+|名称 |是否必须 |默认值 |备注
+
+| jobNnumber1
+| 否
+|
+| 工号1
+
+| jobNumber2
+| 否
+|
+| 工号2
+|===
+
 返回数据::
 响应体结构： +
+
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
-| success | boolean | 是 | false | 调用是否成功 true表示成功, false表示失败 |
-| msg | string | 是 | | 返回消息提示 |
-| data | object | 是 | | 数据体 |
-| code | int | 是 | 0 | 状态码 code=200表示接口调用成功,其他标识失败 |
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+| null
+| 数据体
+|
+
+| code
+| int
+| 是
+| 0
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
 |===
 
+`成功响应数据样例:`
 
-Response响应说明： +
-`成功响应数据格式:`
 [source,json]
 ....
 {
-    "code": 200, //code=200表示接口调用成功,其他标识失败
-    "success": true //true表示成功, false表示失败
-    "data": Object //返回数据
+    "code": 200,
+    "msg": "",
+    "success": true,
+    "data": null
 }
 ....
-`失败响应数据格式:`
+
+`失败响应数据样例:`
+
 [source,json]
 ....
 {
-    "code":500, //code=200表示接口调用成功,其他标识失败
-    "success":false, //true表示成功, false表示失败
-    "msg":"接口失败原因" //错误提示消息
+    "code": 500,
+    "msg": "单位编码已存在",
+    "success": false,
+    "data": null
 }
 ....
