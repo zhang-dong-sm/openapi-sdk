@@ -443,7 +443,8 @@ Response响应说明： +
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 
-| identity_card | String | 否 | | 身份证号
+| job_number_1 | String | 否 | | 工号1
+| job_number_2 | String | 否 | | 工号2
 
 |===
 
