@@ -440,7 +440,8 @@ Response响应说明： +
 |extend | Object | 非必须 | | 扩展字段
 |===
 
-.extend
+extend 结构体参数
+
 |===
 |名称 |类型 |是否必须 |默认值 |备注
 
