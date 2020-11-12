@@ -482,14 +482,14 @@ customField对象结构： +
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
 
-| workNum1
+| jobNnumber1
 | string
 | 是
 |
 | 工号1
 |
 
-| workNum2
+| jobNnumber2
 | string
 | 是
 |
@@ -517,8 +517,8 @@ customField对象结构： +
         "sex":0,
         "email":"",
         "customField":{
-            "workNum1":"",
-            "workNum2":""
+            "jobNnumber1":"",
+            "jobNnumber2":""
         }
     }
 }
