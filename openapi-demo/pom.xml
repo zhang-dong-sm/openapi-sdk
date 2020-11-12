@@ -29,9 +29,9 @@
 		<dependency>
 			<groupId>com.baas.openapi</groupId>
 			<artifactId>openapi-client</artifactId>
-			<version>1.0.1-SNAPSHOT-jar-with-dependencies</version>
+			<version>1.0.2-SNAPSHOT-jar-with-dependencies</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/openapi-client-1.0.1-SNAPSHOT-jar-with-dependencies.jar</systemPath>
+			<systemPath>${project.basedir}/lib/openapi-client-1.0.2-SNAPSHOT-jar-with-dependencies.jar</systemPath>
 		</dependency>
 	</dependencies>
 

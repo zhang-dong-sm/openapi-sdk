@@ -482,14 +482,14 @@ customField对象结构： +
 |===
 | 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
 
-| jobNnumber1
+| jobNumberOne
 | string
 | 是
 |
 | 工号1
 |
 
-| jobNnumber2
+| jobNumberTwo
 | string
 | 是
 |
@@ -517,8 +517,8 @@ customField对象结构： +
         "sex":0,
         "email":"",
         "customField":{
-            "jobNnumber1":"",
-            "jobNnumber2":""
+            "jobNumberOne":"",
+            "jobNumberTwo":""
         }
     }
 }
@@ -877,12 +877,12 @@ extend 结构体参数 +
 |===
 |名称 |是否必须 |默认值 |备注
 
-| jobNnumber1
+| jobNumberOne
 | 否
 |
 | 工号1
 
-| jobNumber2
+| jobNumberTwo
 | 否
 |
 | 工号2
@@ -941,7 +941,7 @@ extend 结构体参数 +
 ....
 {
     "code": 500,
-    "msg": "单位编码已存在",
+    "msg": "单位编码不存在",
     "success": false,
     "data": null
 }

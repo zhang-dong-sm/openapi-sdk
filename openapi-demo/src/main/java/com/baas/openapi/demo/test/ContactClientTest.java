@@ -1,16 +1,15 @@
 package com.baas.openapi.demo.test;
 
-import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.contact.ContactClient;
-import com.baas.openapi.client.contact.dto.DeptDto;
-import com.baas.openapi.client.contact.dto.OrgDto;
-import com.baas.openapi.client.contact.dto.UserDto;
 import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
+import org.springframework.util.StringUtils;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Create Time:2020/9/1
@@ -36,91 +35,13 @@ public class ContactClientTest {
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
-        //test.pullOfSyncByJson(null);
-//        test.getOrgInfoByJson(null);
-        //test.getUidsByDeptBase(10104L, 10003383L, 4);
-        test.saveOrgBase();
+        test.saveOneUser();
     }
-
-    /**
-     * 拉取通讯录
-     *
-     * @param orgId 非必传 传了则取某个单位的通讯录
-     */
-    public void pullOfSync(Long orgId) {
-        ApiResult<List<OrgDto>> apiResult = contactClient.pullOfSync(orgId);
-        if (apiResult.isSuccess()) {
-            List<OrgDto> list = apiResult.getData();
-            for (OrgDto orgDto : list) {
-                for (DeptDto dept : orgDto.getDepts()) {
-                    for (UserDto user : dept.getUsers()) {
-
-                    }
-                }
-            }
-        }
-        System.out.println(apiResult.getCode());
-    }
-
-//    public void pullOfSyncByJson(Long orgId) {
-//        String json = contactClient.pullOfSyncByJson(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgInfoByJson(Long orgId) {
-//        String json = contactClient.getOrgInfoByJson(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptInfoByJson(Long orgId, Long deptId) {
-//        String json = contactClient.getDeptInfoByJson(orgId, deptId);
-//        System.out.println(json);
-//    }
-//
-//    public void getUserInfoByJson(Long orgId, Long deptId, Long uid) {
-//        String json = contactClient.getUserInfoByJson(orgId, deptId, uid);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgInfoListByJson(Long orgId, int flag) {
-//        String json = contactClient.getOrgInfoListByJson(orgId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-//        String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getThirdUserInfo(Long uid) {
-//        String json = contactClient.getThirdUserInfo(uid);
-//        System.out.println(json);
-//    }
-//
-//    public void getUidsByRoleBase(String roleCode, Long devId) {
-//        String json = contactClient.getUidsByRoleBase(roleCode, devId);
-//        System.out.println(json);
-//    }
-//
-//    public void getUidsByDeptBase(Long orgId, Long deptId, int flag) {
-//        String json = contactClient.getUidsByDeptBase(orgId, deptId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgTreeBase(Long orgId) {
-//        String json = contactClient.getOrgTreeBase(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptTreeBase(Long orgId, Long deptId) {
-//        String json = contactClient.getDeptTreeBase(orgId, deptId);
-//        System.out.println(json);
-//    }
 
     public void saveOrgBase() {
         OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
         orgInfoDTO.setParentCode("0");
-        orgInfoDTO.setCode("12345");
+        orgInfoDTO.setCode("1212");
         orgInfoDTO.setName("测试3330");
         orgInfoDTO.setAddress("xxxxxx");
         String json = contactClient.saveOrgBase(orgInfoDTO);
@@ -139,18 +60,20 @@ public class ContactClientTest {
         System.out.println(json);
     }
 
-    public void saveUserBase() {
+    public void saveOneUser() {
         UserInfoDTO userInfoDTO = new UserInfoDTO();
-        userInfoDTO.setOrgCode("12345");
-        userInfoDTO.setUserCode("123");
-        userInfoDTO.setDeptCode("258");
-        userInfoDTO.setMobile("12345678998");
-        userInfoDTO.setTitle("123");
+        userInfoDTO.setOrgCode("121212");
+        userInfoDTO.setDeptCode("33333");
+        String id = "lc" + System.currentTimeMillis();
+        userInfoDTO.setUserCode(id);
+        userInfoDTO.setMobile("1420909" + String.valueOf(System.currentTimeMillis()).substring(9));
         userInfoDTO.setSequence(1);
-        userInfoDTO.setName("bingshan");
-        userInfoDTO.setEmail("bingshan@foxmail.com");
-        userInfoDTO.setAccount("123");
-        String json = contactClient.saveUserBase(userInfoDTO);
+        userInfoDTO.setName("luchao");
+        userInfoDTO.setEmail("luc@foxmail.com");
+        Map<String, Object> customField = new HashMap<>();
+        customField.put("jobNumber1", id);
+        userInfoDTO.setCustomField(customField);
+        String json = contactClient.saveOneUser(userInfoDTO);
         System.out.println(json);
     }
 

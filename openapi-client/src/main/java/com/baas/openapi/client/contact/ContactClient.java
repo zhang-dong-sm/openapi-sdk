@@ -7,12 +7,12 @@ import com.baas.openapi.client.common.factory.LogFactory;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.JsonUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
-import com.baas.openapi.client.contact.dto.OrgDto;
-import com.baas.openapi.client.message.dto.SmsMessageDto;
 import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
+import com.shinemo.baas.openapi.contact.client.dto.OrgDto;
 import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
 
+import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 
@@ -406,15 +406,15 @@ public class ContactClient extends ApiClient {
 
     public ApiResult saveUser(UserInfoDTO userInfoDTO) {
         try {
-            return JsonUtils.fromJson(saveUserBase(userInfoDTO), ApiResult.class);
+            return JsonUtils.fromJson(saveOneUser(userInfoDTO), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
         }
     }
 
-    public String saveUserBase(UserInfoDTO userInfoDTO) {
-        String url = baseInfo.getUrl(URI + "/user/saveUser");
+    public String saveOneUser(UserInfoDTO userInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/user/saveOne");
         String paramJson = JsonUtils.toJson(userInfoDTO);
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
         return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
