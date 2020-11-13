@@ -454,14 +454,6 @@ data对象结构： +
 |
 
 
-| sex
-| byte
-| 是
-|
-| 性别
-|
-
-
 | email
 | string
 | 是
@@ -586,7 +578,7 @@ Query：
 
 |parentOrgCode
 |必须
-|
+|默认0
 |上级单位编码
 
 |address
@@ -710,7 +702,7 @@ Query：
 
 |parentDeptCode
 |必须
-|0
+|默认0
 |上级部门编码
 
 |sequence
@@ -719,7 +711,7 @@ Query：
 |部门排序
 
 |leaderCode
-|必须
+|非必须
 |
 |部门leader编码
 |===
@@ -831,7 +823,7 @@ Query：
 |
 |部门编码
 
-｜userCode
+|userCode
 |必须
 |
 |员工编码
@@ -842,17 +834,17 @@ Query：
 |单位名称
 
 |sex
-|必须
-|0
+|非必须
+|默认0
 |性别
 
 |sequence
 |必须
-|
+|默认1
 |在部门内排序
 
 |title
-|必须
+|非必须
 |
 |在部门内职位
 
@@ -862,17 +854,17 @@ Query：
 |手机号
 
 |email
-|必须
+|非必须
 |
 |邮箱
 
-|extend
+|customField
 |非必须
 |
 |扩展字段
 |===
 
-extend 结构体参数 +
+customField 结构体参数 +
 
 |===
 |名称 |是否必须 |默认值 |备注

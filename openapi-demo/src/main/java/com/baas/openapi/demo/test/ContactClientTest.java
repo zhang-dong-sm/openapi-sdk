@@ -38,25 +38,38 @@ public class ContactClientTest {
         test.saveOneUser();
     }
 
-    public void saveOrgBase() {
-        OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
-        orgInfoDTO.setParentCode("0");
-        orgInfoDTO.setCode("1212");
-        orgInfoDTO.setName("测试3330");
-        orgInfoDTO.setAddress("xxxxxx");
-        String json = contactClient.saveOrgBase(orgInfoDTO);
+    public void getOneOrg() {
+        String json = contactClient.getOneOrgByJson("121212");
         System.out.println(json);
     }
 
-    public void saveDeptBase() {
+    public void getOneDept() {
+        String json = contactClient.getOneDeptByJson("121212", "33333");
+        System.out.println(json);
+    }
+
+
+    public void saveOneOrg() {
+        OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
+        orgInfoDTO.setParentOrgCode("1605233035228");
+        orgInfoDTO.setOrgCode(System.currentTimeMillis() + "");
+//        orgInfoDTO.setOrgCode("1605233035228");
+        orgInfoDTO.setName("测试" + System.currentTimeMillis());
+        String json = contactClient.saveOneOrgByJson(orgInfoDTO);
+        System.out.println(json);
+    }
+
+    public void saveOneDept() {
         DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
-        deptInfoDTO.setName("冰山测试部门");
-        deptInfoDTO.setParentCode("0");
-        deptInfoDTO.setDeptCode("258");
+        deptInfoDTO.setName("测试部门1");
+        deptInfoDTO.setParentDeptCode("1605233759193");
+//        deptInfoDTO.setDeptCode(System.currentTimeMillis() + "");
+        deptInfoDTO.setDeptCode("1605233886598");
+
         deptInfoDTO.setSequence(1);
-        deptInfoDTO.setOrgCode("12345");
+        deptInfoDTO.setOrgCode("1605233035228");
         deptInfoDTO.setLeaderCode("258963");
-        String json = contactClient.saveDeptBase(deptInfoDTO);
+        String json = contactClient.saveOneDeptByJson(deptInfoDTO);
         System.out.println(json);
     }
 
@@ -64,16 +77,18 @@ public class ContactClientTest {
         UserInfoDTO userInfoDTO = new UserInfoDTO();
         userInfoDTO.setOrgCode("121212");
         userInfoDTO.setDeptCode("33333");
-        String id = "lc" + System.currentTimeMillis();
+//        String id = "lc" + System.currentTimeMillis();
+        String id = "lc1605175756427";
         userInfoDTO.setUserCode(id);
         userInfoDTO.setMobile("1420909" + String.valueOf(System.currentTimeMillis()).substring(9));
         userInfoDTO.setSequence(1);
         userInfoDTO.setName("luchao");
         userInfoDTO.setEmail("luc@foxmail.com");
         Map<String, Object> customField = new HashMap<>();
-        customField.put("jobNumber1", id);
+        customField.put("jobNumberOne", id);
+        customField.put("jobNumberTwo", "lc1605175756427c");
         userInfoDTO.setCustomField(customField);
-        String json = contactClient.saveOneUser(userInfoDTO);
+        String json = contactClient.saveOneUserByJson(userInfoDTO);
         System.out.println(json);
     }
 

@@ -1,18 +1,19 @@
 package com.baas.openapi.client.contact;
 
 import com.baas.openapi.client.common.client.ApiClient;
+import com.baas.openapi.client.common.config.ApiException;
 import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.factory.LogFactory;
 import com.baas.openapi.client.common.util.ApiResultUtils;
 import com.baas.openapi.client.common.util.JsonUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
+import com.baas.openapi.client.common.util.StringUtils;
 import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.OrgDto;
 import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
 import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
 
-import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 
@@ -70,9 +71,9 @@ public class ContactClient extends ApiClient {
      * @param orgCode 单位编码
      * @return
      */
-    public ApiResult<OrgInfoDTO> getOrgInfo(String orgCode) {
+    public ApiResult<OrgInfoDTO> getOneOrg(String orgCode) {
         try {
-            String result = getOrgInfoByJson(orgCode);
+            String result = getOneOrgByJson(orgCode);
             return ApiResultUtils.convert(result, OrgInfoDTO.class);
         } catch (Exception e) {
             LogFactory.error("getOrgInfo fail - msg:{},ex:", e.getMessage(), e);
@@ -86,11 +87,12 @@ public class ContactClient extends ApiClient {
      * @param orgCode 单位编码
      * @return
      */
-    public String getOrgInfoByJson(String orgCode) {
-        String url = baseInfo.getUrl(URI + "/org/getOrgInfo");
-        if (orgCode != null) {
-            url = url + "?orgCode=" + orgCode;
+    public String getOneOrgByJson(String orgCode) {
+        String url = baseInfo.getUrl(URI + "/org/getOne");
+        if (StringUtils.isBlank(orgCode)) {
+            throw new ApiException("单位编码不能为空");
         }
+        url = url + "?orgCode=" + orgCode;
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }
@@ -98,12 +100,13 @@ public class ContactClient extends ApiClient {
     /**
      * 获取部门详情
      *
+     * @param orgCode  单位编码
      * @param deptCode 部门编码
      * @return
      */
-    public ApiResult<DeptInfoDTO> getDeptInfo(String deptCode) {
+    public ApiResult<DeptInfoDTO> getOneDept(String orgCode, String deptCode) {
         try {
-            String result = getDeptInfoByJson(deptCode);
+            String result = getOneDeptByJson(orgCode, deptCode);
             return ApiResultUtils.convert(result, DeptInfoDTO.class);
         } catch (Exception e) {
             LogFactory.error("getDeptInfo fail - msg:{},ex:", e.getMessage(), e);
@@ -114,14 +117,19 @@ public class ContactClient extends ApiClient {
     /**
      * 获取部门详情
      *
-     * @param deptCode
+     * @param orgCode  单位编码
+     * @param deptCode 部门编码
      * @return
      */
-    public String getDeptInfoByJson(String deptCode) {
-        String url = baseInfo.getUrl(URI + "/dept/getDeptInfo");
-        if (deptCode != null) {
-            url = url + "?deptCode=" + deptCode;
+    public String getOneDeptByJson(String orgCode, String deptCode) {
+        String url = baseInfo.getUrl(URI + "/dept/getOne");
+        if (StringUtils.isBlank(orgCode)) {
+            throw new ApiException("单位编码不能为空");
         }
+        if (StringUtils.isBlank(deptCode)) {
+            throw new ApiException("部门编码不能为空");
+        }
+        url = url + "?orgCode=" + orgCode + "&deptCode=" + deptCode;
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }
@@ -129,14 +137,14 @@ public class ContactClient extends ApiClient {
     /**
      * 获取用户详情
      *
-     * @param orgId  单位id
-     * @param deptId 部门id
-     * @param uid    用户id
+     * @param orgCode  单位编码
+     * @param deptCode 部门编码
+     * @param userCode 员工编码
      * @return
      */
-    public ApiResult<UserInfoDTO> getUserInfo(Long orgId, Long deptId, Long uid) {
+    public ApiResult<UserInfoDTO> getOneUser(String orgCode, String deptCode, String userCode) {
         try {
-            String result = getUserInfoByJson(orgId, deptId, uid);
+            String result = getOneUserByJson(orgCode, deptCode, userCode);
             return ApiResultUtils.convert(result, UserInfoDTO.class);
         } catch (Exception e) {
             LogFactory.error("getUserInfo fail - msg:{},ex:", e.getMessage(), e);
@@ -147,273 +155,69 @@ public class ContactClient extends ApiClient {
     /**
      * 获取用户详情
      *
-     * @param orgId
-     * @param deptId
-     * @param uid
+     * @param orgCode  单位编码
+     * @param deptCode 部门编码
+     * @param userCode 员工编码
      * @return
      */
-    public String getUserInfoByJson(Long orgId, Long deptId, Long uid) {
-        String url = baseInfo.getUrl(URI + "/user/getUserInfo");
-        if (orgId != null && deptId != null && uid != null) {
-            url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&uid=" + uid;
+    public String getOneUserByJson(String orgCode, String deptCode, String userCode) {
+        String url = baseInfo.getUrl(URI + "/user/getOne");
+        if (StringUtils.isBlank(orgCode)) {
+            throw new ApiException("单位编码不能为空");
         }
+        if (StringUtils.isBlank(deptCode)) {
+            throw new ApiException("部门编码不能为空");
+        }
+        if (StringUtils.isBlank(userCode)) {
+            throw new ApiException("员工编码不能为空");
+        }
+        url = url + "?orgCode=" + orgCode + "&deptCode=" + deptCode + "&userCode=" + userCode;
         Map<String, Object> headers = baseInfo.getHeaders(0);
         return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
     }
 
-    /**
-     * 根据uid获取人员详情
-     *
-     * @param uid 用户id
-     * @return
-     */
-    public String getThirdUserInfo(Long uid) {
-        String url = baseInfo.getUrl(URI + "/user/getThirdUserInfo");
-        if (uid != null) {
-            url = url + "?uid=" + uid;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 根据角色编码查询人员
-     *
-     * @param roleCode 角色编码
-     * @param devId    开发者账号编码
-     * @return
-     */
-    public ApiResult<List<Long>> getUidsByRole(String roleCode, Long devId) {
+    public ApiResult saveOneOrg(OrgInfoDTO orgInfoDTO) {
         try {
-            return JsonUtils.fromJson(getUidsByRoleBase(roleCode, devId), ApiResult.class);
-        } catch (Exception e) {
-            LogFactory.error("getUidsByRole fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 根据角色编码查询人员
-     *
-     * @param roleCode
-     * @param devId
-     * @return
-     */
-    public String getUidsByRoleBase(String roleCode, Long devId) {
-        String url = baseInfo.getUrl(URI + "/user/getUidsByRole");
-        if (roleCode != null && devId != null) {
-            url = url + "?roleCode=" + roleCode + "&devId=" + devId;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 根据部门查询人员
-     *
-     * @param orgId  单位id
-     * @param deptId 部门id
-     * @param flag   0：在本级部门中查询 1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
-     * @return
-     */
-    public ApiResult<List<Long>> getUidsByDept(Long orgId, Long deptId, int flag) {
-        try {
-            return JsonUtils.fromJson(getUidsByDeptBase(orgId, deptId, flag), ApiResult.class);
-        } catch (Exception e) {
-            LogFactory.error("getUidsByDept fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 根据部门查询人员
-     *
-     * @param orgId
-     * @param deptId
-     * @param flag
-     * @return
-     */
-    public String getUidsByDeptBase(Long orgId, Long deptId, int flag) {
-        String url = baseInfo.getUrl(URI + "/user/getUidsByDept");
-        if (orgId != null && deptId != null) {
-            url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&" + "flag=" + flag;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 获取单位组织架构
-     *
-     * @param orgId
-     * @return
-     */
-    public ApiResult getOrgTree(Long orgId) {
-        try {
-            return JsonUtils.fromJson(getOrgTreeBase(orgId), ApiResult.class);
-        } catch (Exception e) {
-            LogFactory.error("getOrgTree fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 获取单位组织架构
-     *
-     * @param orgId
-     * @return
-     */
-    public String getOrgTreeBase(Long orgId) {
-        String url = baseInfo.getUrl(URI + "/org/getOrgTree");
-        if (orgId != null) {
-            url = url + "?orgId=" + orgId;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 获取部门组织架构
-     *
-     * @param orgId
-     * @param deptId
-     * @return
-     */
-    public ApiResult getOrgTree(Long orgId, Long deptId) {
-        try {
-            return JsonUtils.fromJson(getDeptTreeBase(orgId, deptId), ApiResult.class);
-        } catch (Exception e) {
-            LogFactory.error("getOrgTree fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 获取部门组织架构
-     *
-     * @param orgId
-     * @param deptId
-     * @return
-     */
-    public String getDeptTreeBase(Long orgId, Long deptId) {
-        String url = baseInfo.getUrl(URI + "/dept/getDeptTree");
-        if (orgId != null) {
-            url = url + "?orgId=" + orgId + "&deptId=" + deptId;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 获取各级单位详情
-     *
-     * @param orgId
-     * @param flag  1：上级单位 2：下级单位 3：所有上级单位 4：所有下级单位
-     * @return
-     */
-    public ApiResult<List<OrgInfoDTO>> getOrgInfoList(Long orgId, int flag) {
-        try {
-            String result = getOrgInfoListByJson(orgId, flag);
-            return ApiResultUtils.convertWithArray(result, OrgInfoDTO.class);
-        } catch (Exception e) {
-            LogFactory.error("getOrgInfoList fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 获取各级部门详情
-     *
-     * @param orgId
-     * @param deptId
-     * @param flag   1：上级部门 2：下级部门 3：所有上级部门 4：所有下级部门
-     * @return
-     */
-    public ApiResult<List<DeptInfoDTO>> getDeptInfoList(Long orgId, Long deptId, int flag) {
-        try {
-            String result = getDeptInfoListByJson(orgId, deptId, flag);
-            return ApiResultUtils.convertWithArray(result, DeptInfoDTO.class);
-        } catch (Exception e) {
-            LogFactory.error("getDeptInfoList fail - msg:{},ex:", e.getMessage(), e);
-            return ApiResult.fail("请求失败");
-        }
-    }
-
-    /**
-     * 获取各级单位详情
-     *
-     * @param orgId
-     * @param flag
-     * @return
-     */
-    public String getOrgInfoListByJson(Long orgId, int flag) {
-        String url = baseInfo.getUrl(URI + "/org/getOrgInfoList");
-        if (orgId != null) {
-            url = url + "?orgId=" + orgId + "&" + "flag=" + flag;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    /**
-     * 获取各级部门详情
-     *
-     * @param orgId
-     * @param deptId
-     * @param flag
-     * @return
-     */
-    public String getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-        String url = baseInfo.getUrl(URI + "/dept/getDeptInfoList");
-        if (orgId != null && deptId != null) {
-            url = url + "?orgId=" + orgId + "&deptId=" + deptId + "&flag=" + flag;
-        }
-        Map<String, Object> headers = baseInfo.getHeaders(0);
-        return OkHttpUtils.syncHttps(url, "GET", headers, null, null);
-    }
-
-    public ApiResult saveOrg(OrgInfoDTO orgInfoDTO) {
-        try {
-            return JsonUtils.fromJson(saveOrgBase(orgInfoDTO), ApiResult.class);
+            return JsonUtils.fromJson(saveOneOrgByJson(orgInfoDTO), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
         }
     }
 
-    public String saveOrgBase(OrgInfoDTO orgInfoDTO) {
-        String url = baseInfo.getUrl(URI + "/org/saveOrg");
+    public String saveOneOrgByJson(OrgInfoDTO orgInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/org/saveOne");
         String paramJson = JsonUtils.toJson(orgInfoDTO);
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
         return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
     }
 
-    public ApiResult saveDept(DeptInfoDTO deptInfoDTO) {
+    public ApiResult saveOneDept(DeptInfoDTO deptInfoDTO) {
         try {
-            return JsonUtils.fromJson(saveDeptBase(deptInfoDTO), ApiResult.class);
+            return JsonUtils.fromJson(saveOneDeptByJson(deptInfoDTO), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
         }
     }
 
-    public String saveDeptBase(DeptInfoDTO deptInfoDTO) {
-        String url = baseInfo.getUrl(URI + "/dept/saveDept");
+    public String saveOneDeptByJson(DeptInfoDTO deptInfoDTO) {
+        String url = baseInfo.getUrl(URI + "/dept/saveOne");
         String paramJson = JsonUtils.toJson(deptInfoDTO);
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);
         return OkHttpUtils.syncHttps(url, "POST", headers, paramJson, "application/json");
     }
 
-    public ApiResult saveUser(UserInfoDTO userInfoDTO) {
+    public ApiResult saveOneUser(UserInfoDTO userInfoDTO) {
         try {
-            return JsonUtils.fromJson(saveOneUser(userInfoDTO), ApiResult.class);
+            return JsonUtils.fromJson(saveOneUserByJson(userInfoDTO), ApiResult.class);
         } catch (Exception e) {
             LogFactory.error("saveOrg fail - msg:{},ex:", e.getMessage(), e);
             return ApiResult.fail("请求失败");
         }
     }
 
-    public String saveOneUser(UserInfoDTO userInfoDTO) {
+    public String saveOneUserByJson(UserInfoDTO userInfoDTO) {
         String url = baseInfo.getUrl(URI + "/user/saveOne");
         String paramJson = JsonUtils.toJson(userInfoDTO);
         Map<String, Object> headers = baseInfo.getHeaders(paramJson.getBytes().length);

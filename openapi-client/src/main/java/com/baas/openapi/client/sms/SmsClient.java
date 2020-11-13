@@ -5,8 +5,6 @@ import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.common.util.JsonUtils;
 import com.baas.openapi.client.common.util.OkHttpUtils;
-import com.shinemo.baas.openapi.contact.client.service.SyncService;
-
 
 import java.util.Map;
 
@@ -25,8 +23,6 @@ public class SmsClient extends ApiClient {
         super(baseInfo);
     }
 
-
-    private SyncService syncService;
 
     /**
      * @param mobile  手机号 多个手机号用逗号隔开
