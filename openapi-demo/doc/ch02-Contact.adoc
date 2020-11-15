@@ -73,7 +73,7 @@ Query：
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -219,7 +219,7 @@ Query：
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -387,7 +387,7 @@ Query：
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -617,7 +617,7 @@ Query：
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -746,7 +746,7 @@ Query：
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -910,7 +910,7 @@ customField 结构体参数 +
 | code
 | int
 | 是
-| 0
+| 200
 | 状态码 code=200表示接口调用成功,其他标识失败
 |
 |===
@@ -938,3 +938,174 @@ customField 结构体参数 +
     "data": null
 }
 ....
+
+=== 删除部门接口
+
+接口地址：/dept/deleteOne +
+请求方式：POST（content-type:application/json; charset=utf-8） +
+接口描述： 通用接口，删除指定单位下的某个部门，如果部门下有员工，会一同删除 +
+
+请求参数::
+Headers：
+
+|===
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
+|===
+
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| orgCode
+| 是
+| abc
+| 单位编码
+
+| deptCode
+| 是
+| abc
+| 部门编码
+|===
+
+返回数据::
+响应体结构： +
+
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 否
+|
+| null
+|
+
+| code
+| int
+| 是
+| 200
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
+|===
+
+=== 删除人员接口
+
+接口地址：/user/deleteOne +
+请求方式：POST（content-type:application/json; charset=utf-8） +
+接口描述： 通用接口，删除指定单位下指定部门中的某个人员，相当于离职 +
+
+请求参数::
+Headers：
+
+|===
+| 参数名称 | 参数值 | 是否必须 | 示例 | 备注
+
+| openAppId
+|
+| 是
+| MiniApp
+| 应用ID(由平台提供)
+
+
+| openSign
+|
+| 是
+| skiew234i3i4o6uy77b4k3b3v2j1vv53j
+| 签名(算法参见SDK或者首页说明)
+
+| openTimestamp
+|
+| 是
+| 1602833399813
+| 当前时间戳
+|===
+
+Query：
+
+|===
+| 参数名称 | 是否必须 | 示例 | 备注
+
+| orgCode
+| 是
+| abc
+| 单位编码
+
+| deptCode
+| 是
+| abc
+| 部门编码
+
+| userCode
+| 是
+| abc
+| 部门编码
+|===
+
+返回数据::
+响应体结构： +
+
+|===
+| 名称 | 类型 | 是否必须 | 默认值 | 备注 | 其他信息
+
+| success
+| boolean
+| 是
+| false
+| 调用是否成功 true表示成功, false表示失败
+|
+
+| msg
+| string
+| 是
+|
+| 返回消息提示
+|
+
+| data
+| object
+| 是
+|
+| null
+|
+
+| code
+| int
+| 是
+| 200
+| 状态码 code=200表示接口调用成功,其他标识失败
+|
+|===
