@@ -418,6 +418,13 @@ data对象结构： +
 | 员工编码
 |
 
+| workNumber
+| string
+| 是
+|
+| 员工工号
+|
+
 | sequence
 | int
 | 是
