@@ -943,7 +943,7 @@ customField 结构体参数 +
 
 接口地址：/dept/deleteOne +
 请求方式：POST（content-type:application/json; charset=utf-8） +
-接口描述： 通用接口，删除指定单位下的某个部门，如果部门下有员工，会一同删除（耗时较长），所以建议先清空部门，再删除 +
+接口描述： 通用接口，删除指定单位下的某个部门，如果部门下有员工或者子部门，需要先清空，再删除 +
 
 请求参数::
 Headers：
