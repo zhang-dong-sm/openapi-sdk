@@ -85,7 +85,8 @@ Response响应说明： +
 ....
 {
 "status": 0, //状态码0表示成功, 其他表示失败
-"success": true //true表示成功, false表示失败
+"success": true, //true表示成功, false表示失败
+"data": {"unableList":["8888907169"]} //无效的receivers
 }
 ....
 `失败响应数据格式:`
