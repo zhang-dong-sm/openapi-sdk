@@ -418,7 +418,7 @@ data对象结构： +
 | 员工编码
 |
 
-| workNumber
+| workCode
 | string
 | 是
 |
@@ -472,7 +472,7 @@ data对象结构： +
 | object
 | 是
 |
-| 扩展字段
+| 扩展字段-不同环境需要约定
 |
 |===
 
@@ -508,6 +508,7 @@ customField对象结构： +
         "orgCode":"123",
         "deptCode":"456",
         "userCode": "258",
+        "workCode": "258",
         "uid":0,
         "sequence":0,
         "mobile":"",
@@ -835,6 +836,11 @@ Query：
 |
 |员工编码
 
+|workCode
+|必须
+|
+|员工工号
+
 |name
 |必须
 |
@@ -868,7 +874,7 @@ Query：
 |customField
 |非必须
 |
-|扩展字段
+|扩展字段-不同环境需要约定
 |===
 
 customField 结构体参数 +

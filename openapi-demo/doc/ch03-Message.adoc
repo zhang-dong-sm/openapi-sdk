@@ -33,7 +33,7 @@ Request请求说明： +
 | number
 | 否
 | 0
-| receivers账号类型 0:uids, 8:登录账号，默认0，第三方应用接收方如果是账号的话，传8
+| receivers账号类型 0:uids, 8:登录账号，128:用户编码userCode，默认0，第三方应用接收方如果是账号的话，传8：
 
 | receivers
 | array
