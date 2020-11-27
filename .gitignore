@@ -12,3 +12,4 @@ gen
 /openapi-client/openapi-client.iws
 /openapi-sdk.ipr
 /openapi-sdk.iws
+*.html

@@ -51,21 +51,21 @@ public class TodoCenterClientTest {
                 new TodoTaskDto.KeyValEntry("key2", "val2"),
                 new TodoTaskDto.KeyValEntry("key3", "val3")));
 
-        System.out.println(todoCenterClient.pushBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.pushBatch(Collections.singletonList(todoTaskDto), "userCode"));
     }
 
     private static void finishBatch() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setHandlerIds(Collections.singletonList("8888890571L"));
-        System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto), "userCode"));
     }
 
     private static void revokeBatch() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setHandlerIds(Collections.singletonList("8888890571L"));
-        System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto), "userCode"));
     }
 
     private static void sendTaskToHandler() {
@@ -75,7 +75,7 @@ public class TodoCenterClientTest {
     /**下面方法基于IAM****/
     private static void sendTaskToHandlerIAM() {
         System.out.println(todoCenterClient.sendTaskToHandlerAccount("app_task_id_1",
-                Collections.singletonList("SysAdmin")));
+                Collections.singletonList("SysAdmin"), "userCode"));
     }
 
     private static void pushBatchIAM() {
@@ -100,21 +100,21 @@ public class TodoCenterClientTest {
                 new TodoTaskDto.KeyValEntry("key2", "val2"),
                 new TodoTaskDto.KeyValEntry("key3", "val3")));
 
-        System.out.println(todoCenterClient.pushBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.pushBatch(Collections.singletonList(todoTaskDto), ""));
     }
 
     private static void finishBatchIAM() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setHandlerAccounts(Collections.singletonList("SysAdmin"));
-        System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.finishBatch(Collections.singletonList(todoTaskDto), ""));
     }
 
     private static void revokeBatchIAM() {
         TodoTaskDto todoTaskDto = new TodoTaskDto();
         todoTaskDto.setAppTaskId("app_task_id_1");
         todoTaskDto.setHandlerAccounts(Collections.singletonList("SysAdmin"));
-        System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto)));
+        System.out.println(todoCenterClient.revokeBatch(Collections.singletonList(todoTaskDto), ""));
     }
 
 }

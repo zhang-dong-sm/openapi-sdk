@@ -1,13 +1,15 @@
 package com.baas.openapi.demo.test;
 
-import com.baas.openapi.client.common.config.ApiResult;
 import com.baas.openapi.client.common.config.BaseConfig;
 import com.baas.openapi.client.contact.ContactClient;
-import com.baas.openapi.client.contact.dto.DeptDto;
-import com.baas.openapi.client.contact.dto.OrgDto;
-import com.baas.openapi.client.contact.dto.UserDto;
+import com.shinemo.baas.openapi.contact.client.dto.DeptInfoDTO;
+import com.shinemo.baas.openapi.contact.client.dto.OrgInfoDTO;
+import com.shinemo.baas.openapi.contact.client.dto.UserInfoDTO;
+import org.springframework.util.StringUtils;
 
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 /**
  * Create Time:2020/9/1
@@ -33,85 +35,62 @@ public class ContactClientTest {
 
         BaseConfig baseConfig = new BaseConfig(openApiUri, appId, appSecret);
         ContactClientTest test = new ContactClientTest(baseConfig);
-        //test.pullOfSyncByJson(null);
-//        test.getOrgInfoByJson(null);
-        //test.getUidsByDeptBase(10104L, 10003383L, 4);
+        test.saveOneUser();
     }
 
-    /**
-     * 拉取通讯录
-     *
-     * @param orgId 非必传 传了则取某个单位的通讯录
-     */
-    public void pullOfSync(Long orgId) {
-        ApiResult<List<OrgDto>> apiResult = contactClient.pullOfSync(orgId);
-        if (apiResult.isSuccess()) {
-            List<OrgDto> list = apiResult.getData();
-            for (OrgDto orgDto : list) {
-                for (DeptDto dept : orgDto.getDepts()) {
-                    for (UserDto user : dept.getUsers()) {
-
-                    }
-                }
-            }
-        }
-        System.out.println(apiResult.getCode());
+    public void getOneOrg() {
+        String json = contactClient.getOneOrgByJson("121212");
+        System.out.println(json);
     }
 
-//    public void pullOfSyncByJson(Long orgId) {
-//        String json = contactClient.pullOfSyncByJson(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgInfoByJson(Long orgId) {
-//        String json = contactClient.getOrgInfoByJson(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptInfoByJson(Long orgId, Long deptId) {
-//        String json = contactClient.getDeptInfoByJson(orgId, deptId);
-//        System.out.println(json);
-//    }
-//
-//    public void getUserInfoByJson(Long orgId, Long deptId, Long uid) {
-//        String json = contactClient.getUserInfoByJson(orgId, deptId, uid);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgInfoListByJson(Long orgId, int flag) {
-//        String json = contactClient.getOrgInfoListByJson(orgId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptInfoListByJson(Long orgId, Long deptId, int flag) {
-//        String json = contactClient.getDeptInfoListByJson(orgId, deptId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getThirdUserInfo(Long uid) {
-//        String json = contactClient.getThirdUserInfo(uid);
-//        System.out.println(json);
-//    }
-//
-//    public void getUidsByRoleBase(String roleCode, Long devId) {
-//        String json = contactClient.getUidsByRoleBase(roleCode, devId);
-//        System.out.println(json);
-//    }
-//
-//    public void getUidsByDeptBase(Long orgId, Long deptId, int flag) {
-//        String json = contactClient.getUidsByDeptBase(orgId, deptId, flag);
-//        System.out.println(json);
-//    }
-//
-//    public void getOrgTreeBase(Long orgId) {
-//        String json = contactClient.getOrgTreeBase(orgId);
-//        System.out.println(json);
-//    }
-//
-//    public void getDeptTreeBase(Long orgId, Long deptId) {
-//        String json = contactClient.getDeptTreeBase(orgId, deptId);
-//        System.out.println(json);
-//    }
+    public void getOneDept() {
+        String json = contactClient.getOneDeptByJson("121212", "33333");
+        System.out.println(json);
+    }
+
+
+    public void saveOneOrg() {
+        OrgInfoDTO orgInfoDTO = new OrgInfoDTO();
+        orgInfoDTO.setParentOrgCode("1605233035228");
+        orgInfoDTO.setOrgCode(System.currentTimeMillis() + "");
+//        orgInfoDTO.setOrgCode("1605233035228");
+        orgInfoDTO.setName("测试" + System.currentTimeMillis());
+        String json = contactClient.saveOneOrgByJson(orgInfoDTO);
+        System.out.println(json);
+    }
+
+    public void saveOneDept() {
+        DeptInfoDTO deptInfoDTO = new DeptInfoDTO();
+        deptInfoDTO.setName("测试部门1");
+        deptInfoDTO.setParentDeptCode("1605233759193");
+//        deptInfoDTO.setDeptCode(System.currentTimeMillis() + "");
+        deptInfoDTO.setDeptCode("1605233886598");
+
+        deptInfoDTO.setSequence(1);
+        deptInfoDTO.setOrgCode("1605233035228");
+        deptInfoDTO.setLeaderCode("258963");
+        String json = contactClient.saveOneDeptByJson(deptInfoDTO);
+        System.out.println(json);
+    }
+
+    public void saveOneUser() {
+        UserInfoDTO userInfoDTO = new UserInfoDTO();
+        userInfoDTO.setOrgCode("121212");
+        userInfoDTO.setDeptCode("33333");
+//        String id = "lc" + System.currentTimeMillis();
+        String id = "lc1605175756427";
+        userInfoDTO.setUserCode(id);
+        userInfoDTO.setMobile("1420909" + String.valueOf(System.currentTimeMillis()).substring(9));
+        userInfoDTO.setSequence(1);
+        userInfoDTO.setName("luchao");
+        userInfoDTO.setEmail("luc@foxmail.com");
+        Map<String, Object> customField = new HashMap<>();
+        customField.put("jobNumberOne", id);
+        customField.put("jobNumberTwo", "lc1605175756427c");
+        userInfoDTO.setCustomField(customField);
+        String json = contactClient.saveOneUserByJson(userInfoDTO);
+        System.out.println(json);
+    }
 
 
 }
