@@ -1,13 +1,9 @@
 package com.baas.openapi.demo.test;
 
 import com.baas.openapi.client.common.config.BaseConfig;
-import com.baas.openapi.client.message.MessageClient;
-import com.baas.openapi.client.message.dto.AppMessageDto;
 import com.baas.openapi.client.warn.WarnClient;
 import com.baas.openapi.client.warn.dto.IsvWarnDto;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class WarnClientTest {
     private final static String openApiUri = "http://baas.uban360.net:21006/openapi-cgw/baas-index";
