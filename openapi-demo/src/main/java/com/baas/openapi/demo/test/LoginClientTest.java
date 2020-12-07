@@ -27,7 +27,7 @@ public class LoginClientTest {
 
         // 以下配置需要对接相关开发提供
 //        final String openApiUri = "https://36.134.7.227:13001/";
-        final String openApiUri="http://36.134.3.143/";
+        final String openApiUri="http://101.206.141.219:21006";
         final String appId = "exfDjfUL";
         final String appSecret = "t0nGn3E5HXkcwpxa";
         final String code="WNDRk_OuAsEb_714bsG3LXWFib1-GLuGSEqfThLuqEDNQNntO_OELOKbPVeWlD2qLwMTm7_bCLA0GAZQIWYVhA==";
