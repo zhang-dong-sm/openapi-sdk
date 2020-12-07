@@ -21,7 +21,7 @@ public class MessageClientTest {
 
     public static void pushApp() {
         AppMessageDto appMessageDto = new AppMessageDto();
-        appMessageDto.setFlags(128);
+        appMessageDto.setFlags(8);
         appMessageDto.setTitle("消息test");
         appMessageDto.setContent("这是消息测试内容");
         appMessageDto.setAction("https://www.baidu.com");
@@ -29,7 +29,7 @@ public class MessageClientTest {
         appMessageDto.setFromName(appName);
         List<String> receivers = new ArrayList<>();
         receivers.add("11122233");
-        receivers.add("18767122175");
+        receivers.add("18767122176");
         appMessageDto.setReceivers(receivers);
         System.out.println(messageClient.pushAppBase(appMessageDto));
     }
