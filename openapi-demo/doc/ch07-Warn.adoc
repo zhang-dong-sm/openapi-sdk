@@ -1,0 +1,99 @@
+
+== 预警开放接口
+
+=== 保存/修改预警信息
+接口名称：保存/修改预警信息 +
+接口地址：/open/warn/api/save +
+请求方式：POST（content-type:application/json; charset=utf-8） +
+Request请求说明： +
+
+接口签名参考概述说明中内容 +
+
+`Body数据格式:` +
+[source,json]
+....
+{
+  "isvWarnId":"111",
+  "warnName":"第三方预警TEST",
+  "warnDescribe":"预警详细描述预警详细描述预警详细描述预警详细描述",
+  "createName":"XX公司"
+}
+....
+
+`body数据字段说明` +
+|===
+|名称 |类型 |必须 |默认值 |说明
+
+| isvWarnId
+| string
+| 是
+|
+| 第三方预警ID，限制50字符，根据appId+isvWarnId确定唯一性，如果有重复的话，为更新操作，否则新增
+
+| warnName
+| string
+| 是
+|
+| 预警名称，限制50字符
+
+| warnDescribe
+| string
+| 否
+|
+| 预警详细描述，限制200字符
+
+| createName
+| string
+| 是
+|
+| 创建者名称，限制50字符，一般建议传单位名称或者特定服务名称
+
+|===
+
+*返回数据：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|msg |string |非必须 | |错误说明
+|success |boolean |必须 | |请求是否成功 (true-成功，false-失败)
+|code |Integer |必须 | |状态码
+|===
+
+=== 触发预警
+接口名称：触发预警 +
+接口地址：/open/warn/api/trigger +
+请求方式：POST（content-type:application/json; charset=utf-8） +
+Request请求说明： +
+
+接口签名参考概述说明中内容 +
+
+`Body数据格式:` +
+[source,json]
+....
+{
+  "isvWarnId":"111"
+}
+....
+
+`body数据字段说明` +
+|===
+|名称 |类型 |必须 |默认值 |说明
+
+| isvWarnId
+| string
+| 是
+|
+| 第三方预警ID，限制50字符，根据appId+isvWarnId确定唯一性
+
+|===
+
+*返回数据：*
+
+[cols="<,<,<,<,<",options="header",]
+|===
+|名称 |类型 |是否必须 |默认值 |备注
+|msg |string |非必须 | |错误说明
+|success |boolean |必须 | |请求是否成功 (true-成功，false-失败)
+|code |Integer |必须 | |状态码
+|===

@@ -17,8 +17,8 @@ public class WarnClientTest {
     private final static WarnClient warnClient = new WarnClient(baseConfig);
 
     public static void main(String[] args) {
-//        saveWarn();
-        triggerWarn();
+        saveWarn();
+//        triggerWarn();
     }
 
     public static void saveWarn() {
