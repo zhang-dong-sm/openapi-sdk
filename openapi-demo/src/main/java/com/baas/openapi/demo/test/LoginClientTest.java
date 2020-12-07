@@ -8,6 +8,7 @@ import com.baas.openapi.client.login.LoginClient;
  * User: luchao
  * Email: luc@shinemo.com
  */
+
 public class LoginClientTest {
 
     public static void main(String[] args) {
